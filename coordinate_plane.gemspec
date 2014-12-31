@@ -10,5 +10,5 @@ Gem::Specification.new do |gem|
 	gem.extra_rdoc_files = Dir["*.md"]
 #	gem.test_files = Dir["spec/lib/*spec.rb"]
 	gem.homepage = "https://rubygems.org/gems/coordinate_plane"
-# 	gem.executables = Dir["bin/*"]
+ 	gem.executables = Dir["bin/*"]
 end
