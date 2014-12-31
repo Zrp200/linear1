@@ -1,2 +1,9 @@
 require "coordinate_plane"
 
+if ARGV.include? "--help"
+	exit
+elsif ARGV.include? "--no_borders"
+	CoordinatePlane.borders = false
+end
+
+puts CoordinatePlane.new(ARGV[0].to_i, ARGV[1].to_i)
