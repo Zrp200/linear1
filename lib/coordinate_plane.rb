@@ -42,7 +42,7 @@ class CoordinatePlane
 	end
 	
 	def slope
-		b / zero
+		@y_intercept / @x_intercept
 	end
 	
 	def raw_graph
@@ -100,11 +100,11 @@ Displays graph
   	end
   			
   	def function # @return [String] the function used to plot the line
-  		"f(x) = #{m}x + #{b}"
+  		"f(x) = #{slope}x + #{@y_intercept}"
   	end
  
   	def eval_equation(x)
-  		m * x + b
+  		slope * x + @y_intercept
   	end
  
 	private
@@ -123,7 +123,7 @@ Displays graph
 		if @@borders && (x == 0 || y == 0)
 			"#"
 		elsif xy[x] == y
-			"X"
+			?\u00B7
 		else
 			" "
 		end
