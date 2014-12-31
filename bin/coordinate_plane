@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require "coordinate_plane"
 
 if ARGV.include? "--help"
