@@ -2,29 +2,29 @@ class CoordinatePlane
 
     @@borders, @@x_axis, @@y_axis = true, 50, 50
     
-    def x_axis
+    def self.x_axis
         @@x_axis
     end
     
-    def x_axis=(num)
+    def self.x_axis=(num)
     	caa(num)
     	@@x_axis = num
 	end
 	
-	def y_axis
+	def self.y_axis
 		@@y_axis
 	end
 	
-	def y_axis=(num)
+	def self.y_axis=(num)
 		caa num
 		@@y_axis = num
 	end
   
-    def has_borders?
+    def self.has_borders?
     	@@borders
     end
   
-	def borders=(bool)
+	def self.borders=(bool)
 		raise ArgumentError, "Argument must be true or false" unless bool == true | false
 		@@borders = bool
 	end
