@@ -9,4 +9,6 @@ TODO: Release
 |<strike>Terminal|<strike>`$ gem install coordinate_plane`|
 |<strike>`.gemspec`|<strike>`gem.add_development_dependency "coordinate_plane"`
 ## Usage
-`$ coordinate_plane x_intercept y_intercept [--no_borders] [--help]`
+`$ coordinate_plane x_intercept y_intercept [--no_borders]`
+
+`$ coordinate_plane --help`
