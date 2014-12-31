@@ -117,7 +117,7 @@ Displays graph
 		end
  	end
  
-	alias caa check_axis_arguments
+	alias caa check_axis_argument
 
 	def format_graph(x, y)
 		if @@borders && (x == 0 || y == 0)
