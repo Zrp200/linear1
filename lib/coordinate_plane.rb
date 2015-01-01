@@ -1,6 +1,6 @@
-class CoordinatePlane
+class Quad1
 
-    @@borders, @@x_axis, @@y_axis = true, 50, 50
+    @@borders, @@x_axis, @@y_axis = true, 60, 60
     
     def self.x_axis
         @@x_axis
@@ -30,36 +30,31 @@ class CoordinatePlane
 	end
  
 # @return [Integer] the x intercept of the graph
-	attr_reader :x_intercept
-	alias zero x_intercept
-	alias solution x_intercept
+	attr_reader :slope
   
 	attr_reader :y_intercept
 	alias b y_intercept
   
-   	def initialize(x_int, y_int)
-   		@x_intercept, @y_intercept = x_int, y_int
+   	def initialize(slope, y_int)
+   		@slope, @y_intercept = slope, y_int
 	end
 	
-	def slope
-		@y_intercept / @x_intercept
+	def x_intercept
+		f(0)
 	end
+	alias x_int x_intercept
+	alias zero x_intercept
+	alias solution x_intercept
 	
-	def raw_graph
-		Array.new(@@x_axis) {Array.new @@y_axis}
-	end
-
-	def graph
-		cp, x = raw_graph, 0
-		for x_index in cp
-			y = 0
-			for y_index in x_index
-				cp[x][y] = format_graph(x, y)
-				y += 1
+	def plot
+		graph = Array.new(@@y_axis) {Array.new @@x_axis}
+		for y in axis_array(@@y_axis)
+			for x in axis_array(@@x_axis)
+				graph[y][x] = format_pair(x, y)
 			end
-			x += 1
 		end
 	end
+		
 
 =begin
 The XY table
@@ -67,21 +62,21 @@ The XY table
 @return [Hash]
 =end
   	def xy
-  		x, table = 0, Hash.new
-  		until x > @@x_axis
-  			y = eval_equation(x)
-  			table[x] = y unless y.instance_of?(Float)
-  			x += 1
+  		table = Hash.new
+  		for y in axis_array(@@y_axis)
+  			for x in axis_array(@@x_axis)
+  				table[y] = x if f(x) == y
+  			end
   		end
   		return table
   	end
   	
-  	def domain # @return [Array<Integer>] the keys of the xy hash
-  		xy.keys
+  	def domain # @return [Array<Integer>] the values of the xy hash
+  		xy.values
   	end
   	
-  	def range # @return [Array<Integer>] the values of the xy hash
-  		xy.values
+  	def range # @return [Array<Integer>] the keys of the xy hash
+  		xy.keys
   	end
   		
 =begin
@@ -90,27 +85,27 @@ Displays graph
 =end
   	def to_s
   		result = String.new
-  		for x_index in graph
-  			for y_index in x_index
-  				result << y_index
+  		for y_index in plot
+  			for x_index in y_index
+  				result << x_index
   			end
   			result << ?\n
   		end
   		return result
   	end
-  			
-  	def function # @return [String] the function used to plot the line
-  		"f(x) = #{slope}x + #{@y_intercept}"
-  	end
  
-  	def eval_equation(x)
-  		slope * x + @y_intercept
+  	def f(x)
+  		@slope * x + @y_intercept
   	end
- 
-	private
+  	
+  	private
+  	
+  	def axis_array(axis)
+  		(0..axis).to_a
+  	end
 
   	def check_axis_argument(arg)
-		if !(num.kind_of?("Integer"))
+		if !(num.kind_of?("Integer") )
 			raise ArgumentError, "Argument must be a kind of Integer"
 		elsif num % 2 != 0
 			raise ArgumentError, "Argument must be even"
@@ -118,11 +113,11 @@ Displays graph
  	end
  
 	alias caa check_axis_argument
-
-	def format_graph(x, y)
-		if @@borders && (x == 0 || y == 0)
+		
+	def format_pair(x, y)
+		if @@borders && ( (x == 0 | @@x_axis) || (y == 0 | @y_axis) )
 			"#"
-		elsif xy[x] == y
+		elsif xy[y] == x
 			?\u00B7
 		else
 			" "
