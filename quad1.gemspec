@@ -3,8 +3,7 @@ Gem::Specification.new do |gem|
 	gem.author = "Zachary Perlmutter"
 	gem.email = "zrp200@gmail.com"
 	gem.summary = "A gem to graph lines on the 1st Quadrent"
-	gem.version = (ENV['TRAVIS_TAG'] == "") ? ENV['TRAVIS_BUILD_ID'] : ENV['TRAVIS_TAG']
-	gem.version = "0.0.0" unless ENV['TRAVIS']
+	gem.version = "0.0.0"
 	gem.license = "MIT"
 	gem.files = Dir["lib/*.rb"]
 	gem.extra_rdoc_files = Dir["*.md"]
