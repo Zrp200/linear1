@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+require "quad1"
+
+if ARGV.include? "--help"
+	exit
+elsif ARGV.include? "--no_borders"
+	Quad1.borders = false
+end
+
+puts CoordinatePlane.new(ARGV[0].to_f, ARGV[1].to_i)
