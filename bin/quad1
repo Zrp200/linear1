@@ -7,4 +7,4 @@ elsif ARGV.include? "--no_borders"
 	Quad1.borders = false
 end
 
-puts CoordinatePlane.new(ARGV[0].to_f, ARGV[1].to_i)
+puts Quad1.new(ARGV[0].to_f, ARGV[1].to_i)
