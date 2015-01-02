@@ -1,6 +1,6 @@
-class Quad1
+class LinearGraph
 
-    @@borders, @@x_axis, @@y_axis = true, 140, 70
+    @@graph_borders, @@x_axis, @@y_axis = true, 140, 70
     
     	def self.x_axis
         	(0..(@@x_axis)).to_a
@@ -20,10 +20,10 @@ class Quad1
 		@@y_axis = num
 	end
   
-    def self.has_borders?
-    	@@borders
-    end
-  	def plot
+    	def self.has_borders?
+    		@@borders
+	end
+  	def graph
   		y = -1
 		graph = Array.new(@@y_axis) do
 			y += 1
