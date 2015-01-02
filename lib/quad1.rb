@@ -1,6 +1,6 @@
 class Quad1
 
-    @@borders, @@x_axis, @@y_axis = true, 100, 100
+    @@borders, @@x_axis, @@y_axis = true, 100, 70
     
     	def self.x_axis
         	(0..(@@x_axis)).to_a
@@ -93,7 +93,7 @@ Displays graph
   			end
   			result << ?\n
   		end
-  		return result
+  		return result.center(70)
   	end
  
   	def f(x)
@@ -117,7 +117,7 @@ Displays graph
 	alias caa check_axis_argument
 		
 	def format_pair(x, y)
-		if @@borders && ( (x == 0 || x == @@x_axis - 1) || (y == 0 || y == @@y_axis - 1) )
+		if @@borders && ( (x == 0 || x == @@x_axis - 1) || (y == 0 || y == @@y_axis - 1 )
 			"#"
 		elsif xy[y] == x
 			?\u00B7
