@@ -7,6 +7,8 @@ Gem::Specification.new do |gem|
 	gem.license = "MIT"
 	gem.files = Dir["lib/*.rb"]
 	gem.extra_rdoc_files = Dir["*.md"]
-#	gem.test_files = Dir["spec/lib/*spec.rb"]
+	gem.test_files = Dir["spec/lib/*spec.rb"]
  	gem.executables << "quad1"
+ 	gem.requirements << "Terminal length => 70"
+ 	gem.requirements << "Terminal width => 140"
 end
