@@ -2,10 +2,16 @@
 require "quad1"
 
 if ARGV.include? "--help"
-	exit
+	puts <<HELP
+Usage: 	coordinate_plane slope y-intercept [--zero] [--help]
+	\u00B7	default	->	Displays the line of the function in quadrent 1
+	\u00B7	--zero	->	Displays the zero of the function
+	\u00B7	--help	->	Displays this message
+HELP
+	
 elsif ARGV.include? "--zero"
 	puts Quad1.new(ARGV[0].to_f, ARGV[1].to_i).zero
 	exit
 else
-	puts Quad1.new(ARGV[0].to_f, ARGV[1].to_i).to_s.center(80)
+	puts Quad1.new(ARGV[0].to_f, ARGV[1].to_i)
 end
