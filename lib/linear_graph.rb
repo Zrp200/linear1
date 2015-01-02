@@ -36,7 +36,7 @@ class LinearGraph
 	end
 
 	def self.borders=(bool)
-		raise ArgumentError, "Argument must be true or false" unless bool == true | false
+		raise ArgumentError, "Argument must be true or false" unless bool == true || bool == false
 		@@borders = bool
 	end
  
