@@ -1,7 +1,9 @@
 language: ruby
 rvm: 2.0.0
 install: bundle install
-script: gem build quad1.gemspec
+script: 
+- gem build quad1.gemspec
+- bundle exec rspec
 notifications:
   email:
     recipients: 8185408099@vtext.com
