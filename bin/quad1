@@ -3,8 +3,9 @@ require "quad1"
 
 if ARGV.include? "--help"
 	exit
-elsif ARGV.include? "--no_borders"
-	Quad1.borders = false
+elsif ARGV.include?("--zero" | "--solution")
+	puts Quad1.new(ARGV[0].to_f, ARGV[1].to_i).zero
+	exit
+else
+	puts Quad1.new(ARGV[0].to_f, ARGV[1].to_i).center(50)
 end
-
-puts Quad1.new(ARGV[0].to_f, ARGV[1].to_i)
