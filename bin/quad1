@@ -3,7 +3,7 @@ require "quad1"
 
 if ARGV.include? "--help"
 	exit
-elsif ARGV.include?("--zero" | "--solution")
+elsif ARGV.include? "--zero"
 	puts Quad1.new(ARGV[0].to_f, ARGV[1].to_i).zero
 	exit
 else
