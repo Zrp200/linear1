@@ -1,6 +1,6 @@
 class Quad1
 
-    @@borders, @@x_axis, @@y_axis = true, 60, 60
+    @@borders, @@x_axis, @@y_axis = true, 100, 100
     
     	def self.x_axis
         	(0..(@@x_axis)).to_a
