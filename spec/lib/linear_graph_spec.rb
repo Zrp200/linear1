@@ -1,5 +1,5 @@
-require "quad1"
-RSpec.describe Quad1
+require "linear_graph"
+RSpec.describe LinearGraph
 	it {is_expected.to have_borders}
 	describe "#new" do
 		describe "f(x)" do
