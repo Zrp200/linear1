@@ -25,8 +25,8 @@ class Quad1
     end
   	def plot
 		graph = Array.new(@@y_axis) {Array.new(@@x_axis) {String.new}}
-		for y in self.y_axis
-			for x in self.x_axis
+		for y in Quad1.y_axis
+			for x in Quad1.x_axis
 				graph[y][x] = format_pair(x, y)
 			end
 		end
@@ -62,8 +62,8 @@ The XY table
 =end
   	def xy
   		table = Hash.new
-  		for y in self.y_axis
-  			for x in self.x_axis
+  		for y in Quad1.y_axis
+  			for x in Quad1.x_axis
   				table[y] = x if f(x) == y
   			end
   		end
