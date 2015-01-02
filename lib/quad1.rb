@@ -46,16 +46,6 @@ class Quad1
 	alias zero x_intercept
 	alias solution x_intercept
 	
-	def plot
-		graph = Array.new(@@y_axis) {Array.new(@@x_axis)}
-		for y in axis_array(@@y_axis)
-			for x in axis_array(@@x_axis)
-				graph[y][x] = format_pair(x, y)
-			end
-		end
-	end
-		
-
 =begin
 The XY table
 @note There are no floats
