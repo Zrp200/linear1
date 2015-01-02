@@ -12,7 +12,7 @@ class Quad1
 	end
 	
 	def self.y_axis
-		@@y_axis
+		(0..(@@y_axis)).to_a
 	end
 	
 	def self.y_axis=(num)
