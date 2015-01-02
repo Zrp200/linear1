@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require "linear_graph"
 
-Linear_Graph
+LinearGraph.borders = false if ARGV.include? "--no_borders"
 if ARGV.include? "--help"
 	puts <<HELP
 Usage: 	coordinate_plane slope y-intercept [--zero] [--help]
