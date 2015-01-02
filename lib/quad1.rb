@@ -87,7 +87,7 @@ Displays graph
 =end
   	def to_s
   		result = String.new
-  		for y_index in plot
+  		for y_index in plot.reverse
   			for x_index in y_index
   				result << x_index
   			end
