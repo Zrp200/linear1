@@ -1,8 +1,8 @@
 Gem::Specification.new do |gem|
-	gem.name = "quad1"
+	gem.name = "linear_graph"
 	gem.author = "Zachary Perlmutter"
 	gem.email = "zrp200@gmail.com"
-	gem.summary = "A gem to graph lines on the 1st Quadrent"
+	gem.summary = "A gem to graph lines"
 	gem.version = "0.0.0"
 	gem.license = "MIT"
 	gem.files = Dir["lib/*.rb"]
