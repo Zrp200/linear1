@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require "plot"
+require "linearGraph"
 
 if ARGV.include? "--help"
 	puts <<HELP
@@ -10,8 +10,8 @@ Usage: 	coordinate_plane slope y-intercept [--zero] [--help]
 HELP
 	
 elsif ARGV.include? "--zero"
-	puts Linear.(ARGV[0].to_f, ARGV[1].to_f).zero
+	puts LinearGraph.(ARGV[0].to_f, ARGV[1].to_f).zero
 	exit
 else
-	puts Linear.new(ARGV[0].to_f, ARGV[1].to_f).graph
+	puts LinearGraph.new(ARGV[0].to_f, ARGV[1].to_f)
 end
