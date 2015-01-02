@@ -117,7 +117,7 @@ Displays graph
 	alias caa check_axis_argument
 		
 	def format_pair(x, y)
-		if @@borders && ( (x == 0 || x == @@x_axis) || (y == 0 || y == @@y_axis) )
+		if @@borders && ( (x == 0 || x == @@x_axis - 1) || (y == 0 || y == @@y_axis - 1) )
 			"#"
 		elsif xy[y] == x
 			?\u00B7
