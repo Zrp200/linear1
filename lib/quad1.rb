@@ -93,7 +93,7 @@ Displays graph
   			end
   			result << ?\n
   		end
-  		return result.center(70)
+  		return result.center 70
   	end
  
   	def f(x)
@@ -117,7 +117,7 @@ Displays graph
 	alias caa check_axis_argument
 		
 	def format_pair(x, y)
-		if @@borders && ( (x == 0 || x == @@x_axis - 1) || (y == 0 || y == @@y_axis - 1 )
+		if @@borders && ( (x == 0 || x == @@x_axis - 1) || (y == 0 || y == @@y_axis - 1 ) )
 			"#"
 		elsif xy[y] == x
 			?\u00B7
