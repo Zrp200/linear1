@@ -101,7 +101,7 @@ Displays graph
   	private
   	
   	def axis_array(axis)
-  		(0..axis).to_a
+  		(0..(axis) ).to_a
   	end
 
   	def check_axis_argument(arg)
