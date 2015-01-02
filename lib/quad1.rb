@@ -52,7 +52,7 @@ class Quad1
 	end
 	
 	def x_intercept
-		f(0).to_i
+		f(0)
 	end
 	alias x_int x_intercept
 	alias zero x_intercept
