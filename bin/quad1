@@ -7,5 +7,5 @@ elsif ARGV.include? "--zero"
 	puts Quad1.new(ARGV[0].to_f, ARGV[1].to_i).zero
 	exit
 else
-	puts Quad1.new(ARGV[0].to_f, ARGV[1].to_i).center(50)
+	puts Quad1.new(ARGV[0].to_f, ARGV[1].to_i).to_s.center(80)
 end
