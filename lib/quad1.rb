@@ -24,10 +24,13 @@ class Quad1
     	@@borders
     end
   	def plot
-		graph = Array.new(@@y_axis) {Array.new(@@x_axis) {String.new}}
-		for y in Quad1.y_axis
-			for x in Quad1.x_axis
-				graph[y][x] = format_pair(x, y)
+  		y = -1
+		graph = Array.new(@@y_axis) do
+			y += 1
+			x = -1
+			Array.new(@@x_axis) do
+				x += 1
+				format_pair x, y
 			end
 		end
 	end
