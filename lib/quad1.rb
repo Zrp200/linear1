@@ -52,7 +52,7 @@ class Quad1
 	end
 	
 	def x_intercept
-		f(0)
+		f(0).to_i
 	end
 	alias x_int x_intercept
 	alias zero x_intercept
@@ -93,7 +93,7 @@ Displays graph
   			end
   			result << ?\n
   		end
-  		return result.center 70
+  		return result.center 80
   	end
  
   	def f(x)
@@ -102,10 +102,6 @@ Displays graph
   	
   	private
   	
-  	def axis_array(axis)
-  		(0..(axis) ).to_a
-  	end
-
   	def check_axis_argument(arg)
 		if !(num.kind_of?("Integer") )
 			raise ArgumentError, "Argument must be a kind of Integer"
