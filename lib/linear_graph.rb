@@ -103,7 +103,7 @@ Displays graph
   	private
   	
   	def check_axis_argument(arg)
-		if !(num.kind_of?("Integer") )
+		if !(num.kind_of?(Integer) )
 			raise ArgumentError, "Argument must be a kind of Integer"
 		elsif num % 2 != 0
 			raise ArgumentError, "Argument must be even"
