@@ -8,7 +8,7 @@ A gem to graph lines on the first quadrent
 |Terminal|`$ gem install quad1`|
 |`.gemspec`|`gem.add_runtime_dependency "quad1"`|
 ## Usage
-`$ coordinate_plane slope y-intercept [--no_borders]`
+`$ coordinate_plane slope y-intercept [--zero]`
 
 `$ coordinate_plane --help`
 ## Badges
