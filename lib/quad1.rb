@@ -2,13 +2,13 @@ class Quad1
 
     @@borders, @@x_axis, @@y_axis = true, 60, 60
     
-    def self.x_axis
-        @@x_axis
-    end
+    	def self.x_axis
+        	(0..(@@x_axis)).to_a
+	end
     
-    def self.x_axis=(num)
-    	caa(num)
-    	@@x_axis = num
+    	def self.x_axis=(num)
+    		caa(num)
+    		@@x_axis = num
 	end
 	
 	def self.y_axis
@@ -23,7 +23,15 @@ class Quad1
     def self.has_borders?
     	@@borders
     end
-  
+  	def plot
+		graph = Array.new(@@y_axis) {Array.new(@@x_axis) {String.new}}
+		for y in y_axis
+			for x in x_axis
+				graph[y][x] = format_pair(x, y)
+			end
+		end
+	end
+
 	def self.borders=(bool)
 		raise ArgumentError, "Argument must be true or false" unless bool == true | false
 		@@borders = bool
@@ -31,6 +39,7 @@ class Quad1
  
 # @return [Integer] the x intercept of the graph
 	attr_reader :slope
+	alias m slope
   
 	attr_reader :y_intercept
 	alias b y_intercept
@@ -53,8 +62,8 @@ The XY table
 =end
   	def xy
   		table = Hash.new
-  		for y in axis_array(@@y_axis)
-  			for x in axis_array(@@x_axis)
+  		for y in y_axis
+  			for x in x_axis
   				table[y] = x if f(x) == y
   			end
   		end
