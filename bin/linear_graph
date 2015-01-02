@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require "linearGraph"
+require "linear_graph"
 
 if ARGV.include? "--help"
 	puts <<HELP

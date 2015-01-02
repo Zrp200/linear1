@@ -1,6 +1,6 @@
 class LinearGraph
 
-    @@graph_borders, @@x_axis, @@y_axis = true, 140, 70
+    @@borders, @@x_axis, @@y_axis = true, 140, 70
     
     	def self.x_axis
         	(0..(@@x_axis)).to_a
@@ -65,8 +65,8 @@ The XY table
 =end
   	def xy
   		table = Hash.new
-  		for y in Quad1.y_axis
-  			for x in Quad1.x_axis
+  		for y in LinearGraph.y_axis
+  			for x in LinearGraph.x_axis
   				table[y] = x if f(x) == y
   			end
   		end
@@ -87,7 +87,7 @@ Displays graph
 =end
   	def to_s
   		result = String.new
-  		for y_index in plot.reverse
+  		for y_index in graph.reverse
   			for x_index in y_index
   				result << x_index
   			end
