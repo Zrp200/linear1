@@ -3,7 +3,7 @@ Gem::Specification.new do |gem|
 	gem.author = "Zachary Perlmutter"
 	gem.email = "zrp200@gmail.com"
 	gem.summary = "A gem to graph lines"
-	gem.version = "0.0.0"
+	gem.version = "0.0.1"
 	gem.license = "MIT"
 	gem.files = Dir["lib/*.rb"]
 	gem.extra_rdoc_files = Dir["*.md"]
