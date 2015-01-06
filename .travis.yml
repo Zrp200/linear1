@@ -2,8 +2,9 @@ language: ruby
 rvm: 2.0.0
 install: bundle install
 script: 
-- gem build quad1.gemspec
+- gem build linear_graph
 - bundle exec rspec
+- bundle exec linear_graph 1 0
 notifications:
   email:
     recipients: 8185408099@vtext.com
