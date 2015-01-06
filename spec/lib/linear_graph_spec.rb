@@ -1,6 +1,5 @@
 require "linear_graph"
 RSpec.describe LinearGraph do
-	it {is_expected.to have_borders}
 	describe "#new" do
 		describe "f(x)" do
 			context "slope, y_int, x = 1, 0, 5" do
