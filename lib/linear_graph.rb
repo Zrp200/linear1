@@ -118,9 +118,7 @@ Displays graph
 		
 	def format_pair(x, y)
 		if @@borders && ( (x == 0 || x == @@x_axis - 1) || (y == 0 || y == @@y_axis - 1 ) )
-			if x % 2 == 0 then " "
-			else
-				"#"
+			(x % 2 == 0) ? " " : "#"
 		elsif xy[y] == x
 			?\u00B7
 		else
