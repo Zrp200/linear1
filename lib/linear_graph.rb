@@ -1,9 +1,12 @@
 class LinearGraph
 
-    @@borders, @@x_axis, @@y_axis = true, 140, 70
+	@@borders, @@x_axis, @@y_axis = true, 140, 70
+    
+	alias slope_intercept new
+    
     
     	def self.x_axis
-        	(0..(@@x_axis)).to_a
+       		(0..(@@x_axis)).to_a
 	end
     
     	def self.x_axis=(num)
@@ -39,7 +42,11 @@ class LinearGraph
 		raise ArgumentError, "Argument must be true or false" unless bool == true || bool == false
 		@@borders = bool
 	end
- 
+	
+	def standard(a, b, c)
+		@y_intercept = c/b
+		@slope = (c / b)/ a
+	end
 # @return [Integer] the x intercept of the graph
 	attr_reader :slope
 	alias m slope
