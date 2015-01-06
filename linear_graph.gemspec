@@ -11,4 +11,5 @@ Gem::Specification.new do |gem|
  	gem.executables << "linear_graph"
  	gem.requirements << "Terminal length => 70"
  	gem.requirements << "Terminal width => 140"
+ 	gem.add_development_dependency "rspec", "~> 3.1"
 end
