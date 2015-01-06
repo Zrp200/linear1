@@ -2,9 +2,6 @@ class LinearGraph
 
 	@@borders, @@x_axis, @@y_axis = true, 140, 70
     
-	alias slope_intercept new
-    
-    
     	def self.x_axis
        		(0..(@@x_axis)).to_a
 	end
