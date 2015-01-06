@@ -1,6 +1,6 @@
 class LinearGraph
 
-	@@borders, @@x_axis, @@y_axis = true, 140, 70
+	@@borders, @@x_axis, @@y_axis = true, 100, 50
     
     	def self.x_axis
        		(0..(@@x_axis)).to_a
@@ -117,8 +117,14 @@ Displays graph
 	alias caa check_axis_argument
 		
 	def format_pair(x, y)
-		if @@borders && ( (x == 0 || x == @@x_axis - 1) || (y == 0 || y == @@y_axis - 1 ) )
-			(x % 2 == 0) ? " " : "#"
+		if @@borders
+			if (y == 0 or y == @@y_axis - 1) && (x == 0 or x == @@x_axis - 1)
+				"#"
+			elsif y == 0 || y == @y_axis - 1
+				(x % 2 == 0) ? " " : "#"
+			elsif x == 0 || x == @x_axis - 1
+				"#"
+			end
 		elsif xy[y] == x
 			?\u00B7
 		else
