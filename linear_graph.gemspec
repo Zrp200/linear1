@@ -12,4 +12,5 @@ Gem::Specification.new do |gem|
  	gem.requirements << "Terminal length => 70"
  	gem.requirements << "Terminal width => 140"
  	gem.add_development_dependency "rspec", "~> 3.1"
+ 	gem.add_development_dependency "rspec-its", "~> 1.1"
 end
