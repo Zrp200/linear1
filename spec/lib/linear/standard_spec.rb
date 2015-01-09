@@ -1,6 +1,6 @@
 require "linear/standard"
 include Linear
-describe Standard do
+RSpec.describe Standard do
 	describe "#new" do
 		subject {Standard.new rand rand rand}
 		it {is_expected.to be_kind_of Function}
