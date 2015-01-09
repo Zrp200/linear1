@@ -9,6 +9,5 @@ case ARGV[0]
 			when "function" then Function.new ARGV[2].to_f, ARGV[3].to_f
 		end
 		puts Graph.new equation
-	end
 end
 			
