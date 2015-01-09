@@ -1,18 +1,20 @@
-# linear graph
-A gem to graph lines on the first quadrent
+# linear
+A gem that does linear algebra
 ## Installation
 
-| Method |Code|
-|:------:|:---------:|
-|`Gemfile`|`gem 'linear_graph'`
-|Terminal|`$ gem install linear_graph`|
-|`.gemspec`|`gem.add_runtime_dependency "linear_graph"`|
+|  Method  |               Runtime               |               Development               |
+|:--------:|:-----------------------------------:|:---------------------------------------:|
+|`Gemfile` |             `gem 'linear'`          |   `gem 'linear', group: :development`   |
+| Terminal |         `gem install linear`        |   `gem install linear --development`    |
+|`.gemspec`|`gem.add_runtime_dependency "linear"`|`gem.add_development_dependency "linear"`|
+
 ## Usage
-`$ linear_graph slope y-intercept [--zero]`
+`$ linear graph function slope y-intercept`
+`$ linear graph standard a b c`
 
 
 `$ linear_graph --help`
 ## Badges
-[![Build Status](https://travis-ci.org/Zrp200/linear_graph.svg?branch=master)](https://travis-ci.org/Zrp200/linear_graph)
-[![Code Climate](https://codeclimate.com/github/Zrp200/linear_graph/badges/gpa.svg)](https://codeclimate.com/github/Zrp200/linear_graph)
-[![Test Coverage](https://codeclimate.com/github/Zrp200/linear_graph/badges/coverage.svg)](https://codeclimate.com/github/Zrp200/linear_graph)
+[![Build Status](https://travis-ci.org/Zrp200/linear.svg?branch=master)](https://travis-ci.org/Zrp200/linear_graph)
+[![Code Climate](https://codeclimate.com/github/Zrp200/linear/badges/gpa.svg)](https://codeclimate.com/github/Zrp200/linear_graph)
+[![Test Coverage](https://codeclimate.com/github/Zrp200/linear/badges/coverage.svg)](https://codeclimate.com/github/Zrp200/linear_graph)
