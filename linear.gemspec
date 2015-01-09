@@ -1,5 +1,5 @@
 Gem::Specification.new do |gem|
-	gem.name = "linear_graph"
+	gem.name = "linear"
 	gem.author = "Zachary Perlmutter"
 	gem.email = "zrp200@gmail.com"
 	gem.summary = "Does linear algebra, to an extent"
