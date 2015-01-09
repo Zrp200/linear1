@@ -58,8 +58,8 @@ The XY table
 =end
   	def xy
   		table = Hash.new
-  		for y in LinearGraph.y_axis
-  			for x in LinearGraph.x_axis
+  		for y in Graph.y_axis
+  			for x in Graph.x_axis
   				table[y] = x if @equation.execute(x) == y
   			end
   		end
@@ -70,52 +70,51 @@ The XY table
   		xy.values
   	end
   	
-  	def range # @return [Array<Integer>] the keys of the xy hash
-  		xy.keys
-  	end
+  		def range # @return [Array<Integer>] the keys of the xy hash
+  			xy.keys
+  		end
   		
 =begin
 Displays graph
 @return [String] the graph
 =end
-  	def to_s
-  		result = String.new
-  		for y_index in graph.reverse
-  			for x_index in y_index
-  				result << x_index
+  		def to_s
+  			result = String.new
+  			for y_index in graph.reverse
+  				for x_index in y_index
+  					result << x_index
+  				end
+  				result << ?\n
   			end
-  			result << ?\n
+  			return result.center 80
   		end
-  		return result.center 80
-  	end
   	
-  	private
+  		private
   	
-  	def check_axis_argument(arg)
-		if !(num.kind_of?(Integer) )
-			raise ArgumentError, "Argument must be a kind of Integer"
-		elsif num % 2 != 0
-			raise ArgumentError, "Argument must be even"
-		end
- 	end
- 
-	alias caa check_axis_argument
-		
-	def format_pair(x, y)
-		if @@borders
-			if (y == 0 or y == @@y_axis - 1) && (x == 0 or x == @@x_axis - 1)
-				"#"
-			elsif y == 0 || y == @y_axis - 1
-				(x % 2 == 0) ? " " : "#"
-			elsif x == 0 || x == @x_axis - 1
-				"#"
+  		def check_axis_argument(arg)
+			if !(num.kind_of?(Integer) )
+				raise ArgumentError, "Argument must be a kind of Integer"
+			elsif num % 2 != 0
+				raise ArgumentError, "Argument must be even"
 			end
-		elsif xy[y] == x
-			?\u00B7
-		else
-			" "
-		end
-	end	
-	
-end
+ 		end
+ 
+		alias caa check_axis_argument
+		
+		def format_pair(x, y)
+			if @@borders
+				if (y == 0 or y == @@y_axis - 1) && (x == 0 or x == @@x_axis - 1)
+					"#"
+				elsif y == 0 || y == @y_axis - 1
+					(x % 2 == 0) ? " " : "#"
+				elsif x == 0 || x == @x_axis - 1
+					"#"
+				end
+			elsif xy[y] == x
+				?\u00B7
+			else
+				" "
+			end
+		end	
+	end
 end
