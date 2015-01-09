@@ -1,5 +1,6 @@
 autoload :BigDecimal "bigdecimal"
-autoload :Graph "linear/graph"
-autoload :Standard "linear/standard"
-autoload :Function "linear/function"
-module Linear; end
+module Linear
+    autoload :Graph "linear/graph"
+    autoload :Function "linear/function"
+    autoload :Standard "linear/standard"
+end
