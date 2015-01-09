@@ -34,6 +34,7 @@ module Linear
 					format_pair x, y
 				end
 			end
+			return graph.reverse
 		end
 
 		def self.borders=(bool)
@@ -80,7 +81,7 @@ Displays graph
 =end
   		def to_s
   			result = String.new
-  			for y_index in graph.reverse
+  			for y_index in graph
   				for x_index in y_index
   					result << x_index
   				end
