@@ -10,3 +10,6 @@ notifications:
     recipients: 8185408099@vtext.com
     on_failure: change
     on_success: change
+addons:
+  code_climate:
+    repo_token: 6ebb41b7a319c702b0b3096aec6869f2b3ed4518d2c3700c68f880c0e817ed31
