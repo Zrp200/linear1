@@ -105,7 +105,7 @@ Displays graph
 			if @@borders
 				if (y == 0 or y == (@@y_axis - 1)) && (x == 0 or x == (@@x_axis - 1))
 					"#"
-				elsif y == 0 || y == (@y_axis - 1)
+				elsif y == 0 or y == (@y_axis - 1)
 					(x % 2 == 0) ? " " : "#"
 				elsif x == 0 || x == (@x_axis - 1)
 					"#"
