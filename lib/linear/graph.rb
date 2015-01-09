@@ -56,17 +56,17 @@ module Linear
 The XY table
 @return [Hash]
 =end
-  		def xy
-  			table = Hash.new
-  			for y in LinearGraph.y_axis
-  				for x in LinearGraph.x_axis
-  					table[y] = x if @equation.execute(x) == y
-  				end
+  	def xy
+  		table = Hash.new
+  		for y in LinearGraph.y_axis
+  			for x in LinearGraph.x_axis
+  				table[y] = x if @equation.execute(x) == y
   			end
-  			return table
   		end
+  		return table
+  	end
   	
-		def domain # @return [Array<Integer>] the values of the xy hash
+	def domain # @return [Array<Integer>] the values of the xy hash
   		xy.values
   	end
   	
@@ -117,4 +117,5 @@ Displays graph
 		end
 	end	
 	
+end
 end
