@@ -2,16 +2,16 @@
 A gem that does linear algebra
 ## Installation
 
-|  Method  |               Runtime               |               Development               |
-|:--------:|:-----------------------------------:|:---------------------------------------:|
-|`Gemfile` |             `gem 'linear'`          |   `gem 'linear', group: :development`   |
-| Terminal |         `gem install linear`        |   `gem install linear --development`    |
-|`.gemspec`|`gem.add_runtime_dependency "linear"`|`gem.add_development_dependency "linear"`|
+|  Method  |               Runtime           |               Development               |
+|:--------:|:-------------------------------:|:---------------------------------------:|
+|`Gemfile` |             `gem 'linear'`      |   `gem 'linear', group: :development`   |
+| Terminal |         `gem install linear`    |   `gem install linear --development`    |
+|`.gemspec`|`add_runtime_dependency "linear"`|  `add_development_dependency "linear"`  |
 
 ## Usage
 `$ linear graph function slope y-intercept`
-`$ linear graph standard a b c`
 
+`$ linear graph standard a b c`
 
 `$ linear_graph --help`
 ## Badges
