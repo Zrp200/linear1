@@ -25,7 +25,8 @@ module Linear
     			@@borders
 		end
   		def graph
-			final, y = Array.new(@@y_axis) {Array.new(@@x_axis)}, 0
+			final = Array.new(@@y_axis) {Array.new(@@x_axis)}
+			y = 0
 			for y1 in final
 				y += 1
 				x = 0
