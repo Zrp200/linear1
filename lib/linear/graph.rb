@@ -26,7 +26,7 @@ module Linear
 		end
   		def graph
   			y = -1
-			graph = Array.new(@@y_axis) do
+			g = Array.new(@@y_axis) do
 				y += 1
 				x = -1
 				Array.new(@@x_axis) do
@@ -34,7 +34,7 @@ module Linear
 					format_pair x, y
 				end
 			end
-			return graph.reverse
+			return g.reverse
 		end
 
 		def self.borders=(bool)
