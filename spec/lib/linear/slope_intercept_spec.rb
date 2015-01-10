@@ -8,6 +8,7 @@ RSpec.describe SlopeIntercept do
 		context "when 1, 0" do
 			subject {SlopeIntercept.new 1, 0}
 			it {is_expected.to be_direct_variation}
+			its(:to_s) {is_expected.to eq "y = x"}
 		end
 	end
 end
