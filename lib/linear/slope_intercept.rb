@@ -8,5 +8,8 @@ module Linear
 			string = "y = #{@slope}x"
 			string << " + #{@y_intercept}" unless direct_variation?
 		end
+		def to_fun
+			Function.new @slope, @y_intercept
+		end
 	end
 end
