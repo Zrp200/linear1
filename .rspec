@@ -1,4 +1,4 @@
 --color
 --require spec_helper
 -f doc
-spec/lib/linear/*
+spec/lib/linear/*_spec.rb
