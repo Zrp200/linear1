@@ -14,7 +14,7 @@ module Linear
 		end
 		def to_s
 			"f(x) = #{m}x" + b
-		endf
+		end
 		private # Helper methods for to_s
 			def m
 				return case @slope
