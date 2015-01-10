@@ -105,9 +105,9 @@ Displays graph
 		alias caa check_axis_argument
 		
 		def format_pair(x, y)
-			if @@borders && (x.zero? || y.zero? || y == @@y_axis - 1) 
+			if @@borders && (x.zero? || y.zero?y == @@y_axis - 1) 
 				(x % 2 == 0) ? "#" : " "
-			elsif @@borders && x == @@x_axis - 1
+			elsif @@borders && (x.zero && y.zero || (x == @@x_axis - 1 && y == @@y_axis - 1) || (x == @@x_axis - 1 || y.zero?))
 				"#"
 			elsif xy[y] == x
 				return ?\u00B7
