@@ -83,7 +83,7 @@ Displays graph
   			result = String.new
   			for y_index in graph
   				for x_index in y_index
-  					result << x_index
+  					result << x_index unless x_index.nil?
   				end
   				result << ?\n
   			end
