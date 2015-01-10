@@ -1,7 +1,7 @@
 module Linear
 	class Graph
 
-		@@borders, @@x_axis, @@y_axis = true, 100, 50
+		@@borders, @@x_axis, @@y_axis = true, 120, 60
     
     		def self.x_axis
        			(0..(@@x_axis)).to_a
