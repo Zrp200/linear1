@@ -13,19 +13,19 @@ module Linear
 			@y_intercept.zero?
 		end
 		def to_s
-			"f(x) = #{m}x" + b
+			return "f(x) = #{m}x" + b
 		end
 		private # Helper methods for to_s
 			def m
 				return case @slope
 					when 1 then String.new
-					when -1 then "-"
+					when -1 then ?-
 				else
 					@slope
 				end
 			end
 			def b
-				" + #{@y_intercept}" unless direct_variation?
+				return " + #{@y_intercept}" unless direct_variation?
 			end
 	end
 end
