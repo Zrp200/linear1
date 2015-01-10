@@ -83,7 +83,7 @@ Displays graph
   			result = String.new
   			for y_index in graph
   				for x_index in y_index
-  					result << x_index unless x_index.nil?
+  					result << x_index
   				end
   				result << ?\n
   			end
@@ -103,18 +103,12 @@ Displays graph
 		alias caa check_axis_argument
 		
 		def format_pair(x, y)
-			if @@borders
-				if (y == 0 || y == (@@y_axis - 1)) && (x == 0 or x == (@@x_axis - 1))
-					"#"
-				elsif y == 0 || y == @@y_axis - 1
-					(x % 2 == 0) ? " " : "#"
-				elsif x == 0 || x == @@x_axis - 1
-					"#"
-				end
+			if @@borders && (y == 0 || y == (@@y_axis - 1)) || (x == 0 or x == (@@x_axis - 1)) 
+				return "#"
 			elsif xy[y] == x
-				?\u00B7
+				return ?\u00B7
 			else
-				" "
+				return " "
 			end
 		end	
 	end
