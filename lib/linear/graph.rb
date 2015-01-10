@@ -63,7 +63,7 @@ The XY table
   		table = Hash.new
   		for y in Graph.y_axis
   			for x in Graph.x_axis
-  				table[y] = x if @equation.execute(x) == y
+  				table[y] = x if @equation.execute(x - @@x_axis / 2) == y - @@y_axis / 2
   			end
   		end
   		return table
@@ -105,7 +105,7 @@ Displays graph
 		alias caa check_axis_argument
 		
 		def format_pair(x, y)
-			if @@borders && (x.zero && y.zero || (x == @@x_axis - 1 && y == @@y_axis - 1) || (x == @@x_axis - 1 || y.zero?))
+			if @@borders && (x.zero && y.zero? || (x == @@x_axis - 1 && y == @@y_axis - 1) || (x == @@x_axis - 1 || y.zero?))
 				"#"
 			elsif @@borders && (x.zero? || y.zero? || y == @@y_axis - 1) 
 				(x % 2 == 0) ? "#" : " "
