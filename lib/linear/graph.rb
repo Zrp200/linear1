@@ -25,16 +25,16 @@ module Linear
     			@@borders
 		end
   		def graph
-  			y = -1
-			g = Array.new(@@y_axis) do
+			final, y = Array.new(@@y_axis) {Array.new(@@x_axis)}, 0
+			for y1 in final
 				y += 1
-				x = -1
-				Array.new(@@x_axis) do
+				x = 0
+				for x1 in y1
+					x1 = format_pair(x, y)
 					x += 1
-					format_pair x, y
 				end
 			end
-			return g.reverse
+			return final
 		end
 
 		def self.borders=(bool)
