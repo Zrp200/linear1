@@ -30,7 +30,8 @@ module Linear
 				y += 1
 				x = 0
 				for x1 in y1
-					x1 = format_pair(x, y)
+					raise "format pair returning nil" if format_pair(x, y).nil?
+					final[y][x] = format_pair(x, y)
 					x += 1
 				end
 			end
