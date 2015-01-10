@@ -25,17 +25,16 @@ module Linear
     			@@borders
 		end
   		def graph
-			final = Array.new(@@y_axis)
-			y = 0
-			for y1 in final
-				y1 = Array.new(@@x_axis)
-				y += 1
-				x = 0
-				for x1 in y1
-					raise "format pair returning nil" if format_pair(x, y).nil?
-					final[y][x] = format_pair(x, y)
-					x += 1
-				end
+  			final = Array.new
+  			y = 0
+  			@@y_axis.times do
+  				final[y] = Array.new
+  				x = 0
+  				@@x_axis.times do
+  					final[y][x] = format_pair(x, y)
+  					x += 1
+  				end
+  				y += 1
 			end
 			return final
 		end
