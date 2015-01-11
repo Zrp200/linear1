@@ -1,14 +1,13 @@
 #!/usr/bin/env ruby
 require "linear"
 include Linear
-def find_equation(i)
-	return case ARGV[i]
-		when "slope-intercept" then SlopeIntercept.new ARGV[i + 1].to_f, ARGV[i + 2].to_f
-		when "standard" then Standard.new ARGV[i + 1].to_i, ARGV[i + 2].to_i, ARGV[i + 3].to_i
-		when "function" then Function.new ARGV[i + 1].to_f, ARGV[i + 2].to_f
-	end
+equation = case ARGV[1]
+	when "slope-intercept" then SlopeIntercept.new ARGV[2].to_f, ARGV[3].to_f
+	when "standard" then Standard.new ARGV[2].to_i, ARGV[3].to_i, ARGV[4].to_i
+	when "function" then Function.new ARGV[2].to_f, ARGV[3].to_f
+end
 end
 puts case ARGV[0]
-	when "graph" then Graph.new find_equation
-	when "display" then find_equation 1
+	when "graph" then Graph.new equation
+	when "display" then equation
 end
