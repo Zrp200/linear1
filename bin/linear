@@ -6,7 +6,6 @@ equation = case ARGV[1]
 	when "standard" then Standard.new ARGV[2].to_i, ARGV[3].to_i, ARGV[4].to_i
 	when "function" then Function.new ARGV[2].to_f, ARGV[3].to_f
 end
-end
 puts case ARGV[0]
 	when "graph" then Graph.new equation
 	when "display" then equation
