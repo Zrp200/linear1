@@ -16,5 +16,8 @@ module Linear
 			DirectVariation.new slope if direct_variation?
 		end
 		alias to_dv to_direct_variation
+		def initialize(slope, y_intercept=0)
+			super
+		end
 	end
 end
