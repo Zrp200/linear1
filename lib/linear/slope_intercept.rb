@@ -5,10 +5,16 @@ module Linear
 			return super.sub "f(x)", "y"
 		end
 		def to_function
-			Function.new @slope, @y_intercept
+			Function.new slope, y_intercept
 		end
 		def direct_variation?
-			@y_intercept.zero?
+			y_intercept.zero?
 		end
+		alias dv? direct_variation?
+		def to_direct_variation
+			require "linear/direct_variation"
+			DirectVariation.new slope if direct_variation?
+		end
+		alias to_dv to_direct_variation
 	end
 end
