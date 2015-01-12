@@ -9,9 +9,6 @@ module Linear
 			raise ArgumentError unless x.kind_of? Numeric
 			return @slope * x + @y_intercept
 		end
-		def direct_variation?
-			@y_intercept.zero?
-		end
 		def to_s
 			string = "f(x) = "
 			string << case @slope
