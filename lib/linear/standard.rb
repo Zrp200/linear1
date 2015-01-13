@@ -11,6 +11,9 @@ module Linear
 		def slope
 			y_intercept / (c / a)
 		end
+		def to_s
+			"#{idx a}x + #{idx b} = #{c}"
+		end
 	end
 end
 				
