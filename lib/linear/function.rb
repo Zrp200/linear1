@@ -8,6 +8,7 @@ module Linear
 			raise ArgumentError unless x.kind_of? Numeric
 			return slope * x ** power + y_intercept
 		end
+		alias f execute
 		def to_s
 			string = "f(x) = "
 			string << case slope
