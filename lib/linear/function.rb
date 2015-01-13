@@ -53,6 +53,14 @@ module Linear
 			end
 			return final
 		end
+		def idx(s)
+			return case s
+				when 1 then String.new
+				when -1 then ?-
+			else
+				s
+			end
+		end
 	end
 end
 			
