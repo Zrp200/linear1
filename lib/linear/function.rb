@@ -34,6 +34,7 @@ module Linear
 				raise "Unable to convert to DirectVariation"
 			end
 		end
+		alias to_dv to_direct_variation
 		private
 		def power_string
 			final = String.new
