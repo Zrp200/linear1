@@ -24,7 +24,7 @@ module Linear
     		def self.has_borders?
     			@@borders
 		end
-  		def graph
+  		def to_a
   			final = Array.new
   			y = 0
   			@@y_axis.times do
@@ -59,7 +59,7 @@ module Linear
 The XY table
 @return [Hash]
 =end
-  	def xy
+  	def to_hash
   		table = Hash.new
   		for y in Graph.y_axis
   			for x in Graph.x_axis
@@ -68,7 +68,7 @@ The XY table
   		end
   		return table
   	end
-  	
+  	alias to_h to_hash
 	def domain # @return [Array<Integer>] the values of the xy hash
   		xy.values
   	end
@@ -83,7 +83,7 @@ Displays graph
 =end
   		def to_s
   			result = String.new
-  			for y_index in graph
+  			for y_index in to_a
   				for x_index in y_index
   					result << x_index
   				end
@@ -109,7 +109,7 @@ Displays graph
 				"#"
 			elsif @@borders && (x.zero? || y.zero? || y == @@y_axis - 1 || x == @@x_axis - 1 )
 				(x % 2 == 0) ? "#" : " "
-			elsif xy[y] == x
+			elsif to_hash[y] == x
 				return ?\u00B7
 			else
 				return " "
