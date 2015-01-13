@@ -22,6 +22,18 @@ module Linear
 			string << " + #{@y_intercept}" unless y_intercept.zero?
 			return string
 		end
+		def direct_variation?
+			y_intercept.zero? && power == 1
+		end
+		alias dv? direct_variation?
+		def to_direct_variation
+			if direct_variation?
+				require "linear/direct_variation"
+				DirectVariation.new slope
+			else
+				raise "Unable to convert to DirectVariation"
+			end
+		end
 		private
 		def power_string
 			final = String.new
