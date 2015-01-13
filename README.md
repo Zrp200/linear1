@@ -16,5 +16,5 @@ A gem that does linear algebra
 `$ linear_graph --help`
 ## Badges
 [![Build Status](https://travis-ci.org/Zrp200/linear.svg?branch=master)](https://travis-ci.org/Zrp200/linear)
-[![Code Climate](https://codeclimate.com/github/Zrp200/linear/badges/gpa.svg)](https://codeclimate.com/github/Zrp200/linear_graph)
-[![Test Coverage](https://codeclimate.com/github/Zrp200/linear/badges/coverage.svg)](https://codeclimate.com/github/Zrp200/linear_graph)
+[![Code Climate](https://codeclimate.com/github/Zrp200/linear/badges/gpa.svg)](https://codeclimate.com/github/Zrp200/linear)
+[![Test Coverage](https://codeclimate.com/github/Zrp200/linear/badges/coverage.svg)](https://codeclimate.com/github/Zrp200/linear)
