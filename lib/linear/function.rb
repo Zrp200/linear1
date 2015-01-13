@@ -10,17 +10,7 @@ module Linear
 		end
 		alias f execute
 		def to_s
-			string = "f(x) = "
-			string << case slope
-				when 1 then String.new
-				when -1 then ?-
-			else
-				slope
-			end
-			string << ?x
-			string << power_string unless power == 1
-			string << " + #{@y_intercept}" unless y_intercept.zero?
-			return string
+			"f(x) = #{idx slope}x#{power_string unless power == 1}#{" + #{@y_intercept}" unless direct_variation}"
 		end
 		def direct_variation?
 			y_intercept.zero? && power == 1
