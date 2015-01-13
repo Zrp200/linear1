@@ -37,6 +37,7 @@ module Linear
 				when 8 then "\u2078"
 				when 9 then "\u2079"
 			end
+			return final
 		end
 	end
 end
