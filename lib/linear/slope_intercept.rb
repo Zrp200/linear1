@@ -12,8 +12,12 @@ module Linear
 		end
 		alias dv? direct_variation?
 		def to_direct_variation
-			require "linear/direct_variation"
-			DirectVariation.new slope if direct_variation?
+			if direct_variation?
+				require "linear/direct_variation"
+				DirectVariation.new slope
+			else
+				raise "Unable to convert to DirectVariation"
+			end
 		end
 		alias to_dv to_direct_variation
 		def initialize(slope, y_intercept=0)
