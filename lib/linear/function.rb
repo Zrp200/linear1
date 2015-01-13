@@ -17,27 +17,25 @@ module Linear
 				slope
 			end
 			string << ?x
-			string << sup(power) unless power == 1
+			string << power_string unless power == 1
 			string << " + #{@y_intercept}" unless y_intercept.zero?
 			return string
 		end
 		private
-		def sup(pow)
+		def power_string
 			final = String.new
-			final << ?\u207b if pow < 0
-			for digit in pow.to_s
-				final << case digit
-					when ?0 then ?\u2070
-					when ?1 then ?\u00b9
-					when ?2 then ?\u00b2
-					when ?3 then ?\u00b3
-					when ?4 then ?\u2074
-					when ?5 then ?\u2075
-					when ?6 then ?\u2076
-					when ?7 then ?\u2077
-					when ?8 then ?\u2078
-					when ?9 then ?\u2079
-				end
+			final += "\u207b" if @power < 0
+			final << case @power
+				when 0 then "\u2070"
+				when 1 then "\u00b9"
+				when 2 then "\u00b2"
+				when 3 then "\u00b3"
+				when 4 then "\u2074"
+				when 5 then "\u2075"
+				when 6 then "\u2076"
+				when 7 then "\u2077"
+				when 8 then "\u2078"
+				when 9 then "\u2079"
 			end
 		end
 	end
