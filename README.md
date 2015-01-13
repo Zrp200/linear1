@@ -4,9 +4,9 @@ A gem that does linear algebra
 
 |  Method  |               Runtime           |               Development               |
 |:--------:|:-------------------------------:|:---------------------------------------:|
-|`Gemfile` |             `gem 'linear'`      |   `gem 'linear', group: :development`   |
+|`Gemfile` |					`gem 'linear'`					|   `gem 'linear', group: :development`   |
 | Terminal |         `gem install linear`    |   `gem install linear --development`    |
-|`.gemspec`|`add_runtime_dependency "linear"`|  `add_development_dependency "linear"`  |
+|`.gemspec`|`gem.add_runtime_dependency "linear"`|`gem.add_development_dependency "linear"`  |
 
 ## Usage
 `$ linear graph function slope y-intercept`
