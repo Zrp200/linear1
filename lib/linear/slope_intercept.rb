@@ -7,7 +7,6 @@ module Linear
 		def to_function
 			Function.new slope, y_intercept
 		end
-		alias to_dv to_direct_variation
 		def initialize(slope, y_intercept=0)
 			super
 		end
