@@ -1,6 +1,6 @@
 require "linear/slope_intercept"
 module Linear
-	class Standard < SlopeIntercept
+	class Standard < Function
 		attr_reader :a, :b, :c
 		def initialize(a, b, c)
 			@a, @b, @c = a.to_i, b.to_i, c.to_i
