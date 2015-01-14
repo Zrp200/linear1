@@ -21,7 +21,7 @@ module Linear
 				require "linear/direct_variation"
 				DirectVariation.new slope
 			else
-				raise "Unable to convert to DirectVariation"
+				raise TypeError, "Unable to convert to DirectVariation"
 			end
 		end
 		alias to_dv to_direct_variation
