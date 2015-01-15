@@ -9,7 +9,7 @@ module Linear
 			c / b
 		end
 		def slope
-			y_intercept / (c / a)
+			c / a
 		end
 		def to_s
 			"#{idx a}x + #{idx b} = #{c}"
