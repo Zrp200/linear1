@@ -44,12 +44,22 @@ module Linear
 			@@borders = bool
 		end
   
-   		def initialize(equation)
-   			@equation = equation
+   		def initialize *system
+   			for equation in system
+   				raise ArgumentError unless equation.kind_of? Function
+   			end unless system.kind_of? Function
+   			@system = system
 		end
 	
 		def x_intercept # @return [Integer] the x intercept of the graph
-			@equation.execute 0
+			return @system.execute 0 if @system.kind_of? Function
+			x_ints = Array.new
+			for equation in @system
+				x_ints << equation.execute(0)
+			end
+			return x_ints
+		end
+				
 		end
 		alias x_int x_intercept
 		alias zero x_intercept
@@ -59,19 +69,19 @@ module Linear
 The XY table
 @return [Hash]
 =end
-  	def to_hash
-  		table = Hash.new
-  		for y in Graph.y_axis
-  			for x in Graph.x_axis
-  				table[y] = x if @equation.execute(x - @@x_axis / 2) == y - @@y_axis / 2
+  		def to_hash
+  			table = Hash.new
+  			for y in Graph.y_axis
+  				for x in Graph.x_axis
+  					@system.each {|equation| table[y] = x if equation.execute(x - @@x_axis / 2) == y - @@y_axis / 2}
+  				end
   			end
+  			return table
   		end
-  		return table
-  	end
-  	alias to_h to_hash
-	def domain # @return [Array<Integer>] the values of the xy hash
-  		xy.values
-  	end
+  		alias to_h to_hash
+		def domain # @return [Array<Integer>] the values of the xy hash
+  			xy.values
+  		end
   	
   		def range # @return [Array<Integer>] the keys of the xy hash
   			xy.keys
@@ -104,7 +114,7 @@ Displays graph
  
 		alias caa check_axis_argument
 		
-		def format_pair(x, y)
+		def format_pair x, y
 			if @@borders && (x.zero? && y.zero? || (x == @@x_axis - 1 && y == @@y_axis - 1 || y.zero?))
 				"#"
 			elsif @@borders && (x.zero? || y.zero? || y == @@y_axis - 1 || x == @@x_axis - 1 )
