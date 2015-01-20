@@ -36,7 +36,7 @@ module Linear
   				end
   				y += 1
 			end
-			return final
+			return final.reverse
 		end
 
 		def self.borders=(bool)
