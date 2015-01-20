@@ -45,9 +45,11 @@ module Linear
 		end
   
    		def initialize *system
-   			for equation in system
-   				raise ArgumentError unless equation.kind_of? Function
-   			end unless system.kind_of? Function
+   			unless system.kind_of? Function
+   				for equation in system
+   					raise ArgumentError unless equation.kind_of? Function
+   				end
+   			end
    			@system = system
 		end
 	
