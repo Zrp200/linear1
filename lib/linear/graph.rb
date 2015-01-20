@@ -45,11 +45,9 @@ module Linear
 		end
   
    		def initialize *system
-   			unless system.kind_of? Function
-   				for equation in system
-   					raise ArgumentError unless equation.kind_of? Function
-   				end
-   			end
+   			for equation in system
+   				raise ArgumentError unless equation.kind_of? Function
+   			end unless system.kind_of? Function
    			@system = system
 		end
 	
@@ -61,16 +59,9 @@ module Linear
 			end
 			return x_ints
 		end
-				
-		end
 		alias x_int x_intercept
 		alias zero x_intercept
 		alias solution x_intercept
-	
-=begin
-The XY table
-@return [Hash]
-=end
   		def to_hash
   			table = Hash.new
   			for y in Graph.y_axis
@@ -88,11 +79,6 @@ The XY table
   		def range # @return [Array<Integer>] the keys of the xy hash
   			xy.keys
   		end
-  		
-=begin
-Displays graph
-@return [String] the graph
-=end
   		def to_s
   			result = String.new
   			for y_index in to_a
