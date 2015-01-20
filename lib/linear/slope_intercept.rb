@@ -1,7 +1,7 @@
 require "linear/function"
 module Linear
 	class SlopeIntercept < Function
-		def self.find(array, index1)
+		def self.find array, index1
 			i = 0
 			until i == 2
 				raise ArgumentError, "array[#{index1 + i}] must be a number" unless array[index1 + i].to_i == array[index1 + i]
@@ -16,7 +16,7 @@ module Linear
 			Function.new slope, y_intercept
 		end
 		def initialize(slope, y_intercept=0)
-			super
+			super slope, 1, y_intercept
 		end
 	end
 end
