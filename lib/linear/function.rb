@@ -1,7 +1,7 @@
 module Linear
 	class Function
 		attr_reader :slope, :y_intercept, :power
-		def initialize(slope, y_intercept, power=1)
+		def initialize(slope, power=1, y_intercept=0)
 			@slope, @y_intercept, @power = slope, y_intercept, power
 		end
 		def execute(x)
