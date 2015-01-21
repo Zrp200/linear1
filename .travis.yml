@@ -2,7 +2,6 @@ language: ruby
 rvm: 2.0.0
 install: bundle install
 script: 
-- gem build linear.gemspec
 - bundle exec rspec
 - bundle exec linear graph function 1 0
 notifications:
