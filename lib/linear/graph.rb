@@ -1,5 +1,10 @@
 module Linear
 	class Graph
+		require "linear/system"
+		def initialize equation
+			raise ArgumentError unless equation.is_kind_of? Function || equation.is_instance_of? System
+   			@equation = @equation
+		end
 
 		@@borders, @@x_axis, @@y_axis = true, 50, 25
     
@@ -40,23 +45,15 @@ module Linear
 		end
 
 		def self.borders=(bool)
-			raise ArgumentError, "Argument must be true or false" unless bool == true || bool == false
+			raise ArgumentError, "Argument must be true or false" unless bool == true | false
 			@@borders = bool
-		end
-  
-   		def initialize *system
-   			for equation in system
-   				raise ArgumentError unless equation.kind_of? Function
-   			end unless system.kind_of? Function
-   			@system = system
 		end
 	
 		def x_intercept # @return [Integer] the x intercept of the graph
-			return @system.execute 0 if @system.kind_of? Function
-			x_ints = Array.new
-			for equation in @system
-				x_ints << equation.execute(0)
-			end
+			x_ints = @equation.instance_of? System ? Array.new : @equation.execute 0
+			for equation in @equation
+				x_ints << equation.execute 0
+			end if @equation.instance_of? System
 			return x_ints
 		end
 		alias x_int x_intercept
@@ -66,7 +63,13 @@ module Linear
   			table = Hash.new
   			for y in Graph.y_axis
   				for x in Graph.x_axis
-  					@system.each {|equation| table[y] = x if equation.execute(x - @@x_axis / 2) == y - @@y_axis / 2}
+  					x_exec = equation.execute x - @@x_axis / 2
+  					y_exec = y - @@y_axis / 2
+  					if x_exec.class == Array
+  						table[y] = x if x_exec.include? y_exec
+  					else
+  						table[y] = x if x_exec == y_exec
+  					end
   				end
   			end
   			return table
