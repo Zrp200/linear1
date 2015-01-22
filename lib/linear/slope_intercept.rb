@@ -12,11 +12,12 @@ module Linear
 		def to_s
 			return super.sub "f(x)", "y"
 		end
-		def to_function
-			Function.new slope, y_intercept
-		end
 		def initialize(slope, y_intercept)
 			super
+		end
+		def to_standard
+			require "linear/standard"
+			Standard.new slope, -1, -y_intercept
 		end
 	end
 end
