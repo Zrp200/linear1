@@ -4,7 +4,7 @@ module Linear
 		attr_reader :x1, :y1
 		def initialize point, slope
 			@slope, @x1, @y1 = slope, point[0], point[1]
-			super @slope, 1, @x1 - @y1
+			super @slope, @x1 - @y1
 		end
 		def to_slope_intercept
 			require "linear/slope_intercept"
