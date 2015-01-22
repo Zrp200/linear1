@@ -1,10 +1,10 @@
 module Linear
 	class Function
 		attr_reader :slope, :y_intercept, :power
-		def initialize(slope, power=1, y_intercept=0)
+		def initialize(slope, y_intercept=0, power=1)
 			@slope, @y_intercept, @power = slope, y_intercept, power
 		end
-		def execute(x)
+		def execute x
 			raise ArgumentError unless x.kind_of? Numeric
 			return slope * x ** power + y_intercept
 		end
