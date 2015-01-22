@@ -15,7 +15,7 @@ module Linear
 		def to_function
 			Function.new slope, y_intercept
 		end
-		def initialize(slope, y_intercept=0)
+		def initialize(slope, y_intercept)
 			super slope, 1, y_intercept
 		end
 	end
