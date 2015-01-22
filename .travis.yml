@@ -9,6 +9,21 @@ notifications:
     recipients: 8185408099@vtext.com
     on_failure: change
     on_success: change
+deploy:
+  - provider: rubygems
+    api_key:
+      secure: TEz46pmpyjdTQWx6EWXlg5jYyg6OUa/TbHtfqGmgsgzDqzrg7yv9OBRhX7MBoIdlCU32yJ3RFJvLGYTlVUc7Cm1KuHQ+TcPyfuJqCHWqmElxIGf7oZmtXWU9LGOWsBexkEzhCmr82R3gbcy7KjIupzfwQkqJwAn/nea3aHjPYPM=
+    gem: linear
+    on:
+      tags: true
+      repo: Zrp200/linear
+      all_branches: true
+  - provider: releases
+    api_key: fc4c074762fdef8ffd771868493e77cf077186f4
+    file: linear-*
+    on:
+      tags: true
+      all_branches: true
 addons:
   code_climate:
     repo_token: 6ebb41b7a319c702b0b3096aec6869f2b3ed4518d2c3700c68f880c0e817ed31
