@@ -106,6 +106,18 @@ module Linear
  
 		alias caa check_axis_argument
 		
+		# @return [String, nil]
+		def format_grid x, y
+			if x.zero? && y.zero? # Origin?
+				"+"
+			elsif x.zero? && !y.zero?
+				"|"
+			elsif y.zero? && !x.zero?
+				"-"
+			end
+		end
+				
+		
 		def format_pair x, y
 			if @@borders && (x.zero? && y.zero? || (x == @@x_axis - 1 && y == @@y_axis - 1 || y.zero?))
 				"#"
