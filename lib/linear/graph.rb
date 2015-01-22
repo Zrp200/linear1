@@ -51,7 +51,7 @@ module Linear
 		end
 	
 		def x_intercept # @return [Integer] the x intercept of the graph
-			x_ints = @equation.instance_of? System ? Array.new : @equation.execute 0
+			x_ints = (@equation.instance_of? System) ? Array.new : @equation.execute(0)
 			for equation in @equation
 				x_ints << equation.execute 0
 			end if @equation.instance_of? System
