@@ -5,7 +5,7 @@ RSpec.describe Graph do
     context "given Function" do
       context "with arguments 2, 1, 2" do
         it "should not fail" do
-          expect{Graph.new Function.new 2, 1, 2}.to_not raise_error
+          expect{Graph.new Function.new(2, 1, 2)}.to_not raise_error
         end
       end
     end
