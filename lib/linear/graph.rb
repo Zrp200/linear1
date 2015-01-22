@@ -1,8 +1,9 @@
+require "linear/function"
+require "linear/system"
 module Linear
 	class Graph
-		require "linear/system"
 		def initialize equation
-			raise ArgumentError unless equation.is_kind_of? Function || equation.is_instance_of? System
+			raise ArgumentError unless (equation.is_kind_of?(Function) || equation.is_instance_of?(System))
    			@equation = @equation
 		end
 
