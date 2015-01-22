@@ -4,9 +4,11 @@ RSpec.describe SlopeIntercept do
 	describe "#new" do
 		subject {SlopeIntercept.new rand, rand}
 		it {is_expected.to be_kind_of Function}
-		it {is_expected.to respond_to :execute, :to_function, :slope, :y_intercept, :direct_variation?, :power}
-		context "when 1, 0" do
+		its(:power) {is_expected.to be_zero}
+		it {is_expected.to respond_to :execute, :y_intercept, :to_direct_variation}
+		context "given 1, 0" do
 			subject {SlopeIntercept.new 1, 0}
+			its(:slope) {is_expected.to eq 1}
 			it {is_expected.to be_direct_variation}
 			its(:to_s) {is_expected.to eq "y = x"}
 		end
