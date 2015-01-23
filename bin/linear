@@ -1,12 +1,24 @@
 #!/usr/bin/env ruby
 require "linear"
 include Linear
-equation = case ARGV[1]
-	when "slope-intercept" then SlopeIntercept.new ARGV[2].to_f, ARGV[3].to_f
-	when "standard" then Standard.new ARGV[2].to_f, ARGV[3], ARGV[4].to_f
-	when "function" then Function.new ARGV[2].to_f, ARGV[3], ARGV[4].to_f
+method_args = ARGV.length
+for arg in ARGV
+	method_args -= 1 if (arg == arg.to_i || arg == arg.to_f)
+end
+equation = proc do |index|
+	case ARGV[index]
+		when "slope-intercept" then SlopeIntercept.new ARGV[index + 1].to_f, ARGV[index + 2].to_f
+		when "standard" then Standard.new ARGV[index + 1].to_f, ARGV[index + 2], ARGV[index + 3].to_f
+		when "function" then case method_args + index
+			when index + 1 then Function.new
+			when index + 2 then Function.new ARGV[index + 1].to_f
+			when index + 3 then Function.new ARGV[index + 1].to_f, ARGV[index + 2].to_f
+		end
+		when "point-slope" then nil # TODO
+	end
 end
 puts case ARGV[0]
-	when "graph" then Graph.new equation
-	when "display" then equation
+	when "graph" then Graph.new equation.call 1
+	when "display" then equation.call 1
+	when "execute" then equation.call(1).execute ARGV[2]
 end
