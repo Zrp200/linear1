@@ -3,7 +3,7 @@ require "linear/system"
 module Linear
 	class Graph
 		def initialize equation
-			raise ArgumentError unless (equation.kind_of?(Function) || equation.instance_of?(System))
+			# raise ArgumentError unless (equation.kind_of?(Function) || equation.instance_of?(System))
    			@equation = equation
 		end
 
