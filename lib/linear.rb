@@ -1,4 +1,5 @@
 module Linear
+    autoload    :System,            "linear/system"
     autoload	:Graph,				"linear/graph"
     autoload 	:Function,			"linear/function"
     autoload 	:Standard,			"linear/standard"
