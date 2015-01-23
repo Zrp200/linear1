@@ -2,7 +2,7 @@ require "linear/function"
 require "linear/system"
 module Linear
 	class Graph
-		def initialize equation
+		def initialize(equation)
 			# raise ArgumentError unless (equation.kind_of?(Function) || equation.instance_of?(System))
    			@equation = equation
 		end
@@ -64,7 +64,7 @@ module Linear
   			table = Hash.new
   			for y in Graph.y_axis
   				for x in Graph.x_axis
-  					x_exec = equation.execute x - @@x_axis / 2
+  					x_exec = @equation.execute x - @@x_axis / 2
   					y_exec = y - @@y_axis / 2
   					if x_exec.class == Array
   						table[y] = x if x_exec.include? y_exec
