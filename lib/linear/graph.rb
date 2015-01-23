@@ -4,7 +4,7 @@ module Linear
 	class Graph
 		def initialize equation
 			raise ArgumentError unless (equation.is_kind_of?(Function) || equation.is_instance_of?(System))
-   			@equation = @equation
+   			@equation = equation
 		end
 
 		@@borders, @@x_axis, @@y_axis = true, 50, 25
