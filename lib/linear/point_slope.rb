@@ -11,4 +11,7 @@ module Linear
 			SlopeIntercept.new slope, y_intercept
 		end
 		alias to_si to_slope_intercept
+		def to_standard
+			to_si.to_standard
+		end
 	end
