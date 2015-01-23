@@ -127,11 +127,7 @@ module Linear
 				"#"
 			elsif @@borders && (x.zero? || y.zero? || y == @@y_axis - 1 || x == @@x_axis - 1 )
 =end				(x % 2 == 0) ? "#" : " "
-			elsif to_hash[y] == x
-				return ?\u00B7
-			else
-				return format_grid x, y
-			end
+			return (to_hash[y] == x) ? ?\u00B7 : format_grid(x, y)
 		end	
 	end
 end
