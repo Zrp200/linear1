@@ -1,7 +1,7 @@
 require "linear/slope_intercept"
 module Linear
 	class DirectVariation < SlopeIntercept
-		def initialize k
+		def initialize k=1
 			super k, 0
 		end
 		alias k slope
