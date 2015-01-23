@@ -19,8 +19,5 @@ module Linear
 			require "linear/standard"
 			Standard.new slope, -1, -y_intercept
 		end
-		def self.to_s
-			"y = mx + b"
-		end
 	end
 end
