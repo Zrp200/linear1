@@ -116,19 +116,21 @@ module Linear
 				"|"
 			elsif y.zero? && !x.zero?
 				"-"
+			else
+				" "
 			end
 		end
 				
 		
 		def format_pair x, y
-			if @@borders && (x.zero? && y.zero? || (x == @@x_axis - 1 && y == @@y_axis - 1 || y.zero?))
+=begin			if @@borders && (x.zero? && y.zero? || (x == @@x_axis - 1 && y == @@y_axis - 1 || y.zero?))
 				"#"
 			elsif @@borders && (x.zero? || y.zero? || y == @@y_axis - 1 || x == @@x_axis - 1 )
-				(x % 2 == 0) ? "#" : " "
+=end				(x % 2 == 0) ? "#" : " "
 			elsif to_hash[y] == x
 				return ?\u00B7
 			else
-				return " "
+				return format_grid x, y
 			end
 		end	
 	end
