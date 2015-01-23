@@ -15,3 +15,4 @@ module Linear
 			to_si.to_standard
 		end
 	end
+end
