@@ -2,6 +2,7 @@ require "linear/function"
 module Linear
 	class PointSlope < Function
 		attr_reader :x1, :y1
+		private :slope, :y_intercept
 		def initialize point, slope
 			@slope, @x1, @y1 = slope, point[0], point[1]
 			super @slope, @x1 - @y1
