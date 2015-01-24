@@ -7,8 +7,8 @@ RSpec.describe SlopeIntercept do
 		its(:power) {is_expected.to eq 1}
 		it {is_expected.to respond_to :execute, :y_intercept, :to_direct_variation, :to_standard, :slope}
 		context "given 1" do
-			it "should throw error" do
-				expect{SlopeIntercept.new 1}.to throw_error
+			it "should raise error" do
+				expect{SlopeIntercept.new 1}.to raise_error
 			end
 		end
 		context "given 1, 0" do
