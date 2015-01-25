@@ -4,6 +4,7 @@ install: bundle install
 script: 
 - bundle exec rspec
 - bundle exec linear graph function 1 0
+- bundle exec linear graph function 1 1 1
 notifications:
   email:
     recipients: 8185408099@vtext.com
