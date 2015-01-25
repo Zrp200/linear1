@@ -1,4 +1,4 @@
-require "rubysl/rubysl-forwardable"
+require "rubysl/forwardable"
 require "greatest_common_factor"
 module Linear
   class System
