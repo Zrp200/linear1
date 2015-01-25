@@ -12,7 +12,6 @@ Gem::Specification.new do |gem|
 	gem.extra_rdoc_files = Dir["*.md"]
 	gem.test_files = Dir["spec/**/*spec.rb"]
  	gem.executables << "linear"
- 	gem.add_runtime_dependency "briandoll-greatest_common_factor", "~> 0.0"
  	gem.add_development_dependency "rspec", "~> 3.1"
  	gem.add_development_dependency "rspec-its", "~> 1.1"
 end
