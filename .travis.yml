@@ -3,7 +3,9 @@ rvm: 2.0.0
 install: bundle install
 script: 
 - bundle exec rspec
-- bundle exec linear graph function 1 0
+- bundle exec linear graph point-slope 2 3 4
+- bundle exec linear graph standard 1 2 3
+- bundle exec linear graph slope-intercept 1 0
 - bundle exec linear graph function 1 1 1
 notifications:
   email:
