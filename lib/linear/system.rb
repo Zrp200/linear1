@@ -1,4 +1,5 @@
 require "forwardable"
+require "greatest_common_factor"
 module Linear
   class System
     extend Forwardable
