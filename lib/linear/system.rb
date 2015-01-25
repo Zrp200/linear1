@@ -1,5 +1,8 @@
+require "forwardable"
 module Linear
   class System
+    extend Forwardable
+    def_delegators @equations, :[], :each, :push
     def initialize *equations
       @equations = equations
     end
@@ -8,9 +11,9 @@ module Linear
       @equations.each {|equation| final << equation.execute(x)}
       return final
     end
-    def [](index)
-      return @equations[index]
-    end
+    def intersection
+      w = Array.new
+      for equation in equations; end
   end
 end
     
