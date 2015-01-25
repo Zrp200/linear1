@@ -7,20 +7,20 @@ module Linear
 			@a, @b, @c = a.to_f, b.to_f, c.to_f
 			super @c / @b / @a, @c / @b
 		end
-		def *(int)
+		def multiply int
 			new @a * int, @b * int, @c * int
 		end
-		def *=(int)
+		def multiply! int
 			@a *= int
 			@b *= int
 			@c *= int
 		end
-		def +=(int)
+		def add! int
 			@a += int
 			@b += int
 			@c += int
 		end
-		def +(int)
+		def add int
 			new @a + int, @b + int, @c + int
 		end
 		def to_s
