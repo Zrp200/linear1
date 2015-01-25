@@ -4,11 +4,19 @@ module Linear
 		def initialize(slope=1, y_intercept=0, power=1)
 			@slope, @y_intercept, @power = slope, y_intercept, power
 		end
+		# @param x [Integer, Float]
+		# @return [Integer, Float]
 		def execute x
 			raise ArgumentError unless x.kind_of? Numeric
 			return slope * x ** power + y_intercept
 		end
 		alias f execute
+		def x_intercept
+			f(0)
+		end
+		alias zero x_intercept
+		alias solution x_intercept
+		alias root x_intercept
 		def to_s
 			"f(x) = #{idx slope}x#{power_string unless power == 1}#{" + #{@y_intercept}" unless direct_variation?}"
 		end
@@ -23,6 +31,10 @@ module Linear
 			else
 				raise TypeError, "Unable to convert to DirectVariation"
 			end
+		end
+		def to_slope_intercept
+			raise "power must be 1" unless power == 1
+			SlopeIntercept.new slope, y_intercept
 		end
 		alias to_dv to_direct_variation
 		private
