@@ -10,7 +10,7 @@ equation = proc do |index|
 			when index + 2 then Function.new ARGV[index + 1].to_f
 			when index + 3 then Function.new ARGV[index + 1].to_f, ARGV[index + 2].to_f
 		end
-		when "point-slope" then nil # TODO
+		when "point-slope" then PointSlope.new ARGV
 	end
 end
 puts case ARGV[0]
