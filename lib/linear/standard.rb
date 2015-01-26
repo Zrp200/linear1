@@ -3,6 +3,9 @@ module Linear
 	class Standard < Function
 		attr_reader :a, :b, :c
 		private :slope, :y_intercept
+		def self.find index
+			$equation_index = index + 3
+			return new ARGV[index], ARGV[index + 1], ARGV[index + 2]
 		def initialize a, b, c
 			@a, @b, @c = a.to_f, b.to_f, c.to_f
 			super @c / @b / @a, @c / @b
@@ -10,10 +13,10 @@ module Linear
 		def multiply int
 			new @a * int, @b * int, @c * int
 		end
-		def multiply! int
-			@a *= int
-			@b *= int
-			@c *= int
+		def multiply! factor
+			@a *= factor
+			@b *= factor
+			@c *= factor
 		end
 		def add! int
 			@a += int
