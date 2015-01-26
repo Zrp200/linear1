@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require "linear"
 include Linear
-equation = proc do |index
+equation = proc do |index|
 	case ARGV[index]
 		when "slope-intercept" then SlopeIntercept.find index + 1
 		when "standard" then Standard.find index + 1
