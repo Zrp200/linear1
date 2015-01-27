@@ -4,36 +4,25 @@ module Linear
 		def initialize equation
    			@equation = equation
 		end
-
-		@@borders, @@x_axis, @@y_axis = true, 50, 25
+		@@axis = {x: 50, y: 25}
+		@@x_axis, @@y_axis = 50, 25
     
     		def self.x_axis
-       			(0..(@@x_axis)).to_a
+       			(0..(@@axis[:x])).to_a
 		end
     
     		def self.x_axis=(num)
     			caa(num)
-    			@@x_axis = num
+    			@@axis[:x] = num
 		end
 	
 		def self.y_axis
-			(0..(@@y_axis)).to_a
+			(0..(@@axis[:y])).to_a
 		end
 	
 		def self.y_axis=(num)
 			caa num
-			@@y_axis = num
-		end
-		def self.x_center(x)
-			x + @@x_axis / 2
-		end
-		def self.y_center(y)
-			x + @@y_axis / 2
-		end
-		
-  
-    		def self.has_borders?
-    			@@borders
+			@@axis[:y] = num
 		end
 
 		Origin = @@x_axis / 2, @@y_axis / 2 # The center of the graph
