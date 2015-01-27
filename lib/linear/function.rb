@@ -1,7 +1,7 @@
 module Linear
 	class Function
 		attr_reader :slope, :y_intercept, :power
-		def self.find; end # @todo
+		def self.find(index1); end # @todo
 		def initialize(slope=1, y_intercept=0, power=1)
 			@slope, @y_intercept, @power = slope, y_intercept, power
 		end
