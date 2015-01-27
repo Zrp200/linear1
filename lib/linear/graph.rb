@@ -35,6 +35,9 @@ module Linear
     		def self.has_borders?
     			@@borders
 		end
+
+		Origin = @@x_axis / 2, @@y_axis / 2 # The center of the graph
+
   		def to_a
   			final = Array.new
   			y = 0
@@ -42,7 +45,7 @@ module Linear
   				final[y] = Array.new
   				x = 0
   				@@x_axis.times do
-  					final[y][x] = (to_hash[y] - x_center(to_hash[y]) == x) ? to_hash[y] : format_grid)
+  					final[y][x] = (to_hash[y] - Origin[0]) ? to_hash[y] : format_grid(x + Origin[0], y + Origin[1])
   					x += 1
   				end
   				y += 1
