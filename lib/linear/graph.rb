@@ -7,10 +7,9 @@ module Linear
 		@@axis = {x: 50, y: 25}
 		@@x_axis, @@y_axis = 50, 25
     
-    		def self.x_axis
-       			(0..(@@axis[:x])).to_a
-		end
-    
+    		def self.axis(key)
+    			@@axis[key]
+    		end
     		def self.x_axis=(num)
     			caa(num)
     			@@axis[:x] = num
@@ -25,16 +24,16 @@ module Linear
 			@@axis[:y] = num
 		end
 
-		Origin = @@x_axis / 2, @@y_axis / 2 # The center of the graph
+		Origin = {x: @@axis[:x] / 2, y: @@axis[:y] / 2} # The center of the graph
 
   		def to_a
   			final = Array.new
   			y = 0
-  			@@y_axis.times do
+  			@@axis[:y].times do
   				final[y] = Array.new
   				x = 0
-  				@@x_axis.times do
-  					final[y][x] = (to_hash[y] - Origin[0]) ? to_hash[y] : format_grid(x + Origin[0], y + Origin[1])
+  				@@axis[:x].times do
+  					final[y][x] = (to_hash[y] - Origin[:x]) ? to_hash[y] : format_grid(x + Origin[:x], y + Origin[:y])
   					x += 1
   				end
   				y += 1
@@ -45,10 +44,10 @@ module Linear
 	
   		def to_hash
   			table = Hash.new
-  			for y in Graph.y_axis
-  				for x in Graph.x_axis
-  					x_exec = @equation.execute x - @@x_axis / 2
-  					y_exec = y - @@y_axis / 2
+  			for y in (0..@@axis[:y]).to_a
+  				for x in (0..@@axis[:x]).to_a
+  					x_exec = @equation.execute x - Origin[:x]
+  					y_exec = y - Origin[:y]
   					table[y] = x_exec if x_exec == y_exec
   				end
   			end
