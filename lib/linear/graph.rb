@@ -1,9 +1,7 @@
 require "linear/function"
-require "linear/system"
 module Linear
 	class Graph
-		def initialize(equation)
-			# raise ArgumentError unless (equation.kind_of?(Function) || equation.instance_of?(System))
+		def initialize equation
    			@equation = equation
 		end
 
@@ -26,6 +24,13 @@ module Linear
 			caa num
 			@@y_axis = num
 		end
+		def self.x_center(x)
+			x + @@x_axis / 2
+		end
+		def self.y_center(y)
+			x + @@y_axis / 2
+		end
+		
   
     		def self.has_borders?
     			@@borders
@@ -37,7 +42,7 @@ module Linear
   				final[y] = Array.new
   				x = 0
   				@@x_axis.times do
-  					final[y][x] = format_pair(x, y)
+  					final[y][x] = (to_hash[y] - x_center(to_hash[y]) == x) ? to_hash[y] : format_grid)
   					x += 1
   				end
   				y += 1
@@ -45,32 +50,14 @@ module Linear
 			return final.reverse
 		end
 
-		def self.borders=(bool)
-			raise ArgumentError, "Argument must be true or false" unless bool == true | false
-			@@borders = bool
-		end
 	
-		def x_intercept # @return [Integer] the x intercept of the graph
-			x_ints = (@equation.instance_of? System) ? Array.new : @equation.execute(0)
-			for equation in @equation
-				x_ints << equation.execute(0)
-			end if @equation.instance_of? System
-			return x_ints
-		end
-		alias x_int x_intercept
-		alias zero x_intercept
-		alias solution x_intercept
   		def to_hash
   			table = Hash.new
   			for y in Graph.y_axis
   				for x in Graph.x_axis
   					x_exec = @equation.execute x - @@x_axis / 2
   					y_exec = y - @@y_axis / 2
-  					if x_exec.class == Array
-  						table[y] = x if x_exec.include? y_exec
-  					else
-  						table[y] = x if x_exec == y_exec
-  					end
+  					table[y] = x_exec if x_exec == y_exec
   				end
   			end
   			return table
@@ -123,11 +110,7 @@ module Linear
 				
 		
 		def format_pair x, y
-=begin			if @@borders && (x.zero? && y.zero? || (x == @@x_axis - 1 && y == @@y_axis - 1 || y.zero?))
-				"#"
-			elsif @@borders && (x.zero? || y.zero? || y == @@y_axis - 1 || x == @@x_axis - 1 )
-=end				(x % 2 == 0) ? "#" : " "
-			return (to_hash[y] == x) ? ?\u00B7 : format_grid(x, y)
+			
 		end	
 	end
 end
