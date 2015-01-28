@@ -80,7 +80,6 @@ module Linear1
 		
 		# @return [String, nil]
 		def format_grid x, y
-			return " " if (x % 2).zero? 
 			if x.zero? && y.zero? # Origin?
 				"+"
 			elsif x.zero? && !y.zero?
