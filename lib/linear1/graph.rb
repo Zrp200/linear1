@@ -1,5 +1,5 @@
-require "linear/function"
-module Linear
+require "linear1/function"
+module Linear1
 	class Graph
 		def initialize equation
    			@equation = equation
