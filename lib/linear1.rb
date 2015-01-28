@@ -3,8 +3,11 @@ module Linear1
     for constant in library
         path = constant.to_s
         path.gsub!(/[[:upper]]/) do |m|
-            m.downcase!
-            m.insert(0, "_") unless path.index(m).zero?
+            unless path.index(m).zero
+                m.insert(0, "_") unless path.index(m).zero?
+            else
+                m
+            end.downcase
         end
         autoload constant, "linear1/#{path}"
     end
