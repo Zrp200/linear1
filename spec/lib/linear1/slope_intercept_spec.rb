@@ -1,5 +1,5 @@
-require "linear/slope_intercept"
-include Linear
+require "linear1/slope_intercept"
+include Linear1
 RSpec.describe SlopeIntercept do
 	describe "#new" do
 		subject {SlopeIntercept.new rand, rand}
