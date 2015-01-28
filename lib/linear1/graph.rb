@@ -55,6 +55,7 @@ module Linear1
   			return table
   		end
   		alias to_h to_hash
+  		alias xy to_hash
 		def domain # @return [Array<Integer>] the values of the xy hash
   			xy.values
   		end
