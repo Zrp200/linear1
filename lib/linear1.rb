@@ -1,30 +1,3 @@
 module Linear1
-    library = %i[System Graph Function Standard SlopeIntercept DirectVariation PointSlope]
-    for constant in library
-        path = constant.to_s
-        path.gsub!(/[[:upper]]/) do |m|
-            unless path.index(m).zero?
-                m.insert(0, "_")
-            else
-                m
-            end.downcase
-        end
-        autoload constant, "linear1/#{path}"
-    end
+    require "linear/*"
 end
-                
-        
-        
-        
-=begin       
-    for class in classes
-        autoload class, "linear1/#{class.to_s"
-    autoload    :System,            "linear_algebra/system"
-    autoload	:Graph,				"linear_algebra/graph"
-    autoload 	:Function,			"linear_algebra/function"
-    autoload 	:Standard,			"linear_algebra/standard"
-    autoload    :SlopeIntercept,	"linear_algebra/slope_intercept"
-    autoload    :DirectVariation,   "linear_algebra/direct_variation"
-    autoload    :PointSlope,        "linear_algebra/point_slope"
-end
-=end
