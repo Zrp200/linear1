@@ -5,19 +5,10 @@ module Linear1
    			@equation = equation
 		end
 		@@axis = {x: 75, y: 25}
-		@@x_axis, @@y_axis = 50, 25
     
     		def self.axis(key)
     			@@axis[key]
     		end
-    		def self.x_axis=(num)
-    			caa(num)
-    			@@axis[:x] = num
-		end
-	
-		def self.y_axis
-			(0..(@@axis[:y])).to_a
-		end
 	
 		def self.y_axis=(num)
 			caa num
