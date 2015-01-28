@@ -1,5 +1,5 @@
-require "linear/function"
-module Linear
+require "linear1/function"
+module Linear1
 	class PointSlope < Function
 		attr_reader :x1, :y1
 		private :y_intercept
