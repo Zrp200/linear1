@@ -27,7 +27,7 @@ module Linear1
 		alias dv? direct_variation?
 		def to_direct_variation
 			if direct_variation?
-				require "linear/direct_variation"
+				require "linear1/direct_variation"
 				DirectVariation.new slope
 			else
 				raise TypeError, "Unable to convert to DirectVariation"
