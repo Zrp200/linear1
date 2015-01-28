@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-require "linear"
-include Linear
+require "linear_algebra"
+include LinearAlgebra
 equation = proc do |index|
 	case ARGV[index]
 		when "slope-intercept" then SlopeIntercept.find index + 1
