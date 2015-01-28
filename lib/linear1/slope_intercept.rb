@@ -16,7 +16,7 @@ module Linear1
 			super
 		end
 		def to_standard
-			require "linear/standard"
+			require "linear1/standard"
 			Standard.new slope, -1, -y_intercept
 		end
 	end
