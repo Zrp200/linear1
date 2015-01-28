@@ -1,5 +1,5 @@
 require "linear_algebra/function"
-module LinearAlgebra
+module Linear1
 	class ArthmeticSequence < Function
 		attr_reader :a, :common_difference
 		alias d common_difference
