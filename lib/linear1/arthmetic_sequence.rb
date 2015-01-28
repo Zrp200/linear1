@@ -1,4 +1,4 @@
-require "linear_algebra/function"
+require "linear1/function"
 module Linear1
 	class ArthmeticSequence < Function
 		attr_reader :a, :common_difference
