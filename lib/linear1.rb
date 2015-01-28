@@ -3,7 +3,7 @@ module Linear1
     paths = Array.new
     for constant in library
         path = constant.to_s
-        until path =~ /[[:upper:]]/).nil?
+        until (path =~ /[[:upper:]]/).nil?
             index = path =~ /[[:upper:]]/
             path[index].downcase!
             path = (path.insert(index, "_") unless index.zero?
