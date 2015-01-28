@@ -5,7 +5,7 @@ A gem that does linear algebra to an extent
 |Method|Runtime|Development|
 |:----:|:-----:|:---------:|
 |`Gemfile`|`gem 'linear1'`| `gem 'linear1', group: :development`|
-|RubyGems|`gem install linear1`    |   `gem install linear1 --development`    |
+|RubyGems|`$ gem install linear1`    |   `$ gem install linear1 --development`    |
 |`.gemspec`|`gem.add_runtime_dependency "linear1"`|`gem.add_development_dependency "linear1"`  |
 
 ## Usage
