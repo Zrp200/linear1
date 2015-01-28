@@ -1,4 +1,4 @@
-module Linear
+module Linear1
   class System
     def [](index)
       @equations[index]
