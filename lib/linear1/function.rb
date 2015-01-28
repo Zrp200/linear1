@@ -1,4 +1,4 @@
-module LinearAlgebra
+module Linear1
 	class Function
 		attr_reader :slope, :y_intercept, :power
 		def self.find(index1); end # @todo
