@@ -34,7 +34,7 @@ module Linear
   				final[y] = Array.new
   				x = 0
   				@@axis[:x].times do
-  					final[y][x] = (to_hash[y] - Graph.origin[:x]) ? to_hash[y] : format_grid(x + Graph.origin[:x], y + Graph.origin[:y])
+  					final[y][x] = (to_hash[y] - @@axis[:x] / 2) ? to_hash[y] : format_grid(x + Graph.origin[:x], y + Graph.origin[:y])
   					x += 1
   				end
   				y += 1
