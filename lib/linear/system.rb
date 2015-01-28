@@ -11,8 +11,8 @@ module Linear
     def each(&block)
       @system.each {yield}
     end
-    def initialize *equations
-      @equations = equations
+    def initialize equation1, equation2
+      @e1, @e2 = equation1, equation2
     end
     def execute x
       final = Array.new
