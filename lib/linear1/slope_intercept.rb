@@ -1,5 +1,5 @@
-require "linear/function"
-module Linear
+require "linear1/function"
+module Linear1
 	class SlopeIntercept < Function
 		def self.find(index1, array=ARGV)
 			i = 0
