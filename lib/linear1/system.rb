@@ -1,16 +1,6 @@
 module Linear1
   class System
-    def [](index)
-      @equations[index]
-    end
-    def <<(equation)
-      raise ArgumentError unless equation.kind_of? Function
-      @equations << equation
-    end
-    alias push <<
-    def each(&block)
-      @system.each {yield}
-    end
+    attr_reader :e1, :e2
     def initialize equation1, equation2
       @e1, @e2 = equation1, equation2
     end
