@@ -1,4 +1,4 @@
-module LinearAlgebra
+module Linear1
     library = %i[System Graph Function Standard SlopeIntercept DirectVariation PointSlope]
     paths = Array.new
     for constant in library
@@ -10,6 +10,7 @@ module LinearAlgebra
         end
         autoload constant, "linear1/#{path}"
     end
+end
                 
         
         
