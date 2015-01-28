@@ -1,5 +1,5 @@
-require "linear/function"
-module Linear
+require "linear1/function"
+module Linear1
 	class Standard < Function
 		attr_reader :a, :b, :c
 		private :slope, :y_intercept
