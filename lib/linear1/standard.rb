@@ -32,7 +32,7 @@ module Linear1
 			"#{idx a}x + #{idx b} = #{c}"
 		end
 		def to_slope_intercept
-			require "linear/slope_intercept"
+			require "linear1/slope_intercept"
 			SlopeIntercept.new slope, y_intercept
 		end
 		alias to_si to_slope_intercept
