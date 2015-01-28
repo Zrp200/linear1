@@ -35,7 +35,7 @@ module Linear1
   				x = 0
   				@@axis[:x].times do
   					raise "to_hash[#{y}] is nil" if to_hash[y].nil?
-  					final[y][x] = (to_hash[y] - 50 / 2) ? ?\u2022 : format_grid(x + Graph.origin[:x], y + Graph.origin[:y])
+  					final[y][x] = (to_hash[y] == x - Graph.origin[:x]) ? ?\u2022 : format_grid(x + Graph.origin[:x], y + Graph.origin[:y])
   					x += 1
   				end
   				y += 1
