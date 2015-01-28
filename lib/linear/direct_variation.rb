@@ -1,5 +1,5 @@
-require "linear/slope_intercept"
-module Linear
+require "linear1/slope_intercept"
+module Linear1
 	class DirectVariation < SlopeIntercept
 		# @param index1 [Fixnum] the index of the first argument
 		# @param array [Array<String>] the array to be analyzed
