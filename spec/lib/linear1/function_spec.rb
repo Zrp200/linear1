@@ -1,5 +1,5 @@
-require "linear_algebra/function"
-include LinearAlgebra
+require "linear1/function"
+include Linear1
 RSpec.describe Function do
   describe "#new" do
     context "given no arguments" do
