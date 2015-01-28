@@ -1,21 +1,21 @@
-# linear
-A gem that does linear algebra
+# linear algebra
+A gem that does linear algebra to an extent
 ## Installation
 
-|  Method  |               Runtime           |               Development               |
-|:--------:|:-------------------------------:|:---------------------------------------:|
-|`Gemfile` |					`gem 'linear'`          |   `gem 'linear', group: :development`   |
-| Terminal |         `gem install linear`    |   `gem install linear --development`    |
-|`.gemspec`|`gem.add_runtime_dependency "linear"`|`gem.add_development_dependency "linear"`  |
+|Method|Runtime|Development|
+|:----:|:-----:|:---------:|
+|`Gemfile`|`gem 'linear_algebra'`| `gem 'linear_algebra', group: :development`|
+|RubyGems|`gem install linear_algebra`    |   `gem install linear_algebra --development`    |
+|`.gemspec`|`gem.add_runtime_dependency "linear_algebra"`|`gem.add_development_dependency "linear_algebra"`  |
 
 ## Usage
-`$ linear help`
+`$ linear_algebra help`
 
-`$ linear graph` _equation_
+`$ linear_algebra graph` _equation_
 
-`$ linear display` _equation_
+`$ linear_algebra display` _equation_
 
-`$ linear execute x` _equation_`
+`$ linear_algebra_ execute x` _equation_`
 
 ### equations
 Replace _equation_ with one of these equations
@@ -24,7 +24,11 @@ Replace _equation_ with one of these equations
 
 `point-slope slope x y`
 
-`function [slope = 1] [y_intercept = 0] [power = 1]`
+`slope-intercept m b`
+
+`function [slope = 1] [y_intercept = 0] [power = 1]` Not working
+
+`direct-variation k` Not implemented
 
 ## Badges
 [![Build Status](https://travis-ci.org/Zrp200/linear.svg?branch=master)](https://travis-ci.org/Zrp200/linear)
