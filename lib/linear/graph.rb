@@ -33,7 +33,7 @@ module Linear
   				final[y] = Array.new
   				x = 0
   				@@axis[:x].times do
-  					final[y][x] = (to_hash[y] - origin) ? to_hash[y] : format_grid(x + origin[:x], y + origin[:y])
+  					final[y][x] = (to_hash[y] - origin[:x]) ? to_hash[y] : format_grid(x + origin[:x], y + origin[:y])
   					x += 1
   				end
   				y += 1
