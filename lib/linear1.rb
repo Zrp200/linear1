@@ -1,13 +1,9 @@
 module Linear1
     library = %i[System Graph Function Standard SlopeIntercept DirectVariation PointSlope]
-    paths = Array.new
     for constant in library
-        path = constant.to_s
-        until (path =~ /[[:upper:]]/).nil?
-            index = path =~ /[[:upper:]]/
-            path[index].downcase!
-            path = path.insert(index, "_") unless index.zero?
-            puts "path = #{path}"
+        path = constant.to_s.gsub!(/[[:upper]])/) do |m|
+            m.downcase!
+            m.insert(0, "_") unless path.index(m).zero?
         end
         autoload constant, "linear1/#{path}"
     end
