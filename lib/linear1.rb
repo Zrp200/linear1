@@ -7,6 +7,7 @@ module Linear1
             index = path =~ /[[:upper:]]/
             path[index].downcase!
             path = path.insert(index, "_") unless index.zero?
+            puts "path = #{path}"
         end
         autoload constant, "linear1/#{path}"
     end
