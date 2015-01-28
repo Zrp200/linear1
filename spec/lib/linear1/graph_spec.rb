@@ -7,7 +7,7 @@ RSpec.describe Graph do
       it "should not raise error" do
         expect{Graph.new Function.new}.to_not raise_error
       end
-      %i[range domain to_a].each {|method| its(method) {is_expected.to_be_an_instance_of Array} }
+      %i[range domain to_a].each {|method| its(method) {is_expected.to be_an_instance_of Array} }
     end
   end
 end
