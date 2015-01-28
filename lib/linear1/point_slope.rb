@@ -8,7 +8,7 @@ module Linear1
 			super @slope, @x1 - @y1
 		end
 		def to_slope_intercept
-			require "linear/slope_intercept"
+			require "linear1/slope_intercept"
 			SlopeIntercept.new slope, y_intercept
 		end
 		alias to_si to_slope_intercept
