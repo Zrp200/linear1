@@ -24,7 +24,7 @@ module Linear
 			@@axis[:y] = num
 		end
 
-		Origin = {x: @@axis[:x] / 2, y: @@axis[:y] / 2} # The center of the graph
+		origin = {x: @@axis[:x] / 2, y: @@axis[:y] / 2} # The center of the graph
 
   		def to_a
   			final = Array.new
@@ -33,7 +33,7 @@ module Linear
   				final[y] = Array.new
   				x = 0
   				@@axis[:x].times do
-  					final[y][x] = (to_hash[y] - Origin[:x]) ? to_hash[y] : format_grid(x + Origin[:x], y + Origin[:y])
+  					final[y][x] = (to_hash[y] - origin) ? to_hash[y] : format_grid(x + origin[:x], y + origin[:y])
   					x += 1
   				end
   				y += 1
@@ -46,8 +46,8 @@ module Linear
   			table = Hash.new
   			for y in (0..@@axis[:y]).to_a
   				for x in (0..@@axis[:x]).to_a
-  					x_exec = @equation.execute x - Origin[:x]
-  					y_exec = y - Origin[:y]
+  					x_exec = @equation.execute x - origin[:x]
+  					y_exec = y - origin[:y]
   					table[y] = x_exec if x_exec == y_exec
   				end
   			end
