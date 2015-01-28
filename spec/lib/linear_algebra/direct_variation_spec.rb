@@ -1,5 +1,5 @@
-require "linear/direct_variation"
-include Linear
+require "linear_algebra/direct_variation"
+include LinearAlgebra
 RSpec.describe DirectVariation do
   describe "#new" do
     subject {DirectVariation.new rand}
