@@ -46,11 +46,10 @@ module Linear1
 	
   		def to_hash
   			table = Hash.new
-  			for y in (0..@@axis[:y]).to_a
-  				for x in (0..@@axis[:x]).to_a
-  					x_exec = @equation.execute x - Graph.origin[:x]
-  					y_exec = y - Graph.origin[:y]
-  					table[y] = x_exec if x_exec == x_exec
+  			for y in (0..@@axis[:y]	).to_a
+  				for x in (0..@@axis[:x]	).to_a
+  					x_exec, y_exec = @equation.execute(x - Graph.origin[:x]	), y - Graph.origin[:y]
+  					table[y] = x_exec if x_exec == y_exec
   				end
   			end
   			return table
