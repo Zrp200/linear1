@@ -28,4 +28,4 @@ deploy:
       all_branches: true
 addons:
   code_climate:
-    repo_token: 6ebb41b7a319c702b0b3096aec6869f2b3ed4518d2c3700c68f880c0e817ed31
+    repo_token: 51e2b9cf803b03b8d4df8d6b6849016836c8d1ede291eb7e58968bf2f920752a
