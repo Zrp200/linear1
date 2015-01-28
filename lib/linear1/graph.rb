@@ -50,7 +50,7 @@ module Linear1
   				for x in (0..@@axis[:x]).to_a
   					x_exec = @equation.execute x - Graph.origin[:x]
   					y_exec = y - Graph.origin[:y]
-  					table[y] = x_exec if x_exec == y_exec
+  					table[y] = x_exec
   				end
   			end
   			return table
