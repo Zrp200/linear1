@@ -1,7 +1,8 @@
 module Linear1
     library = %i[System Graph Function Standard SlopeIntercept DirectVariation PointSlope]
     for constant in library
-        path = constant.to_s.gsub!(/[[:upper]]/) do |m|
+        path = constant.to_s
+        path.gsub!(/[[:upper]]/) do |m|
             m.downcase!
             m.insert(0, "_") unless path.index(m).zero?
         end
