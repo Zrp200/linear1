@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-require "linear_algebra"
-include LinearAlgebra
+require "linear1"
+include Linear1
 equation = proc do |index|
 	case ARGV[index]
 		when "slope-intercept" then SlopeIntercept.find index + 1
@@ -10,6 +10,7 @@ equation = proc do |index|
 			when index + 2 then Function.new ARGV[index + 1].to_f
 			when index + 3 then Function.new ARGV[index + 1].to_f, ARGV[index + 2].to_f
 		end
+	#	when "direct-variation" then DirectVariation.find index + 1
 		when "point-slope" then PointSlope.find index + 1
 	end
 end
