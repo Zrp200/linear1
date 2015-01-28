@@ -3,9 +3,9 @@ rvm: 2.0.0
 install: bundle install
 script: 
 - bundle exec rspec
-- bundle exec linear graph slope-intercept 2 3 
-- bundle exec linear display slope-intercept 3 5
-- bundle exec linear execute 5.3 standard 5 3 6 # Standard.new(5, 3, 6).execute(5.3)
+- bundle exec linear1 graph slope-intercept 2 3 
+- bundle exec linear1 display slope-intercept 3 5
+- bundle exec linear1 execute 5.3 standard 5 3 6 # Standard.new(5, 3, 6).execute(5.3)
 notifications:
   email:
     recipients: 8185408099@vtext.com
@@ -18,11 +18,11 @@ deploy:
     gem: linear
     on:
       tags: true
-      repo: Zrp200/linear
+      repo: Zrp200/linear1
       all_branches: true
   - provider: releases
     api_key: fc4c074762fdef8ffd771868493e77cf077186f4
-    file: linear-*
+    file: linear1-*
     on:
       tags: true
       all_branches: true
