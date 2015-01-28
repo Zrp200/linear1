@@ -1,3 +1,3 @@
 module Linear1
-    require "linear/*"
+    Dir["linear/*.rb"].each {|path| require "path"}
 end
