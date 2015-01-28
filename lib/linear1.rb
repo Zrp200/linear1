@@ -6,7 +6,7 @@ module Linear1
         until (path =~ /[[:upper:]]/).nil?
             index = path =~ /[[:upper:]]/
             path[index].downcase!
-            path = (path.insert(index, "_") unless index.zero?
+            path = path.insert(index, "_") unless index.zero?
         end
         autoload constant, "linear1/#{path}"
     end
