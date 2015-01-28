@@ -1,5 +1,5 @@
-require "linear/standard"
-include Linear
+require "linear1/standard"
+include Linear1
 RSpec.describe Standard do
 	describe "#new" do
 		subject {Standard.new rand, rand, rand}
