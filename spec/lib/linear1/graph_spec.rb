@@ -1,5 +1,5 @@
-require "linear/graph"
-include Linear
+require "linear1/graph"
+include Linear1
 RSpec.describe Graph do
   describe "#new" do
     context "given Function" do
