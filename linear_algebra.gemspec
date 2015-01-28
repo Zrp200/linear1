@@ -1,5 +1,5 @@
 Gem::Specification.new do |gem|
-	gem.name = "linear"
+	gem.name = "linear_algebra"
 	gem.author = "Zachary Perlmutter"
 	gem.email = "zrp200@gmail.com"
 	gem.summary = "Does linear algebra, to an extent"
@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
 	gem.files = Dir["lib/**/*.rb"]
 	gem.extra_rdoc_files = Dir["*.md"]
 	gem.test_files = Dir["spec/**/*spec.rb"]
- 	gem.executables << "linear"
+ 	gem.executables << "linear_algebra"
  	gem.add_development_dependency "rspec", "~> 3.1"
  	gem.add_development_dependency "rspec-its", "~> 1.1"
 end
