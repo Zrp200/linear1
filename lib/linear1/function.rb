@@ -23,7 +23,7 @@ module Linear1
 		alias solution x_intercept
 		alias root x_intercept
 		def to_s
-			"f(x) = #{idx slope}x#{power_string unless power == 1}#{" + #{@y_intercept}" unless direct_variation?}"
+			"f(x) = #{idx slope.to_i if slope.to_i == slope}x#{power_string unless power == 1}#{" + #{@y_intercept.to_i if @y_intercept.to_i == @y_intercept}" unless direct_variation?}"
 		end
 		def direct_variation?
 			y_intercept.zero? and power == 1
