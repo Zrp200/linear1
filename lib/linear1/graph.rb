@@ -30,9 +30,9 @@ module Linear1
 	
   		def to_hash
   			table = Hash.new
-  			for y in (0..@@axis[:y]	).to_a
-  				for x in (0..@@axis[:x]	).to_a
-  					x_exec, y_exec = @equation.execute(x - ORIGIN[:x], y - ORIGIN[:y])
+  			for y in (0..@@axis[:y]).to_a
+  				for x in (0..@@axis[:x]).to_a
+  					x_exec, y_exec = @equation.execute(x - ORIGIN[:x]), y - ORIGIN[:y]
   					table[y] = x_exec if x_exec == y_exec
   				end
   			end
@@ -57,7 +57,7 @@ module Linear1
   				end
   				result << ?\n
   			end
-  			return result.center 80
+  			return result.center(100)
   		end
   	
   		private
