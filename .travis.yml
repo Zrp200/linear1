@@ -15,14 +15,13 @@ deploy:
   - provider: rubygems
     api_key:
       secure: TEz46pmpyjdTQWx6EWXlg5jYyg6OUa/TbHtfqGmgsgzDqzrg7yv9OBRhX7MBoIdlCU32yJ3RFJvLGYTlVUc7Cm1KuHQ+TcPyfuJqCHWqmElxIGf7oZmtXWU9LGOWsBexkEzhCmr82R3gbcy7KjIupzfwQkqJwAn/nea3aHjPYPM=
-    gem: linear
+    gem: linear1
     on:
       tags: true
       repo: Zrp200/linear1
       all_branches: true
   - provider: releases
     api_key: fc4c074762fdef8ffd771868493e77cf077186f4
-    file: linear1-*
     on:
       tags: true
       all_branches: true
