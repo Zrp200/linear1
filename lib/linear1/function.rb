@@ -7,7 +7,7 @@ module Linear1
 			Function.new ARGV[i1], ARGV[i1 + 1], ARGV[i1 + 2]
 		end
 		def initialize(slope=1, y_intercept=0, power=1)
-			@slope, @y_intercept, @power = slope, y_intercept, power
+			@slope, @y_intercept, @power = slope.to_f, y_intercept.to_f, power.to_i
 		end
 		# @param x [Integer, Float]
 		# @return [Integer, Float]
