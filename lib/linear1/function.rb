@@ -22,13 +22,16 @@ module Linear1
 		alias zero x_intercept
 		alias solution x_intercept
 		alias root x_intercept
-		def to_s
+		alias solve root
+		def to_s # @return [String] the equation
 			"f(x) = #{idx display_num slope}x#{power_string unless power == 1}#{" + #{display_num @y_intercept}" unless direct_variation?}"
 		end
-		def direct_variation?
+		def direct_variation? # @return [Boolean]
 			y_intercept.zero? and power == 1
 		end
 		alias dv? direct_variation?
+		# @return [DirectVariation]
+		# @raise [TypeError]
 		def to_direct_variation
 			if direct_variation?
 				require "linear1/direct_variation"
