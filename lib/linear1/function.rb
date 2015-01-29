@@ -4,7 +4,7 @@ module Linear1
 		# @param i1 [Fixnum] the index to start search
 		# @return [Function]
 		def self.find i1
-			Function.new ARGV[index], ARGV[index + 1], ARGV[index + 2]
+			Function.new ARGV[i1], ARGV[i1 + 1], ARGV[i1 + 2]
 		end
 		def initialize(slope=1, y_intercept=0, power=1)
 			@slope, @y_intercept, @power = slope, y_intercept, power
