@@ -3,8 +3,8 @@ module Linear1
 	class PointSlope < Function
 		attr_reader :x1, :y1
 		private :y_intercept, :power
-		def initialize slope, x, y
-			@slope, @x1, @y1 = slope.to_f, x.to_f, y.to_f
+		def initialize x, y, slope
+			@slope, @x1, @y1 = display_num(slope), display_num(x), display_num(y)
 			super @slope, @x1 - @y1
 		end
 		def self.find index

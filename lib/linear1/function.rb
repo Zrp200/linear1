@@ -7,7 +7,7 @@ module Linear1
 			Function.new ARGV[i1], ARGV[i1 + 1], ARGV[i1 + 2]
 		end
 		def initialize(slope=1, y_intercept=0, power=1)
-			@slope, @y_intercept, @power = slope.to_f, y_intercept.to_f, power.to_i
+			@slope, @y_intercept, @power = display_num(slope), display_num(y_intercept), display_num(power)
 		end
 		# @param x [Integer, Float]
 		# @return [Integer, Float]
@@ -23,7 +23,7 @@ module Linear1
 		alias solution x_intercept
 		alias root x_intercept
 		def to_s
-			"f(x) = #{idx slope.to_i if slope.to_i == slope}x#{power_string unless power == 1}#{" + #{@y_intercept.to_i if @y_intercept.to_i == @y_intercept}" unless direct_variation?}"
+			"f(x) = #{idx display_num slope}x#{power_string unless power == 1}#{" + #{display_num @y_intercept}" unless direct_variation?}"
 		end
 		def direct_variation?
 			y_intercept.zero? and power == 1
@@ -66,6 +66,17 @@ module Linear1
 				when -1 then ?-
 			else
 				s
+			end
+		end
+		def display_num num
+			if num.to_r.to_s == num.to_s
+				num.to_r
+			elsif num.to_i.to_s == num.to_s
+				num.to_i
+			elsif num.to_f.to_s == num.to_s
+				num.to_f
+			elsif num.to_c.to_s == num.to_s
+				num.to_c
 			end
 		end
 	end
