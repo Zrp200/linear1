@@ -1,7 +1,11 @@
 module Linear1
 	class Function
 		attr_reader :slope, :y_intercept, :power
-		def self.find(index1); end # @todo
+		# @param i1 [Fixnum] the index to start search
+		# @return [Function]
+		def self.find i1
+			Function.new ARGV[index], ARGV[index + 1], ARGV[index + 2]
+		end
 		def initialize(slope=1, y_intercept=0, power=1)
 			@slope, @y_intercept, @power = slope, y_intercept, power
 		end
@@ -22,7 +26,7 @@ module Linear1
 			"f(x) = #{idx slope}x#{power_string unless power == 1}#{" + #{@y_intercept}" unless direct_variation?}"
 		end
 		def direct_variation?
-			y_intercept.zero? && power == 1
+			y_intercept.zero? and power == 1
 		end
 		alias dv? direct_variation?
 		def to_direct_variation
