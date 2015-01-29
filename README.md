@@ -26,6 +26,10 @@ Replace `_equation_` with one of these equations:
 
 `slope-intercept slope y_intercept`
 
+`function slope y_intercept power`
+
+`direct-variation k`
+
 ## Badges
 [![Build Status](https://travis-ci.org/Zrp200/linear1.svg?branch=master)](https://travis-ci.org/Zrp200/linear1)
 [![Code Climate](https://codeclimate.com/github/Zrp200/linear1/badges/gpa.svg)](https://codeclimate.com/github/Zrp200/linear1)
