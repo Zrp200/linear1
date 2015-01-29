@@ -9,15 +9,9 @@ module Linear1
     		def self.axis(key)
     			@@axis[key]
     		end
-	
-		def self.y_axis=(num)
-			caa num
-			@@axis[:y] = num
-		end
 		
-		def self.origin # @return [Hash<Symbol => Integer>] the center of the graph
-			{x: @@axis[:x] / 2, y: @@axis[:y] / 2} 
-		end
+		ORIGIN = {x: @@axis[:x] / 2, y: @@axis[:y] / 2} # The center of the graph
+	
   		def to_a
   			final = Array.new
   			y = 0
@@ -25,7 +19,7 @@ module Linear1
   				final[y] = Array.new
   				x = 0
   				@@axis[:x].times do
-  					final[y][x] = (!to_hash[y].nil? && to_hash[y] == x - Graph.origin[:x] ) ? ?\u2022 : format_grid(x - Graph.origin[:x], y - Graph.origin[:y])
+  					final[y][x] = (!to_hash[y].nil? && to_hash[y] == x - ORIGIN[:x] ) ? ?\u2022 : format_grid(x - ORIGIN[:x], y - ORIGIN[:y])
   					x += 1
   				end
   				y += 1
@@ -38,7 +32,7 @@ module Linear1
   			table = Hash.new
   			for y in (0..@@axis[:y]	).to_a
   				for x in (0..@@axis[:x]	).to_a
-  					x_exec, y_exec = @equation.execute(x - Graph.origin[:x]	), y - Graph.origin[:y]
+  					x_exec, y_exec = @equation.execute(x - ORIGIN[:x], y - ORIGIN[:y])
   					table[y] = x_exec if x_exec == y_exec
   				end
   			end
@@ -80,7 +74,7 @@ module Linear1
 		
 		# @return [String, nil]
 		def format_grid x, y
-			if x.zero? && y.zero? # Origin?
+			if x.zero? && y.zero?
 				"+"
 			elsif x.zero? && !y.zero?
 				"|"
