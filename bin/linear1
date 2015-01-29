@@ -3,16 +3,12 @@ require "linear1"
 include Linear1
 equation = proc do |index|
 	case ARGV[index]
-		when "slope-intercept" then SlopeIntercept.find index + 1
-		when "standard" then Standard.find index + 1
-		when "function" then case ARGV.length
-			when index then Function.new
-			when index + 2 then Function.new ARGV[index + 1].to_f
-			when index + 3 then Function.new ARGV[index + 1].to_f, ARGV[index + 2].to_f
-		end
-	#	when "direct-variation" then DirectVariation.find index + 1
-		when "point-slope" then PointSlope.find index + 1
-	end
+		when "slope-intercept" then SlopeIntercept
+		when "standard" then Standard
+		when "function" then Function
+		when "direct-variation" then DirectVariation
+		when "point-slope" then PointSlope
+	end.find index + 1
 end
 puts case ARGV[0]
 	when "graph" then Graph.new equation.call 1
