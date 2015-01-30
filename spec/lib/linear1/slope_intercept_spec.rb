@@ -1,5 +1,4 @@
 require "linear1/slope_intercept"
-require "rational"
 include Linear1
 RSpec.describe SlopeIntercept do
 	describe "#new" do
@@ -17,7 +16,7 @@ RSpec.describe SlopeIntercept do
 			it {is_expected.to_not be_direct_variation}
 			its(:to_s) {is_expected.to eq "y = 3x + 6"}
 		end
-		[ [3, 5], [-2, -9], [Rational("2/3"), 3], [Rational("-5/8"), -2], [-5, -3] ].each do |spec|
+		[ [3, 5], [-2, -9], [4.7, 5.3], [Rational("2/3"), 3], [Rational("-5/8"), -2], [-5, -3] ].each do |spec|
 			context "given #{spec[0]}, #{spec[1]}" do
 				subject {SlopeIntercept.new spec[0], spec[1]}
 				its(:to_s) {is_expected.to eq "y = #{spec[0]}x + #{spec[1]}"}
@@ -25,6 +24,8 @@ RSpec.describe SlopeIntercept do
 					require "linear1/graph"
 					expect{Graph.new subject}.to_not raise_error
 				end
+				
+
 			end
 		end
 			
