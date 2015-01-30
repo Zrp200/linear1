@@ -1,3 +1,4 @@
+require "complex"
 module Linear1
 	class Function
 		attr_reader :slope, :y_intercept, :power
