@@ -29,7 +29,7 @@ module Linear1
 			new @a + int, @b + int, @c + int
 		end
 		def to_s
-			"#{idx a}x + #{idx b} = #{c}"
+			"#{idx a}x + #{idx b}y = #{c}"
 		end
 		def to_slope_intercept
 			require "linear1/slope_intercept"
