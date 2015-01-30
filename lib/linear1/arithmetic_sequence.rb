@@ -1,6 +1,6 @@
 require "linear1/function"
 module Linear1
-	class ArthmeticSequence < Function
+	class ArithmeticSequence < Function
 		attr_reader :a, :common_difference
 		alias d common_difference
 		private :slope, :y_intercept
