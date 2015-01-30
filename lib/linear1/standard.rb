@@ -9,7 +9,7 @@ module Linear1
 			return new array[0], array[1], array[2]
 		end
 		def initialize a, b, c
-			@a, @b, @c = a.to_f, b.to_f, c.to_f
+			@a, @b, @c = display_num(a), display_num(b), display_num(c)
 			super @c / @b / @a, @c / @b
 		end
 		def multiply int
