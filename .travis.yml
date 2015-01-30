@@ -22,6 +22,7 @@ deploy:
       all_branches: true
   - provider: releases
     api_key: fc4c074762fdef8ffd771868493e77cf077186f4
+    file: linear1-1.0.0.gem
     on:
       tags: true
       all_branches: true
