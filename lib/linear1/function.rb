@@ -13,6 +13,7 @@ module Linear1
 		# @param x [Integer, Float]
 		# @return [Integer, Float]
 		def execute x
+			x = display_num x
 			raise ArgumentError unless x.kind_of? Numeric
 			return slope * x ** power + y_intercept
 		end
