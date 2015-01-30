@@ -7,7 +7,7 @@ module Linear1
 			new ARGV[index1]
 		end
 		def initialize k=1
-			super k, 0
+			super display_num(k), 0
 		end
 		alias k slope
 		alias constant_of_variation k
