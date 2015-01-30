@@ -73,14 +73,11 @@ module Linear1
 			end
 		end
 		def display_num num
-			if num.to_r.to_s == num.to_s
-				num.to_r
-			elsif num.to_i.to_s == num.to_s
-				num.to_i
-			elsif num.to_f.to_s == num.to_s
-				num.to_f
-			elsif num.to_c.to_s == num.to_s
-				num.to_c
+			case num.to_s
+				when 	Complex(num).to_s 	then	Complex(num)
+				when 	Rational(num).to_s 	then 	Rational(num)
+				when 	num.to_i.to_s	 	then 	num.to_i
+				when	num.to_f.to_s	 	then 	num.to_f
 			end
 		end
 	end
