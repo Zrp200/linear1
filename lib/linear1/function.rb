@@ -1,7 +1,8 @@
 require "complex"
 module Linear1
 	class Function
-		attr_reader :slope, :y_intercept, :power
+		attr_reader :slope, :y_intercept
+		protected :power
 		# @param i1 [Fixnum] the index to start search
 		# @return [Function]
 		def self.find i1
@@ -13,9 +14,8 @@ module Linear1
 		# @param x [Integer, Float]
 		# @return [Integer, Float]
 		def execute x
-			x = display_num x
 			raise ArgumentError unless x.kind_of? Numeric
-			return slope * x ** power + y_intercept
+			slope * display_num(x) ** power + y_intercept
 		end
 		alias f execute
 		def x_intercept
@@ -43,7 +43,8 @@ module Linear1
 			end
 		end
 		def to_slope_intercept
-			raise "power must be 1" unless power == 1
+			require 'linear1/slope_intercept'
+			raise TypeError, "power must be 1" unless power == 1
 			SlopeIntercept.new slope, y_intercept
 		end
 		alias to_dv to_direct_variation
@@ -63,15 +64,13 @@ module Linear1
 				when 8 then "\u2078"
 				when 9 then "\u2079"
 			end
-			return final
+			final
 		end
 		def idx(s)
-			return case s
+			case s
 				when 1 then String.new
 				when -1 then ?-
-			else
-				s
-			end
+			else s end
 		end
 		def display_num num
 			case num.to_s
