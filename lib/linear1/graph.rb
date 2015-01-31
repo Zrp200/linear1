@@ -6,25 +6,23 @@ module Linear1
 		end
 		@@axis = {x: 75, y: 25}
     
-    		def self.axis(key)
+    		def self.axis key
     			@@axis[key]
     		end
 		
 		ORIGIN = {x: @@axis[:x] / 2, y: @@axis[:y] / 2} # The center of the graph
 	
   		def to_a
-  			final = Array.new
-  			y = 0
+  			final, y = Array.new, 0
   			@@axis[:y].times do
-  				final[y] = Array.new
-  				x = 0
+  				final[y], x = Array.new, 0
   				@@axis[:x].times do
   					final[y][x] = (!to_hash[y].nil? && to_hash[y] == x - ORIGIN[:x] ) ? ?\u2022 : format_grid(x - ORIGIN[:x], y - ORIGIN[:y])
   					x += 1
   				end
   				y += 1
 			end
-			return final.reverse
+			final.reverse
 		end
 
 	
@@ -57,16 +55,14 @@ module Linear1
   				end
   				result << ?\n
   			end
-  			return result.center(100)
+  			result.center 100
   		end
   	
   		private
   	
   		def check_axis_argument(arg)
-			if !(num.kind_of?(Integer) )
-				raise ArgumentError, "Argument must be a kind of Integer"
-			elsif num % 2 != 0
-				raise ArgumentError, "Argument must be even"
+			if !(num.kind_of?(Integer) ) then raise ArgumentError, "Argument must be a kind of Integer"
+			elsif num % 2 != 0 then raise ArgumentError, "Argument must be even"
 			end
  		end
  
@@ -74,14 +70,10 @@ module Linear1
 		
 		# @return [String, nil]
 		def format_grid x, y
-			if x.zero? && y.zero?
-				"+"
-			elsif x.zero? && !y.zero?
-				"|"
-			elsif y.zero? && !x.zero?
-				"-"
-			else
-				" "
+			if x.zero? && y.zero? then "+"
+			elsif x.zero? && !y.zero? then "|"
+			elsif y.zero? && !x.zero? then "-"
+			else " "
 			end
 		end
 				
