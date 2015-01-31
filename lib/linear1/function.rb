@@ -1,8 +1,7 @@
 require "complex"
 module Linear1
 	class Function
-		attr_reader :slope, :y_intercept
-		protected :power
+		attr_reader :slope, :y_intercept, :power
 		# @param i1 [Fixnum] the index to start search
 		# @return [Function]
 		def self.find i1
