@@ -34,7 +34,7 @@ module Linear1
   					table[y] = x_exec if x_exec == y_exec
   				end
   			end
-  			return table
+  			table
   		end
   		alias to_h to_hash
   		alias xy to_hash
@@ -73,8 +73,7 @@ module Linear1
 			if x.zero? && y.zero? then "+"
 			elsif x.zero? && !y.zero? then "|"
 			elsif y.zero? && !x.zero? then "-"
-			else " "
-			end
+			else " " end
 		end
 				
 	end
