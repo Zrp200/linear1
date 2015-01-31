@@ -2,7 +2,7 @@ require "linear1/function"
 module Linear1
 	class SlopeIntercept < Function
 		def self.find(index1, array=ARGV)
-			new display_num(array[index1+0]), display_num(array[index1+1])
+			new array[index1 + 0], array[index1 + 1]
 		end
 		def to_s
 			super.sub "f(x)", "y"
