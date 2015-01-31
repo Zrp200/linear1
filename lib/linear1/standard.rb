@@ -4,9 +4,8 @@ module Linear1
 		attr_reader :a, :b, :c
 		private :slope, :y_intercept
 		def self.find index
-			array = ARGV[index..(index + 2)]
-			$equation_index = index + 3
-			return new array[0], array[1], array[2]
+			array, $equation_index = ARGV[index..(index + 2)], $equation_index = index + 3
+			new array[0], array[1], array[2]
 		end
 		def initialize a, b, c
 			@a, @b, @c = display_num(a), display_num(b), display_num(c)
