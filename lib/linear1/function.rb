@@ -13,7 +13,6 @@ module Linear1
 		# @param x [Integer, Float]
 		# @return [Integer, Float]
 		def execute x
-			raise ArgumentError unless x.kind_of? Numeric
 			slope * display_num(x) ** power + y_intercept
 		end
 		alias f execute
