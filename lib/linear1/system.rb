@@ -7,7 +7,7 @@ module Linear1
     def execute x
       final = Array.new
       @equations.each {|equation| final << equation.execute(x)}
-      return final
+      final
     end
   end
 end
