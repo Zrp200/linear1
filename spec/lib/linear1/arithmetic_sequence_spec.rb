@@ -1,4 +1,4 @@
-require %w[linear1/arithmetic_sequence]
+require 'linear1/arithmetic_sequence'
 include Linear1
 RSpec.describe ArithmeticSequence do
   describe "#new" do
