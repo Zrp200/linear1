@@ -2,10 +2,10 @@ require "linear1/function"
 module Linear1
 	class ArithmeticSequence < Function
 		attr_reader :a, :common_difference
+		alias d slope
 		alias d common_difference
 		private :slope, :y_intercept
 		alias to_a a
-		alias slope d
 		def initialize *a
 			i = 0
 			while i < a.length - 2 
