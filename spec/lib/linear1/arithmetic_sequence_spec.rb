@@ -1,4 +1,5 @@
 require 'linear1/arithmetic_sequence'
+require 'bigdecimal'
 include Linear1
 RSpec.describe ArithmeticSequence do
   describe "#new" do
