@@ -1,4 +1,3 @@
-require "complex"
 module Linear1
 	class Function
 		attr_reader :slope, :y_intercept, :power
@@ -71,9 +70,11 @@ module Linear1
 			else s end
 		end
 		def display_num num
+			require "bigdecimal"
 			case num.to_s
 				when 	Complex(num).to_s 	then	Complex(num)
 				when 	Rational(num).to_s 	then 	Rational(num)
+				when	BigDecimal(num).to_s	then	BigDecimal(num)
 				when 	num.to_i.to_s	 	then 	num.to_i
 				when	num.to_f.to_s	 	then 	num.to_f
 			end
