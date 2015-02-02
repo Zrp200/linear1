@@ -6,7 +6,7 @@ module Linear1
 		private :slope, :y_intercept
 		alias to_a a
 		alias slope d
-		def initialize a
+		def initialize *a
 			i = 0
 			while i < a.length - 2 
 				raise ArgumentError, "Elements must have a common difference" unless a[i+1] - a[i] == a[i+2] - a[i+1]
