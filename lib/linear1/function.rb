@@ -35,8 +35,7 @@ module Linear1
 			if direct_variation?
 				require "linear1/direct_variation"
 				DirectVariation.new slope
-			else
-				raise TypeError, "Unable to convert to DirectVariation"
+			else raise TypeError, "Unable to convert to DirectVariation"
 			end
 		end
 		def to_slope_intercept
@@ -71,14 +70,13 @@ module Linear1
 		end
 		def display_num num
 			require "bigdecimal"
-			return case num.to_s
+			case num.to_s
 				when 	Complex(num).to_s 	then	Complex(num)
 				when 	Rational(num).to_s 	then 	Rational(num)
 				when 	num.to_i.to_s	 	then 	num.to_i
 				when	num.to_f.to_s	 	then 	num.to_f
 				when	BigDecimal(num).to_s	then	BigDecimal(num)
-			end if num.instance_of? String
-			num
+			end
 		end
 	end
 end
