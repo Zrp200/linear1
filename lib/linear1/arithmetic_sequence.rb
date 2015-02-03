@@ -2,7 +2,7 @@ require "linear1/function"
 module Linear1
 	class ArithmeticSequence < Function
 		def self.find index
-			new *ARGV[index..]
+			new *(ARGV[index..(ARGV.length - 1)])
 		end
 		attr_reader :a, :common_difference
 		alias d slope
