@@ -3,6 +3,7 @@ require "linear1"
 include Linear1
 equation = proc do |index|
 	case ARGV[index]
+		when "arithmetic_sequence" then ArithmeticSequence
 		when "slope-intercept" then SlopeIntercept
 		when "standard" then Standard
 		when "function" then Function
