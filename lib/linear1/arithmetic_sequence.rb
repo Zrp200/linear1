@@ -1,6 +1,9 @@
 require "linear1/function"
 module Linear1
 	class ArithmeticSequence < Function
+		def self.find index
+			new *ARGV[index..]
+		end
 		attr_reader :a, :common_difference
 		alias d slope
 		alias d common_difference
