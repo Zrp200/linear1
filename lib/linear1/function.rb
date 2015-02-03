@@ -1,5 +1,7 @@
 autoload :BigDecimal, "bigdecimal"
 module Linear1
+	autoload :SlopeIntercept, "linear1/slope_intercept"
+	autoload :DirectVariation, "linear1/direct_variation"
 	class Function
 		attr_reader :slope, :y_intercept, :power
 		# @param i1 [Fixnum] the index to start search
@@ -34,13 +36,11 @@ module Linear1
 		# @raise [TypeError]
 		def to_direct_variation
 			if direct_variation?
-				require "linear1/direct_variation"
 				DirectVariation.new slope
 			else raise TypeError, "Unable to convert to DirectVariation"
 			end
 		end
 		def to_slope_intercept
-			require 'linear1/slope_intercept'
 			raise TypeError, "power must be 1" unless power == 1
 			SlopeIntercept.new slope, y_intercept
 		end
@@ -70,12 +70,15 @@ module Linear1
 			else s end
 		end
 		def display_num num
-			case num.to_s
-				when 	Complex(num).to_s 	then	Complex(num)
-				when 	Rational(num).to_s 	then 	Rational(num)
-				when 	num.to_i.to_s	 	then 	num.to_i
-				when	num.to_f.to_s	 	then 	num.to_f
-				when	BigDecimal(num).to_s	then	BigDecimal(num)
+			unless num.is_a? String then num
+			else 
+				case num
+					when 	Complex(num).to_s 	then	Complex(num)
+					when 	Rational(num).to_s 	then 	Rational(num)
+					when 	num.to_i.to_s	 	then 	num.to_i
+					when	num.to_f.to_s	 	then 	num.to_f
+					when	BigDecimal(num).to_s	then	BigDecimal(num)
+				end
 			end
 		end
 	end
