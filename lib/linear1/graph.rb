@@ -17,7 +17,7 @@ module Linear1
   			@@axis[:y].times do
   				final[y], x = Array.new, 0
   				@@axis[:x].times do
-  					final[y][x] = (!to_hash[y].nil? && to_hash[y] == x - ORIGIN[:x] ) ? ?\u2022 : format_grid(x - ORIGIN[:x], y - ORIGIN[:y])
+  					final[y][x] = init_coord(x, y)
   					x += 1
   				end
   				y += 1
@@ -59,6 +59,10 @@ module Linear1
   		end
   	
   		private
+  		
+  		def init_coord x, y
+ 			(!to_hash[y].nil? && to_hash[y] == x - ORIGIN[:x]) ? ?\u2022 : format_grid(x - ORIGIN[:x], y - ORIGIN[:y])
+ 		end
   	
   		def check_axis_argument(arg)
 			if !(num.kind_of?(Integer) ) then raise ArgumentError, "Argument must be a kind of Integer"
