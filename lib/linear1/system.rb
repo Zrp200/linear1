@@ -9,6 +9,10 @@ module Linear1
       @equations.each {|equation| final << equation.execute(x)}
       final
     end
+    def intersection
+      y, x = @e1.b * (@e2.c - @e2.a), @e2.a * (@e1.c - @e1.b)
+      [x, y]
+    end
   end
 end
     
