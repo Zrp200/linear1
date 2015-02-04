@@ -11,7 +11,9 @@ module Linear1
     		end
 		
 		ORIGIN = {x: @@axis[:x] / 2, y: @@axis[:y] / 2} # The center of the graph
-	
+		
+		# @return [Array<Array<Integer>>] the array used to create the graph
+		# @note Do not use as an XY table; the values are modified and not accurate
   		def to_a
   			final, y = Array.new, 0
   			@@axis[:y].times do
@@ -25,13 +27,16 @@ module Linear1
 			final.reverse
 		end
 
-	
+		# @return [Hash<Integer, Integer>] a hash used to build the graph
+		# @note Do not use as an xy table; values are modified
+		# @see #to_a
   		def to_hash
   			table = Hash.new
   			for y in (0..@@axis[:y]).to_a
   				for x in (0..@@axis[:x]).to_a
+  					index = (y % 2).zero? ? y : y + 1 
   					x_exec = @equation.execute(x - ORIGIN[:x])
-  					table[y] = x_exec if x_exec == y - ORIGIN[:y]
+  					table[index] = x_exec if x_exec == y - ORIGIN[:y]
   				end
   			end
   			table
