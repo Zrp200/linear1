@@ -30,8 +30,8 @@ module Linear1
   			table = Hash.new
   			for y in (0..@@axis[:y]).to_a
   				for x in (0..@@axis[:x]).to_a
-  					x_exec, y_exec = @equation.execute(x - ORIGIN[:x]), y - ORIGIN[:y]
-  					table[y] = x_exec if x_exec == y_exec
+  					x_exec = @equation.execute(x - ORIGIN[:x])
+  					table[y] = x_exec if x_exec == y - ORIGIN[:y]
   				end
   			end
   			table
@@ -66,8 +66,7 @@ module Linear1
   	
   		def check_axis_argument(arg)
 			if !(num.kind_of?(Integer) ) then raise ArgumentError, "Argument must be a kind of Integer"
-			elsif num % 2 != 0 then raise ArgumentError, "Argument must be even"
-			end
+			elsif num % 2 != 0 then raise ArgumentError, "Argument must be even" end
  		end
  
 		alias caa check_axis_argument
