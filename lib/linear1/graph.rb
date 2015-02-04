@@ -34,9 +34,8 @@ module Linear1
   			table = Hash.new
   			for y in (0..@@axis[:y]).to_a
   				for x in (0..@@axis[:x]).to_a
-  					index = (y % 2).zero? ? y : y + 1 
   					x_exec = @equation.execute(x - ORIGIN[:x])
-  					table[index] = x_exec if x_exec == y - ORIGIN[:y]
+  					table[y] = (x_exec % 2).zero? ? x_exec : x_exec + 1 if x_exec == y - ORIGIN[:y]
   				end
   			end
   			table
