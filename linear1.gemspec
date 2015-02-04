@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
 	gem.summary = "Does linear algebra, to an extent"
 	if ENV['TRAVIS'] then gem.version = ENV['TRAVIS_TAG'] == String.new ? ENV['TRAVIS_BUILD_ID'] : ENV['TRAVIS_TAG']
 	else
-		gem.version = "1.0.0"
+		gem.version = "1.1.0"
 	end
 	gem.license = "MIT"
 	gem.files = Dir["lib/**/*.rb"]
