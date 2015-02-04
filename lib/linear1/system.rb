@@ -13,6 +13,7 @@ module Linear1
       y, x = @e1.b * (@e2.c - @e2.a), @e2.a * (@e1.c - @e1.b)
       [x, y]
     end
+    alias solution intersection
   end
 end
     
