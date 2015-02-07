@@ -12,7 +12,7 @@ module Linear1
       end
     end
     def initialize equation1, equation2
-      @e1, @e2 = equation1.to_standard, equation2.to_standard
+      @e1, @e2 = equation1, equation2
     end
     def execute x
       final = Array.new
@@ -20,7 +20,8 @@ module Linear1
       final
     end
     def intersection
-      y, x = @e1.b * (@e2.c - @e2.a), @e2.a * (@e1.c - @e1.b)
+      e = [@e1.to_standard, @e2.to_standard]
+      y, x = e[0].b * (e[1].c - e[1].a), e[1].a * (e[0].c - e[0].b)
       [x, y]
     end
     alias solution intersection
