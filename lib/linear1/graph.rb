@@ -32,10 +32,10 @@ module Linear1
 		# @see #to_a
   		def hash
   			table = Hash.new
-  			for y in (0..@@axis[:y]).to_a
-  				for x in (0..@@axis[:x]).to_a
+  			(0..@@axis[:y]).to_a.each do |y|
+  				(0..@@axis[:x]).to_a.each do |x|
   					x_exec = @equation.execute(x - ORIGIN[:x])
-  					table[y] = x_exec + 1 if x_exec == y - ORIGIN[:y]
+  					table[y] = x_exec if x_exec == y - ORIGIN[:y]
   				end
   			end
   			table
