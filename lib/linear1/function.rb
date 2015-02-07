@@ -77,7 +77,7 @@ module Linear1
 					when 	Rational(num).to_s 	then 	Rational(num)
 					when 	num.to_i.to_s	 	then 	num.to_i
 					when	num.to_f.to_s	 	then 	num.to_f
-					when	BigDecimal(num).to_s	then	BigDecimal(num)
+					when	BigDecimal.new(num).to_s	then	BigDecimal.new(num)
 				end
 			end
 		end
