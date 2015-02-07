@@ -12,7 +12,7 @@ module Linear1
       end
     end
     def initialize equation1, equation2
-      @e1, @e2 = equation1, equation2
+      @e1, @e2 = equation1.to_standard, equation2.to_standard
     end
     def execute x
       final = Array.new
