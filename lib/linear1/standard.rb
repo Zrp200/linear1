@@ -13,21 +13,20 @@ module Linear1
 			@a, @b, @c = display_num(a), display_num(b), display_num(c)
 			super @c / @b / @a, @c / @b
 		end
-		def multiply int
-			new @a * int, @b * int, @c * int
+		def *(factor)
+			new @a * factor, @b * factor, @c * factor
 		end
-		def multiply! factor
-			@a *= factor
-			@b *= factor
-			@c *= factor
+		def *=(factor)
+			self * factor
 		end
-		def add! int
-			@a += int
-			@b += int
-			@c += int
+		def +=(term)
+			@a += term
+			@b += term
+			@c += term
 		end
-		alias + add
-		alias * multiply
+		def +(term); end
+		alias add +
+		alias multiply *
 		def add int
 			new @a + int, @b + int, @c + int
 		end
