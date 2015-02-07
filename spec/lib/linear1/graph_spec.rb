@@ -2,10 +2,11 @@ require "linear1/graph"
 include Linear1
 RSpec.describe Graph do
   describe "#new" do
-    context "given Function" do
-      subject {Graph.new Function.new}
+    [Function.new, SlopeIntercept.new(2, 3)].each do |e| 
+    context "given " + e do
+      subject {Graph.new e}
       it "should not raise error" do
-        expect{Graph.new Function.new}.to_not raise_error
+        expect{Graph.new e}.to_not raise_error
       end
     end
   end
