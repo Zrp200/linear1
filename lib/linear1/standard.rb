@@ -26,8 +26,8 @@ module Linear1
 			@b += int
 			@c += int
 		end
-		alias +@ add
-		alias *@ multiply
+		alias + add
+		alias * multiply
 		def add int
 			new @a + int, @b + int, @c + int
 		end
