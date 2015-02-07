@@ -30,24 +30,22 @@ module Linear1
 		# @return [Hash<Integer, Integer>] a hash used to build the graph
 		# @note Do not use as an xy table; values are modified
 		# @see #to_a
-  		def to_hash
+  		def hash
   			table = Hash.new
   			for y in (0..@@axis[:y]).to_a
   				for x in (0..@@axis[:x]).to_a
   					x_exec = @equation.execute(x - ORIGIN[:x])
-  					table[y] = (x_exec % 2).zero? ? x_exec : x_exec + 1 if x_exec == y - ORIGIN[:y]
+  					table[y] = x_exec + 1 if x_exec == y - ORIGIN[:y]
   				end
   			end
   			table
   		end
-  		alias to_h to_hash
-  		alias xy to_hash
 		def domain # @return [Array<Integer>] the values of the xy hash
-  			xy.values
+  			hash.values
   		end
   	
   		def range # @return [Array<Integer>] the keys of the xy hash
-  			xy.keys
+  			hash.keys
   		end
   		
   		# @return [String] the graph
@@ -65,7 +63,7 @@ module Linear1
   		private
   		
   		def init_coord x, y
- 			(!to_hash[y].nil? && to_hash[y] == x - ORIGIN[:x]) ? ?\u2022 : format_grid(x - ORIGIN[:x], y - ORIGIN[:y])
+ 			(!hash[y].nil? && hash[y] == x - ORIGIN[:x]) ? ?\u2022 : format_grid(x - ORIGIN[:x], y - ORIGIN[:y])
  		end
   	
   		def check_axis_argument(arg)
