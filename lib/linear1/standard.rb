@@ -1,4 +1,6 @@
 require "linear1/function"
+autoload :SlopeIntercept, "linear1/slope_intercept"
+autoload :PointSlope, "linear1/point_slope"
 module Linear1
 	class Standard < Function
 		attr_reader :a, :b, :c
@@ -24,6 +26,10 @@ module Linear1
 			@b += int
 			@c += int
 		end
+		alias +@ add
+		alias += add!
+		alias * multiply
+		alias *= multiply!
 		def add int
 			new @a + int, @b + int, @c + int
 		end
@@ -31,9 +37,13 @@ module Linear1
 			"#{idx a}x + #{idx b}y = #{c}"
 		end
 		def to_slope_intercept
-			require "linear1/slope_intercept"
 			SlopeIntercept.new slope, y_intercept
 		end
+		def to_point_slope
+			d = rand(100) / 2
+			PointSlope.new @c - d, @c + d, slope
+		end
+		alias to_ps to_point_slope
 		alias to_si to_slope_intercept
 	end
 end
