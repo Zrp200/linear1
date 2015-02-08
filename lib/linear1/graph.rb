@@ -54,6 +54,7 @@ module Linear1
   			for y_index in to_a
   				for x_index in y_index
   					result << x_index
+  					result << " "
   				end
   				result << ?\n
   			end
@@ -68,7 +69,8 @@ module Linear1
   	
   		def check_axis_argument(arg)
 			if !(num.kind_of?(Integer) ) then raise ArgumentError, "Argument must be a kind of Integer"
-			elsif num % 2 != 0 then raise ArgumentError, "Argument must be even" end
+			elsif num % 2 != 0 then raise ArgumentError, "Argument must be even"
+			end
  		end
  
 		alias caa check_axis_argument
@@ -78,7 +80,8 @@ module Linear1
 			if x.zero? && y.zero? then "+"
 			elsif x.zero? && !y.zero? then "|"
 			elsif y.zero? && !x.zero? then "-"
-			else " " end
+			else " "
+			end
 		end
 				
 	end
