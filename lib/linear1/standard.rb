@@ -5,7 +5,7 @@ module Linear1
 	class Standard < Function
 		
 		attr_reader :a, :b, :c
-		private :slope, :y_intercept, :attrs
+		private :slope, :y_intercept
 		
 		
 		def self.find index
@@ -65,6 +65,8 @@ module Linear1
 		def attrs
 			[@a, @b, @c]
 		end
+		
+		private :attrs
 	end
 end
 				
