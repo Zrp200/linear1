@@ -2,6 +2,11 @@ autoload :BigDecimal, "bigdecimal"
 module Linear1
 	autoload :SlopeIntercept, "linear1/slope_intercept"
 	autoload :DirectVariation, "linear1/direct_variation"
+	
+	def Function(*args)
+		Function.new(*args)
+	end
+	
 	class Function
 		attr_reader :slope, :y_intercept, :power
 		# @param i1 [Fixnum] the index to start search
