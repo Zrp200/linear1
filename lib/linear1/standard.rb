@@ -5,7 +5,7 @@ module Linear1
 	class Standard < Function
 		
 		attr_reader :a, :b, :c
-		private :slope, :y_intercept
+		private :slope, :y_intercept, :attrs
 		
 		
 		def self.find index
@@ -27,7 +27,7 @@ module Linear1
 		alias mult multiply
 		
 		def multiply!(factor)
-			self = multiply factor
+			attrs.each_with_index {	|a, i| a = mult(term).send(:attrs)[i]	}
 		end
 		
 		alias mult! multiply!
@@ -38,7 +38,7 @@ module Linear1
 		end
 	
 		def add! term
-			self = add term
+			attrs.each_with_index {	|a, i| a = add(term).send(:attrs)[i]	}
 		end
 		
 	
@@ -60,6 +60,11 @@ module Linear1
 		end
 		
 		alias to_ps to_point_slope
+		
+		
+		def attrs
+			[@a, @b, @c]
+		end
 	end
 end
 				
