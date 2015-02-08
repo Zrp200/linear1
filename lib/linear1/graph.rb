@@ -4,7 +4,7 @@ module Linear1
 		def initialize equation
    			@equation = equation
 		end
-		@@axis = {x: 75, y: 25}
+		@@axis = {x: 50, y: 50}
     
     		def self.axis key
     			@@axis[key]
