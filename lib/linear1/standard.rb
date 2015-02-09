@@ -5,9 +5,14 @@ module Linear1
 	class Standard < Function
 		
 		attr_reader :a, :b, :c
-		private :slope, :y_intercept
 		
 		class << self
+			# @param object [#to_standard] object to be converted
+			def try_convert(object)
+				object.to_standard
+			rescue NoMethodError
+				nil
+			end
 			def find index
 				array, $equation_index = ARGV[index..(index + 2)], $equation_index = index + 3
 				new array[0], array[1], array[2]
