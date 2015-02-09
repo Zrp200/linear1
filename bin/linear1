@@ -4,11 +4,11 @@ include Linear1
 equation = proc do |index|
 	case ARGV[index]
 		when "arithmetic_sequence" then ArithmeticSequence
-		when "slope-intercept" then SlopeIntercept
+		when "slope_intercept" then SlopeIntercept
 		when "standard" then Standard
 		when "function" then Function
-		when "direct-variation" then DirectVariation
-		when "point-slope" then PointSlope
+		when "direct_variation" then DirectVariation
+		when "point_slope" then PointSlope
 	end.find index + 1
 end
 puts case ARGV[0]
