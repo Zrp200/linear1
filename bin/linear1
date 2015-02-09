@@ -1,18 +1,19 @@
 #!/usr/bin/env ruby
 require "linear1"
 include Linear1
-equation = proc do |index|
-	case ARGV[index]
-		when "arithmetic_sequence" then ArithmeticSequence
-		when "slope_intercept" then SlopeIntercept
-		when "standard" then Standard
-		when "function" then Function
-		when "direct_variation" then DirectVariation
-		when "point_slope" then PointSlope
-	end.find index + 1
+equation = ->(i) do
+
+	e = EQUATIONS[ARGV[i].to_sym]
+	e.find i + 1
+	
+	rescue NoMethodError
+	e.build
 end
+	
+	
+	
 puts case ARGV[0]
-	when "graph" then Graph.new equation.call 1
+	when "graph" then Graph.new equation.call(1)
 	when "display" then equation.call 1
 	when "execute" then equation.call(2).execute ARGV[1]
 	when "help" then "Help is not available. Please refer to the README."
