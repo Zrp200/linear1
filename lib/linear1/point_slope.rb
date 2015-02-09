@@ -1,4 +1,5 @@
 require "linear1/function"
+autoload :SlopeIntercept, "linear1/slope_intercept"
 module Linear1
 	class PointSlope < Function
 		attr_reader :x1, :y1
@@ -7,6 +8,11 @@ module Linear1
 			super @slope, @x1 - @y1
 		end
 		class << self
+			def try_convert(object)
+				object.to_point_slope
+			rescue NoMethodError
+				nil
+			end
 			def find index
 				new ARGV[index], ARGV[index + 1], ARGV[index + 2]
 			end
