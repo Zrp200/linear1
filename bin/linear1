@@ -13,7 +13,12 @@ end end
 	
 puts case ARGV[0]
 	when "graph" then Graph.new equation.call(1)
-	when "display" then equation.call 1
+	when "display" then case ARGV[1]
+		when "slope" then equation.call(2).send(:slope)
+		when "y_intercept" then equation.call(2).send(:y_intercept)
+		when "help", Regexp.new("-h") then "TODO"
+	else equation.call 1
+	end
 	when "execute" then equation.call(2).execute ARGV[1]
-	when "help" then "Help is not available. Please refer to the README."
+	when "help" then "TODO"
 end
