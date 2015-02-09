@@ -1,24 +1,37 @@
 #!/usr/bin/env ruby
 require "linear1"
 include Linear1
-equation = ->(i) do begin
-	e = EQUATIONS[ARGV[i].to_sym]
-	e.find i + 1
-	
+equation = ->(i) do 
+	begin
+		e = EQUATIONS[ARGV[i].to_sym]
+		e.find i + 1
 	rescue NoMethodError
-	e.build
-end end
-	
-	
-	
-puts case ARGV[0]
-	when "graph" then Graph.new equation.call(1)
-	when "display" then case ARGV[1]
-		when "slope" then equation.call(2).send(:slope)
-		when "y_intercept" then equation.call(2).send(:y_intercept)
-		when "help", Regexp.new("-h") then "TODO"
-	else equation.call 1
+		e.build
 	end
-	when "execute" then equation.call(2).execute ARGV[1]
-	when "help" then "TODO"
+end
+input = ARGV.shift	
+puts case input
+	when "graph" then Graph.new equation.call(0)
+	when "display"
+		input = ARGV.shift
+		case input
+			when "slope" then equation.call(0).slope
+			when "y_intercept" then equation.call(0).y_intercept
+			when "power" then equation.call(0).power
+			when "help", /-h/ then 'TODO'
+		else
+			ARGV.unshift input
+			equation.call(0)
+		end
+	when "execute"
+		x = ARGV.shift
+		equation.call(0).execute x
+	when "help", /-h/ then <<HELP 
+$ linear1 [graph | display | help | execute]
+Commands:
+	graph - Graphs the given equation
+	display - Displays a specific attribute of the given equation OR displays the given equation
+	execute - Evaluates the given equation with the given value as x
+	help - this message 
+HELP
 end
