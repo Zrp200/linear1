@@ -9,7 +9,12 @@ module Linear1
 			end
 			def build
 				print "Enter the constant of variation: "
-				new STDIN.gets.chomp
+				k = STDIN.gets.chomp
+				puts ?\n
+				new k
+			rescue
+				puts "Please try again"
+				retry
 			end
 		end
 		def initialize k=1
