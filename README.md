@@ -9,15 +9,13 @@ A gem that does linear algebra to an extent
 |`.gemspec`|`gem.add_runtime_dependency "linear1"`|`gem.add_development_dependency "linear1"`  |
 
 ## Usage
-### `$ linear1 help`
-
-### `$ linear1 graph _equation_`
-
-### `$ linear1 execute x _equation_`
-
-### `$ linear1 display`
-#### `slope _equation_`
-#### `y_intercept _equation_`
+* `$ linear1 help`
+* `$ linear1 graph _equation_`
+* `$ linear1 execute x _equation_`
+* `$ linear1 display`
+ *  `_equation_` - Displays the given equation
+ * `slope _equation_` - Displays the slope of the given equation
+ * `y_intercept _equation_` - Displays the y intercept of the given equation
 
 ### equations
 Replace `_equation_` with one of these equations:
@@ -27,6 +25,8 @@ Replace `_equation_` with one of these equations:
 * `slope_intercept slope y_intercept`
 * `function slope y_intercept power`
 * `direct_variation k`
+
+If `_equation_` is not given, you will be prompted for one
 
 ## Badges
 [![Build Status](https://travis-ci.org/Zrp200/linear1.svg?branch=master)](https://travis-ci.org/Zrp200/linear1)
