@@ -1,10 +1,16 @@
 require "linear1/slope_intercept"
 module Linear1
 	class DirectVariation < SlopeIntercept
-		# @param index1 [Fixnum] the index of the first argument
-		# @return [DirectVariation]
-		def self.find index1
-			new ARGV[index1]
+		class << self
+			# @param index1 [Fixnum] the index of the first argument
+			# @return [DirectVariation]
+			def find index1
+				new ARGV[index1]
+			end
+			def build
+				print "Enter the constant of variation: "
+				new STDIN.gets.chomp
+			end
 		end
 		def initialize k=1
 			super display_num(k), 0
