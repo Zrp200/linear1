@@ -7,8 +7,23 @@ module Linear1
 			@slope, @x1, @y1 = display_num(slope), display_num(x), display_num(y)
 			super @slope, @x1 - @y1
 		end
-		def self.find index
-			new ARGV[index], ARGV[index + 1], ARGV[index + 2]
+		class << self
+			def find index
+				new ARGV[index], ARGV[index + 1], ARGV[index + 2]
+			end
+			def build
+				print "Enter x coordinate: "
+				x = ARGV.gets.chomp
+				print "Enter y coordinate: "
+				y = ARGV.gets.chomp
+				print "Enter slope: "
+				slope = ARGV.gets.chomp
+				puts ?\n
+				new x, y, slope
+			rescue
+				puts "Please try again\n"
+				retry
+			end
 		end
 		def to_slope_intercept
 			require "linear1/slope_intercept"
