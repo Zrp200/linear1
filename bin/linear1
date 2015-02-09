@@ -1,14 +1,13 @@
 #!/usr/bin/env ruby
 require "linear1"
 include Linear1
-equation = ->(i) do
-
+equation = ->(i) do begin
 	e = EQUATIONS[ARGV[i].to_sym]
 	e.find i + 1
 	
 	rescue NoMethodError
 	e.build
-end
+end end
 	
 	
 	
