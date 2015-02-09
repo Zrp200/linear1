@@ -2,7 +2,7 @@ module Linear1
   
   autoload :System, "linear1/system"
   autoload :Standard, "linear1/standard"
-  autoload :SlopeIntercept"linear1/slope_intercept"
+  autoload :SlopeIntercept, "linear1/slope_intercept"
   autoload :PointSlope, "linear1/point_slope"
   autoload :Function, "linear1/function"
   autoload :Graph, "linear1/graph"
