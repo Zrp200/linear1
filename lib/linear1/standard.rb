@@ -7,12 +7,23 @@ module Linear1
 		attr_reader :a, :b, :c
 		private :slope, :y_intercept
 		
-		
-		def self.find index
-			array, $equation_index = ARGV[index..(index + 2)], $equation_index = index + 3
-			new array[0], array[1], array[2]
+		class << self
+			def find index
+				array, $equation_index = ARGV[index..(index + 2)], $equation_index = index + 3
+				new array[0], array[1], array[2]
+			end
+			def build
+				print "Enter parameter 'a': "
+				a = STDIN.gets.chomp
+				print "Enter parameter 'b': "
+				b = STDIN.gets.chomp
+				print "Enter parameter 'c': "
+				c = STDIN.gets.chomp
+				new a, b, c
+			rescue
+				retry
+			end
 		end
-		
 		
 		def initialize a, b, c
 			@a, @b, @c = display_num(a), display_num(b), display_num(c)
