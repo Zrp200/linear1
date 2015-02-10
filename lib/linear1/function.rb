@@ -106,8 +106,8 @@ module Linear1
 		return Function.new(*args) if args.length == 0..3 and args.all {|arg| arg.kind_of? Numeric} 
 		args.each do |arg|
 			case arg
-				when ->(a) {a.respond_to :to_function} then arg.to_function
-				when ->(a) {a.respond_to :to_ary and a.to_ary.size == 0..3} then Function.new *arg.to_ary
+				when ->(a) {a.respond_to? :to_function} then arg.to_function
+				when ->(a) {a.respond_to? :to_ary and a.to_ary.size == 0..3} then Function.new *arg.to_ary
 			else
 				fail TypeError, "Could not convert #{arg.inspect} to Function"
 			end
