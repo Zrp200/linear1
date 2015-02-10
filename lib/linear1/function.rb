@@ -56,8 +56,12 @@ module Linear1
 			end
 		end
 		def to_slope_intercept
-			raise TypeError, "power must be 1" unless power == 1
+			raise TypeError, "Could not convert #{self.inspect} to SlopeIntercept" unless power == 1
 			SlopeIntercept.new slope, y_intercept
+		end
+		alias to_si to_slope_intercept
+		def to_function
+			self
 		end
 		alias to_dv to_direct_variation
 		private
@@ -97,9 +101,18 @@ module Linear1
 			end
 		end
 	end
-	
+	module_function
 	def Function(*args)
-		Function.new(*args)
+		return Function.new(*args) if args.length == 0..3 and args.all {|arg| arg.kind_of? Numeric} 
+		args.each do |arg|
+			case arg
+				when ->(a) {a.respond_to :to_function} then arg.to_function
+				when ->(a) {a.respond_to :to_ary and a.to_ary.size == 0..3} then Function.new *arg.to_ary
+			else
+				fail TypeError, "Could not convert #{arg.inspect} to Function"
+			end
+		end
+				
 	end
 end
 			
