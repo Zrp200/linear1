@@ -10,20 +10,15 @@ equation = ->(i) do
 		raise if build == :testing
 	end
 end
-input = ARGV.shift	
 puts case input
 	when "graph" then Graph.new equation.call(0)
-	when "display"
-		input = ARGV.shift
-		case input
-			when "slope" then equation.call(0).slope
-			when "y_intercept" then equation.call(0).y_intercept
-			when "power" then equation.call(0).power
-			when "help", /-h/ then 'TODO'
-		else
-			ARGV.unshift input
-			equation.call(0)
-		end
+	when "display" then case input
+		when "slope" then equation.call(0).slope
+		when "y_intercept" then equation.call(0).y_intercept
+		when "power" then equation.call(0).power
+		when "equation" then equation.call(0)
+		when "help", /-h/ then 'TODO'
+	end
 	when "execute"
 		x = ARGV.shift
 		equation.call(0).execute x
@@ -31,7 +26,7 @@ puts case input
 $ linear1 [graph | display | help | execute]
 Commands:
 	graph - Graphs the given equation
-	display - Displays a specific attribute of the given equation OR displays the given equation
+	display - Displays a specific attribute of the given equation
 	execute - Evaluates the given equation with the given value as x
 	help - this message 
 HELP
