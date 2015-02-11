@@ -10,9 +10,9 @@ equation = ->(i) do
 		raise if build == :testing
 	end
 end
-puts case input
+puts case ARGV.shift
 	when "graph" then Graph.new equation.call(0)
-	when "display" then case input
+	when "display" then case ARGV.shift
 		when "slope" then equation.call(0).slope
 		when "y_intercept" then equation.call(0).y_intercept
 		when "power" then equation.call(0).power
