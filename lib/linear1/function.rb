@@ -98,7 +98,7 @@ module Linear1
 				when -1 then ?-
 			else s end
 		end
-		def display_num(num)
+		def display_num(num) # @see Function.display_num
 			Function.display_num(num)
 		end
 	end
@@ -108,7 +108,7 @@ module Linear1
 		args.each do |arg|
 			case arg
 				when ->(a) {a.respond_to? :to_function} then arg.to_function
-				when ->(a) {a.respond_to? :to_ary and a.to_ary.size == 0..3} then Function.new *arg.to_ary
+				when ->(a) {a.respond_to? :to_ary and a.to_ary.size == 0..3 and a.to_ary.all} then Function.new *arg.to_ary
 			else
 				fail TypeError, "Could not convert #{arg.inspect} to Function"
 			end
