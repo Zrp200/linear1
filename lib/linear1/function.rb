@@ -98,8 +98,9 @@ module Linear1
 				when -1 then ?-
 			else s end
 		end
-		alias display_num Function.display_num
-		private :display_num
+		def display_num(num)
+			Function.display_num(num)
+		end
 	end
 	module_function
 	def Function(*args)
