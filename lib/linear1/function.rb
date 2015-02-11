@@ -104,7 +104,8 @@ module Linear1
 	end
 	module_function
 	def Function(*args)
-		return Function.new(*args) if args.length == 0..3 and args.all? {|a| !Function.display_num(a).zero?}
+		Function.new *args
+	rescue
 		args.each do |arg|
 			case arg
 				when ->(a) {a.respond_to? :to_function} then arg.to_function
