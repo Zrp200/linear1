@@ -8,6 +8,16 @@ module Linear1
 			def find i1
 				new ARGV[i1], ARGV[i1 + 1], ARGV[i1 + 2]
 			end
+			def display_num num
+				return num unless num.is_a? String
+				case num
+					when 	Complex(num).to_s 	then	Complex(num)
+					when 	Rational(num).to_s 	then 	Rational(num)
+					when 	num.to_i.to_s	 	then 	num.to_i
+					when	num.to_f.to_s	 	then 	num.to_f
+					when	BigDecimal.new(num).to_s	then 	BigDecimal.new num
+				end
+			end
 			
 			def build
 				print "Enter the slope: "
@@ -88,17 +98,8 @@ module Linear1
 				when -1 then ?-
 			else s end
 		end
-		module_function
-		def display_num num
-			return num unless num.is_a? String
-			case num
-				when 	Complex(num).to_s 	then	Complex(num)
-				when 	Rational(num).to_s 	then 	Rational(num)
-				when 	num.to_i.to_s	 	then 	num.to_i
-				when	num.to_f.to_s	 	then 	num.to_f
-				when	BigDecimal.new(num).to_s	then 	BigDecimal.new num
-			end
-		end
+		alias display_num Function.display_num
+		private :display_num
 	end
 	module_function
 	def Function(*args)
@@ -111,7 +112,6 @@ module Linear1
 				fail TypeError, "Could not convert #{arg.inspect} to Function"
 			end
 		end
-				
 	end
 end
 			
