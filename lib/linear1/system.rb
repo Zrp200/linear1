@@ -2,14 +2,8 @@ module Linear1
   class System
     include Enumerable
     attr_reader :e1, :e2
-    def each &block
-      if block_given?
-        block.call @e1
-        block.call @e2
-      else
-        yield @e1
-        yield @e2
-      end
+    def each
+      return yield(@e1), yield(@e2)
     end
     def initialize equation1, equation2
       @e1, @e2 = equation1, equation2
