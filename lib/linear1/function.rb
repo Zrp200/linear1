@@ -20,6 +20,7 @@ module Linear1
 			end
 			
 			def build
+				return :testing if ENV['travis']
 				print "Enter the slope: "
 				slope = STDIN.gets.chomp
 				print "Enter the y intercept: "
