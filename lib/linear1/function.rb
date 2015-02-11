@@ -88,22 +88,21 @@ module Linear1
 				when -1 then ?-
 			else s end
 		end
+		module_function
 		def display_num num
-			unless num.is_a? String then num
-			else 
-				case num
-					when 	Complex(num).to_s 	then	Complex(num)
-					when 	Rational(num).to_s 	then 	Rational(num)
-					when 	num.to_i.to_s	 	then 	num.to_i
-					when	num.to_f.to_s	 	then 	num.to_f
-					else 	BigDecimal.new num
-				end
+			return num unless num.is_a? String
+			case num
+				when 	Complex(num).to_s 	then	Complex(num)
+				when 	Rational(num).to_s 	then 	Rational(num)
+				when 	num.to_i.to_s	 	then 	num.to_i
+				when	num.to_f.to_s	 	then 	num.to_f
+				when	BigDecimal.new(num).to_s	then 	BigDecimal.new num
 			end
 		end
 	end
 	module_function
 	def Function(*args)
-		return Function.new(*args) if args.length == 0..3 and args.all {|a| Integer(a).zero?}
+		return Function.new(*args) if args.length == 0..3 and args.all? {|a| !Function.display_num(a).zero?}
 		args.each do |arg|
 			case arg
 				when ->(a) {a.respond_to? :to_function} then arg.to_function
