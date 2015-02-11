@@ -6,7 +6,8 @@ equation = ->(i) do
 		e = EQUATIONS[ARGV[i].to_sym]
 		e.find i + 1
 	rescue NoMethodError
-		e.build
+		build = e.build
+		raise if build == :testing
 	end
 end
 input = ARGV.shift	
