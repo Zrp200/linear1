@@ -19,8 +19,8 @@ module Linear1
 				end
 			end
 			
-			def build
-				return :testing if ENV['travis']
+			def build(stream=STDIN)
+				return :testing unless STDIN.tty?
 				print "Enter the slope: "
 				slope = STDIN.gets.chomp
 				print "Enter the y intercept: "
