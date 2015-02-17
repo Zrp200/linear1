@@ -18,6 +18,7 @@ module Linear1
   			final, y = Array.new, 0
   			@@axis[:y].times do
   				final[y], x = Array.new, 0
+  				
   				@@axis[:x].times do
   					final[y][x] = init_coord(x, y)
   					x += 1
@@ -35,6 +36,7 @@ module Linear1
   			(0..@@axis[:y]).to_a.each do |y|
   				(0..@@axis[:x]).to_a.each do |x|
   					x_exec = @equation.execute(x - ORIGIN[:x])
+  					
   					table[y] = x_exec if x_exec == y - ORIGIN[:y]
   				end
   			end
@@ -51,13 +53,17 @@ module Linear1
   		# @return [String] the graph
   		def to_s
   			result = String.new
+  			
   			for y_index in to_a
   				for x_index in y_index
   					result << x_index
+  					
   					result << " "
   				end
+  				
   				result << ?\n
   			end
+  			
   			result.center 100
   		end
   	
@@ -69,7 +75,9 @@ module Linear1
   	
   		def check_axis_argument(arg)
 			if !(num.kind_of?(Integer) ) then raise ArgumentError, "Argument must be a kind of Integer"
+				
 			elsif num % 2 != 0 then raise ArgumentError, "Argument must be even"
+			
 			end
  		end
  
@@ -78,9 +86,13 @@ module Linear1
 		# @return [String, nil]
 		def format_grid x, y
 			if x.zero? && y.zero? then "+"
+				
 			elsif x.zero? && !y.zero? then "|"
+			
 			elsif y.zero? && !x.zero? then "-"
+			
 			else " "
+			
 			end
 		end
 				
