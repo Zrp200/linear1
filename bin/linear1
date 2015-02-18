@@ -1,22 +1,22 @@
 #!/usr/bin/env ruby
 require "linear1"
 include Linear1
-equation = ->(i) do 
+equation = proc do 
 	begin
-		e = EQUATIONS[ARGV[i].to_sym]
-		e.find i + 1
+		e = EQUATIONS[ARGV.shift.to_sym]
+		e.find 0
 	rescue NoMethodError
 		raise unless STDIN.tty?
 		e.build
 	end
 end
 puts case ARGV.shift
-	when "graph" then Graph.new equation.call(0)
+	when "graph" then Graph.new equation.call
 	when "display" then case ARGV.shift
-		when "slope" then equation.call(0).slope
-		when "y_intercept" then equation.call(0).y_intercept
-		when "power" then equation.call(0).power
-		when "equation" then equation.call(0)
+		when "slope" then equation.call.slope
+		when "y_intercept" then equation.call.y_intercept
+		when "power" then equation.call.power
+		when "equation" then equation.call
 		when "help", /-h/ then 'TODO'
 	end
 	when "execute"
