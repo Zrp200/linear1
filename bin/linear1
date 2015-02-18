@@ -1,9 +1,10 @@
 #!/usr/bin/env ruby
 require "linear1"
 include Linear1
+ARGV.map! {|a| Symbol(a)}
 equation = proc do 
 	begin
-		e = EQUATIONS[ARGV.shift.to_sym]
+		e = EQUATIONS[ARGV.shift]
 		e.find 0
 	rescue NoMethodError
 		raise unless STDIN.tty?
@@ -11,19 +12,19 @@ equation = proc do
 	end
 end
 puts case ARGV.shift
-	when "graph" then Graph.new equation.call
-	when "display" then case ARGV.shift
-		when "slope" then equation.call.slope
-		when "y_intercept" then equation.call.y_intercept
-		when "power" then equation.call.power
-		when "equation" then equation.call
-		when "help", /-h/ then 'TODO'
+	when :graph then Graph.new equation.call
+	when :display then case ARGV.shift
+		when :slope then equation.call.slope
+		when :y_intercept then equation.call.y_intercept
+		when :power then equation.call.power
+		when :equation then equation.call
+		when :help, /-h/ then 'TODO'
 	end
-	when "execute"
+	when :execute
 		x = ARGV.shift
 		puts x
 		equation.call.execute x
-	when "help", /-h/ then <<HELP 
+	when :help, /-h/ then <<HELP 
 $ linear1 [graph | display | help | execute]
 Commands:
 	graph - Graphs the given equation
