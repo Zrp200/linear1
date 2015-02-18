@@ -20,7 +20,6 @@ module Linear1
 			end
 			
 			def build(stream=STDIN)
-				return :testing unless STDIN.tty?
 				print "Enter the slope: "
 				slope = STDIN.gets.chomp
 				print "Enter the y intercept: "
