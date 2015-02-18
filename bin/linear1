@@ -7,8 +7,7 @@ equation = ->(i) do
 		e.find i + 1
 	rescue NoMethodError
 		raise unless STDIN.tty?
-		build = e.build
-		raise if build == :testing
+		e.build
 	end
 end
 puts case ARGV.shift
