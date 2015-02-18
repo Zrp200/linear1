@@ -6,6 +6,7 @@ equation = ->(i) do
 		e = EQUATIONS[ARGV[i].to_sym]
 		e.find i + 1
 	rescue NoMethodError
+		raise unless STDIN.tty?
 		build = e.build
 		raise if build == :testing
 	end
