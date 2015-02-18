@@ -21,7 +21,8 @@ puts case ARGV.shift
 	end
 	when "execute"
 		x = ARGV.shift
-		equation.call(0).execute x
+		puts x
+		equation.call.execute x
 	when "help", /-h/ then <<HELP 
 $ linear1 [graph | display | help | execute]
 Commands:
