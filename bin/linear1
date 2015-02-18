@@ -6,10 +6,12 @@ equation = proc do
 	begin
 		e = EQUATIONS[ARGV.shift]
 		e.find 0
+=begin
 	rescue NoMethodError
 		raise unless STDIN.tty?
 		e.build
 	end
+=end
 end
 puts case ARGV.shift
 	when :graph then Graph.new equation.call
