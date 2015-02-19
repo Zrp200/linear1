@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require "linear1"
 include Linear1
-ARGV.map! {|a| Symbol(a)}
+ARGV.map! {|a| a.to_sym}
 equation = proc do 
 	begin
 		e = EQUATIONS[ARGV.shift]
