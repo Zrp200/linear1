@@ -27,8 +27,7 @@ puts case ARGV.shift.to_sym
 	when :execute
 	  	puts "Executing...."
 	  	sleep 1
-		x = ARGV.shift
-		equation.call.execute x
+		equation.call.execute ARGV.shift
 	when :help, /-h/ then <<HELP 
 $ linear1 [graph | display | help | execute]
 Commands:
