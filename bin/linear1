@@ -2,17 +2,17 @@
 require "linear1"
 include Linear1
 equation = proc do 
-	e = ARGV.shift
-	eq = EQUATIONS.fetch(e) do
-		ARGV.unshift e
-		begin
-			print "Enter equation type: "
-			EQUATIONS.fetch STDIN.gets.chomp
-		rescue KeyError
-			retry
-		end
-	end	
-	eq.find 0
+	begin
+		eq = EQUATIONS.fetch(e = ARGV.shift) do
+			ARGV.unshift e
+			begin
+				print "Enter equation type: "
+				EQUATIONS.fetch STDIN.gets.chomp
+			rescue KeyError
+			  retry
+		  end
+	  end	
+	  eq.find 0
 	rescue
 		e.build
 	end
