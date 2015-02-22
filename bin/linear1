@@ -4,13 +4,8 @@ include Linear1
 equation = proc do 
 	begin
 		eq = EQUATIONS.fetch(e = ARGV.shift) do
-			ARGV.unshift e
-			begin
-				print "Enter equation type: "
-				EQUATIONS.fetch STDIN.gets.chomp
-			rescue KeyError
-			  retry
-		  end
+		  e.unshift
+		  Function
 	  end	
 	  eq.find 0
 	rescue
