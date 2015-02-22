@@ -3,8 +3,8 @@ require "linear1"
 include Linear1
 equation = proc do 
 	begin
-		eq = EQUATIONS.fetch(e = ARGV.shift) do
-	    e.unshift
+		eq = EQUATIONS.fetch(e = ARGV.shift.to_sym) do
+	    ARGV.unshift e.to_s
 		  Function
 	  end	
 	  eq.find 0
