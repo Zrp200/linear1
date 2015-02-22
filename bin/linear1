@@ -4,7 +4,7 @@ include Linear1
 equation = proc do 
 	begin
 		eq = EQUATIONS.fetch(e = ARGV.shift) do
-		  e.unshift
+	    e.unshift
 		  Function
 	  end	
 	  eq.find 0
@@ -13,7 +13,10 @@ equation = proc do
 	end
 end
 puts case ARGV.shift.to_sym
-	when :graph then Graph.new equation.call
+	when :graph
+	  puts "Graphing...."
+	  sleep 1
+		Graph.new equation.call
 	when :display then case ARGV.shift.to_sym
 		when :slope then equation.call.slope
 		when :y_intercept then equation.call.y_intercept
@@ -22,6 +25,8 @@ puts case ARGV.shift.to_sym
 		when :help, /-h/ then 'TODO'
 	end
 	when :execute
+	  puts "Executing...."
+	  sleep 1
 		x = ARGV.shift
 		equation.call.execute x
 	when :help, /-h/ then <<HELP 
