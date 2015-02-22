@@ -5,15 +5,15 @@ A gem that does linear algebra to an extent
 |Method|Runtime|Development|
 |:----:|:-----:|:---------:|
 |`Gemfile`|`gem 'linear1'`| `gem 'linear1', group: :development`|
-|RubyGems|`$ gem install linear1`    |   `$ gem install linear1 --development`    |
-|`.gemspec`|`gem.add_runtime_dependency "linear1"`|`gem.add_development_dependency "linear1"`  |
+|RubyGems|`$ gem install linear1`    |   `$ gem install linear1 --development` |
+|`.gemspec`|`gem.add_runtime_dependency "linear1"`| `gem.add_development_dependency "linear1"` |
 
 ## Usage
 * `$ linear1 help`
 * `$ linear1 graph _equation_`
-* `$ linear1 execute x _equation_`
+* `$ linear1 execute _equation_ x`
 * `$ linear1 display`
- *  `_equation_` - Displays the given equation
+ *  `equation _equation_` - Displays the given equation
  * `slope _equation_` - Displays the slope of the given equation
  * `y_intercept _equation_` - Displays the y intercept of the given equation
 
