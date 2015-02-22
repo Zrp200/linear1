@@ -4,12 +4,12 @@ include Linear1
 equation = proc do 
 	begin
 		eq = EQUATIONS.fetch(e = ARGV.shift.to_sym) do
-	    	ARGV.unshift e.to_s
-		Function
-  	end	
+	    		ARGV.unshift e.to_s
+			Function
+  		end	
 	 	eq.find 0
 	rescue
-		e.build
+		eq.build
 	end
 end
 puts case ARGV.shift.to_sym
