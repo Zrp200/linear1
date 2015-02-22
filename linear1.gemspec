@@ -4,7 +4,8 @@ Gem::Specification.new do |gem|
 	gem.email = "zrp200@gmail.com"
 	gem.summary = "Does linear algebra, to an extent"
 	if ENV['TRAVIS'] then gem.version = ENV['TRAVIS_TAG'] == String.new ? ENV['TRAVIS_BUILD_ID'] : ENV['TRAVIS_TAG']
-	else gem.version = STDIN.gets
+	else 
+		gem.version = STDIN.gets
 	end
 	gem.homepage = "https://github.com/Zrp200/linear1"
 	gem.license = "MIT"
