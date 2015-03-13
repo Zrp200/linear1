@@ -16,12 +16,12 @@ puts case ARGV.shift.to_sym
 	when :graph
 	  	puts "Graphing...."
 	  	sleep 1
-		Graph.new equation.call
+		Graph.new equation.call(0)
 	when :display then case ARGV.shift.to_sym
-		when :slope then equation.call.slope
-		when :y_intercept then equation.call.y_intercept
-		when :power then equation.call.power
-		when :equation then equation.call
+		when :slope then equation.call(0).slope
+		when :y_intercept then equation.call(0).y_intercept
+		when :power then equation.call(0).power
+		when :equation then equation.call(0)
 		when :help, /-h/ then 'TODO'
 	end
 	when :execute
