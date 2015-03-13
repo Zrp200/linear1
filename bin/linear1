@@ -8,6 +8,7 @@ def equation(index = 0)
   	end	
 	eq.find index
 rescue
+	retry
 	eq.build
 end
 puts case ARGV.shift.to_sym
