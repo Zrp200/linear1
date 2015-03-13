@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 require "linear1"
 include Linear1
-equation = proc do 
+equation = proc do |index|
 	begin
 		eq = EQUATIONS.fetch(e = ARGV.shift.to_sym) do
 	    		ARGV.unshift e.to_s
 			Function
   		end	
-	 	eq.find 0
+	 	eq.find index
 	rescue
 		eq.build
 	end
@@ -27,7 +27,7 @@ puts case ARGV.shift.to_sym
 	when :execute
 	  	puts "Executing...."
 	  	sleep 1
-		equation.call.execute ARGV.shift
+		equation.call(1).execute ARGV.shift
 	when :help, /-h/ then <<HELP 
 $ linear1 [graph | display | help | execute]
 Commands:
