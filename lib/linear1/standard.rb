@@ -3,31 +3,14 @@ autoload :SlopeIntercept, "linear1/slope_intercept"
 autoload :PointSlope, "linear1/point_slope"
 module Linear1
 	class Standard < Function
-		
 		attr_reader :a, :b, :c
 		
-		class << self
-			# @param object [#to_standard] object to be converted
-			def try_convert(object)
-				object.to_standard
-			rescue NoMethodError
-				nil
-			end
-			def find index
-				array, $equation_index = ARGV[index..(index + 2)], $equation_index = index + 3
-				new array[0], array[1], array[2]
-			end
-			def build
-				print "Enter parameter 'a': "
-				a = STDIN.gets.chomp
-				print "Enter parameter 'b': "
-				b = STDIN.gets.chomp
-				print "Enter parameter 'c': "
-				c = STDIN.gets.chomp
-				new a, b, c
-			rescue
-				retry
-			end
+		def self.try_convert(object) # @param object [#to_standard, #to_sf] object to be converted
+			case object
+				when ->(obj) {obj.respond_to? to_standard} then object.to_standard
+				when ->(obj) {obj.respond_to? to_sf} then object.to_sf
+			else fail TypeError, "Cannot convert #{object} to Standard" end
+			
 		end
 		
 		def initialize a, b, c
@@ -54,7 +37,7 @@ module Linear1
 		end
 	
 		def add! term
-			attrs.each_with_index {	|a, i| a = add(term).send(:attrs)[i]	}
+			attrs.each_with_index {|a, i| a = add(term).send(:attrs)[i]}
 		end
 		
 	
@@ -74,15 +57,16 @@ module Linear1
 			d = rand(100) / 2
 			PointSlope.new @c - d, @c + d, slope
 		end
-		
 		alias to_ps to_point_slope
-		
 		
 		def attrs
 			[@a, @b, @c]
 		end
 		
 		private :attrs
+	end
+	def Standard(object) # @see Standard.try_convert
+		Standard.try_convert(object)
 	end
 end
 				
