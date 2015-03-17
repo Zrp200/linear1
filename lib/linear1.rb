@@ -10,15 +10,10 @@ require "linear1/arithmetic_sequence"
 module Linear1  
   EQUATIONS = {
     function: Function,
-
     slope_intercept: SlopeIntercept,
-
     arithmetic_sequence: ArithmeticSequence,
-
     direct_variation: DirectVariation,
-
     point_slope: PointSlope,
-
     standard: Standard
   }
 end
