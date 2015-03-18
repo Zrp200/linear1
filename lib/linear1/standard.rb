@@ -18,28 +18,6 @@ module Linear1
 			super @c / @b / @a, @c / @b
 		end
 		
-		
-		def multiply(factor)
-			new @a * factor, @b * factor, @c * factor
-		end
-		
-		alias mult multiply
-		
-		def multiply!(factor)
-			attrs.each_with_index {	|a, i| a = mult(term).send(:attrs)[i]	}
-		end
-		
-		alias mult! multiply!
-		
-		
-		def add term
-			new @a + term, @b + term, @c + term
-		end
-	
-		def add! term
-			attrs.each_with_index {|a, i| a = add(term).send(:attrs)[i]}
-		end
-		
 	
 		def to_s # @return [String] the equation
 			"#{idx a}x + #{idx b}y = #{c}"
@@ -52,21 +30,17 @@ module Linear1
 		
 		alias to_si to_slope_intercept
 		
-		
 		def to_point_slope
 			d = rand(100) / 2
 			PointSlope.new @c - d, @c + d, slope
 		end
 		alias to_ps to_point_slope
-		
-		def attrs
-			[@a, @b, @c]
-		end
-		
-		private :attrs
 	end
-	def Standard(object) # @see Standard.try_convert
-		Standard.try_convert(object)
+	def Standard(*args) # @see Standard.try_convert, Standard.new
+		case args.length
+			when 1 then Standard.new *args 
+			when 3 then Standard.try_convert(object)
+		else fail ArgumentError, "Expected 1 or 3 arguments. Got #{args.length}" end
 	end
 end
 				
