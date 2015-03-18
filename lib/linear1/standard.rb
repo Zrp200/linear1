@@ -36,6 +36,7 @@ module Linear1
 		end
 		alias to_ps to_point_slope
 	end
+	module_function
 	def Standard(*args) # @see Standard.try_convert, Standard.new
 		case args.length
 			when 1 then Standard.new *args 
