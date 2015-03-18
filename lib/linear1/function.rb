@@ -5,9 +5,6 @@ module Linear1
 	
 	class Function
 		class << self
-			def find i1
-				new ARGV[i1], ARGV[i1 + 1], ARGV[i1 + 2]
-			end
 			def display_num num
 				return num unless num.is_a? String
 				case num
@@ -18,18 +15,6 @@ module Linear1
 					when	BigDecimal.new(num).to_s	then 	BigDecimal.new num
 				end
 			end
-			
-			def build(stream=STDIN)
-				print "Enter the slope: "
-				slope = STDIN.gets.chomp
-				print "Enter the y intercept: "
-				y_int = STDIN.gets.chomp
-				print "Enter the power of x: "
-				power = STDIN.gets.chomp
-				puts ?\n
-				new slope, y_int, power
-			end
-			
 		end
 		attr_reader :slope, :y_intercept, :power
 		# @param i1 [Fixnum] the index to start search
