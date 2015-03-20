@@ -7,7 +7,7 @@ module Linear1
 		@@axis = {x: 30, y: 20}
     
     		def self.axis key
-    			@@axis[key]
+    			@@axis.fetch key
     		end
 		
 		ORIGIN = {x: @@axis[:x] / 2, y: @@axis[:y] / 2} # The center of the graph
