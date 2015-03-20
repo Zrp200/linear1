@@ -16,12 +16,12 @@ module Linear1
 		end
 		def to_ps
 			require "linear1/point_slope"
-			PointSlope 0, @y_intercept, @slope
+			PointSlope(0, @y_intercept, @slope)
 		end
-		alias to_point_slope
+		alias to_point_slope to_ps
 		def to_sf
 			require "linear1/standard"
-			Standard.new @slope, -1, -@y_intercept
+			Standard.new(@slope, -1, -@y_intercept)
 		end
 	end
 	module_function; def SlopeIntercept(*args) # @see SlopeIntercept.new, SlopeIntercept.try_convert
