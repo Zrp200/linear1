@@ -14,11 +14,15 @@ module Linear1
 		def to_s
 			super.sub "f(x)", "y"
 		end
-		def to_standard
-			require "linear1/standard"
-			Standard.new slope, -1, -y_intercept
+		def to_ps
+			require "linear1/point_slope"
+			PointSlope 0, @y_intercept, @slope
 		end
-		alias to_sf to_standard
+		alias to_point_slope
+		def to_sf
+			require "linear1/standard"
+			Standard.new @slope, -1, -@y_intercept
+		end
 	end
 	module_function; def SlopeIntercept(*args) # @see SlopeIntercept.new, SlopeIntercept.try_convert
 		case args.length
