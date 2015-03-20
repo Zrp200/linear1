@@ -11,4 +11,10 @@ RSpec.describe Linear1::PointSlope do
 			end
 		end
 	end
+	[Linear1::SlopeIntercept(4, 3)].each do |eq|
+		context "given #{eq}" do
+			subject {Linear1::PointSlope *Array(eq)}
+			it {is_expected.to be_instance_of Linear1::PointSlope}
+		end
+	end
 end
