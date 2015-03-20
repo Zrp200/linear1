@@ -8,26 +8,11 @@ module Linear1
 			super @slope, @x1 - @y1
 		end
 		class << self
-			def try_convert(object)
-				object.to_point_slope
-			rescue NoMethodError
-				nil
-			end
-			def find index
-				new ARGV[index], ARGV[index + 1], ARGV[index + 2]
-			end
-			def build
-				print "Enter x coordinate: "
-				x = ARGV.gets.chomp
-				print "Enter y coordinate: "
-				y = ARGV.gets.chomp
-				print "Enter slope: "
-				slope = ARGV.gets.chomp
-				puts ?\n
-				new x, y, slope
-			rescue
-				puts "Please try again\n"
-				retry
+			def try_convert object
+				for sym in %i(to_point_slope to_ps)
+					return sym if object.respond_to? sym
+				end
+				raise TypeError, "Unable to convert #{object} to PointSlope"
 			end
 		end
 		def to_slope_intercept
@@ -38,5 +23,11 @@ module Linear1
 		def to_standard
 			to_si.to_standard
 		end
+	end
+	def PointSlope(*object)
+		case object.length
+			when 1 then PointSlope.try_convert(*object)
+			when 3 then PointSlope.new(*object)
+		else raise ArgumentError, "Expected 1 or 3 arguments. Got #{object.length}" end
 	end
 end
