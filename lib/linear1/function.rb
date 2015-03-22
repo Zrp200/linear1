@@ -50,6 +50,9 @@ module Linear1
 			else raise TypeError, "Unable to convert to DirectVariation"
 			end
 		end
+		# @raise [TypeError]
+		# Implicit converter to SlopeIntercept
+		# @return [SlopeIntercept]
 		def to_slope_intercept
 			raise TypeError, "Could not convert #{self.inspect} to SlopeIntercept" unless power == 1
 			SlopeIntercept.new slope, y_intercept
@@ -75,7 +78,6 @@ module Linear1
 				when 8 then "\u2078"
 				when 9 then "\u2079"
 			end
-			final
 		end
 		def idx(s)
 			case s
