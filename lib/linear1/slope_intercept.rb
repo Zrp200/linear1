@@ -2,11 +2,10 @@ require "linear1/function"
 module Linear1
 	class SlopeIntercept < Function
 		def self.try_convert obj
-			converter = case obj
-				when ->(obj) {obj.respond_to? :to_slope_intercept} then :to_slope_intercept
-				when ->(obj) {obj.respond_to? :to_si} then :to_si
-			else fail TypeError, "Could not convert #{obj} to SlopeIntercept" end
-			obj.public_send converter
+			for converter in %i[to_slope_intercept to_si]
+				return obj.public_send converter if obj.respond_to? converter
+			end
+			fail TypeError, "Could not convert #{obj} to SlopeIntercept"
 		end
 		def initialize(slope, y_intercept)
 			super
@@ -26,8 +25,8 @@ module Linear1
 	end
 	module_function; def SlopeIntercept(*args) # @see SlopeIntercept.new, SlopeIntercept.try_convert
 		case args.length
-			when 1 then SlopeIntercept.try_convert(*args)
-			when 2 then SlopeIntercept.new(*args)
+			when 1 then SlopeIntercept.try_convert *args
+			when 2 then SlopeIntercept.new *args
 		else fail ArgumentError, "Expected 1..2 arguments. Got #{args.length}" end
 	end
 end
