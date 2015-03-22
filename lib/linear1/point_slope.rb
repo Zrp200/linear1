@@ -10,7 +10,7 @@ module Linear1
 		class << self
 			def try_convert object
 				for sym in %i(to_point_slope to_ps)
-					return sym if object.respond_to? sym
+					return object.send(sym) if object.respond_to? sym
 				end
 				raise TypeError, "Unable to convert #{object} to PointSlope"
 			end
