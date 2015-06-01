@@ -16,7 +16,7 @@ module Linear1
 			super @c / @b / @a, @c / @b
 		end
 		def to_s # @return [String] the equation
-			String(idx @a) + "x + " + idx(@b) + "y = " + @c
+			idx(@a).to_s + "x + " + idx(@b).to_s + "y = " + @c
 		end 
 		
 		# Implicit
