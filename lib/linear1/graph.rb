@@ -10,15 +10,15 @@ module Linear1
     			@@axis.fetch key
     		end
 		
-		ORIGIN = {x: @@axis[:x] / 2, y: @@axis[:y] / 2} # The center of the graph
+		ORIGIN = {x: @@axis.fetch(:x) / 2, y: @@axis.fetch(:y) / 2} # The center of the graph
 		
 		# @return [Array<Array<Integer>>] the array used to create the graph
 		# @note Do not use as an XY table; the values are modified and not accurate
   		def to_a
   			final, y = Array.new, 0
-  			@@axis[:y].times do
+  			@@axis.fetch(:y).times do
   				final[y], x = Array.new, 0
-  				@@axis[:x].times do
+  				@@axis.fetch(:x).times do
   					final[y][x] = init_coord(x, y)
   					x += 1
   				end
@@ -32,10 +32,10 @@ module Linear1
 		# @see #to_a
   		def hash
   			table = Hash.new
-  			(0..@@axis[:y]).to_a.each do |y|
-  				(0..@@axis[:x]).to_a.each do |x|
-  					x_exec = @equation.execute(x - ORIGIN[:x])
-  					table[y] = x_exec if x_exec == y - ORIGIN[:y]
+  			(0..@@axis.fetch(:y) ).to_a.each do |y|
+  				(0..@@axis.fetch(:x) ).to_a.each do |x|
+  					x_exec = @equation.execute(x - ORIGIN.fetch(:x) )
+  					table[y] = x_exec if x_exec == y - ORIGIN.fetch(:y)
   				end
   			end
   			table
@@ -51,17 +51,15 @@ module Linear1
   		# @return [String] the graph
   		def to_s
   			result = String.new
-  			for y_index in to_a
-  				for x_index in y_index
-  					result << x_index << " "
-  				end
+  			to_a.each do |y_index|
+  				y_index.each { |x_index| result << x_index << " "}
   				result << ?\n
   			end
   			result.center 100
   		end
   		private
   		def init_coord x, y
- 			(!hash[y].nil? && hash[y] == x - ORIGIN[:x]) ? ?\u2022 : format_grid(x - ORIGIN[:x], y - ORIGIN[:y])
+ 			(!hash[y].nil? && hash[y] == x - ORIGIN.fetch(:x) ) ? ?\u2022 : format_grid(x - ORIGIN.fetch(:x), y - ORIGIN.fetch(:y) )
  		end
   		def check_axis_argument(arg)
 			if !(num.kind_of?(Integer) ) then raise ArgumentError, "Argument must be a kind of Integer"
@@ -69,7 +67,7 @@ module Linear1
  		end
 		alias caa check_axis_argument
 		def format_grid x, y # @return [String, nil]
-			if x.zero? && y.zero? then "+"
+			if x.zero? && y.zero? then ?+
 			elsif x.zero? && !y.zero? then "|"
 			elsif y.zero? && !x.zero? then "-"
 			else " " end
