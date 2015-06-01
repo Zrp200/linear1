@@ -16,8 +16,8 @@ module Linear1
 			super @c / @b / @a, @c / @b
 		end
 		def to_s # @return [String] the equation
-			"#{idx a}x + #{idx b}y = #{c}"
-		end
+			idx @a + "x + " + idx @b + "y = " + @c
+		end 
 		
 		# Implicit
 		# @return [SlopeIntercept]
