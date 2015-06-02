@@ -41,12 +41,5 @@ module Linear1
 		# @return [PointSlope]
 		alias to_ps to_point_slope
 	end
-	module_function
-	def Standard(*args) # @see Standard.try_convert, Standard.new
-		case args.length
-			when 1 then Standard.new *args 
-			when 3 then Standard.try_convert object
-		else fail ArgumentError, "Expected 1 or 3 arguments. Got #{args.length}" end
-	end
 end
 				
