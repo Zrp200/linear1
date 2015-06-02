@@ -1,6 +1,0 @@
-module Linear1
-  [System, Standard, SlopeIntercept, PointSlope, Function, DirectVariation, ArithmeticSequence].each do |class|
-    define_method class.to_sym { |*args| class.try_convert *args}
-    module_function class.to_sym
-  end
-end
