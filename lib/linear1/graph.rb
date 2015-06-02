@@ -28,18 +28,23 @@ module Linear1
 		end
 
 		# @return [Hash<Integer, Integer>] a hash used to build the graph
-		# @note Do not use as an xy table; values are modified
 		# @see #to_a
   		def hash
   			table = Hash.new
   			(0..@@axis.fetch(:y) ).to_a.each do |y|
   				(0..@@axis.fetch(:x) ).to_a.each do |x|
   					x_exec = @equation.execute(x - ORIGIN.fetch(:x) )
-  					table[y] = x_exec if x_exec == y - ORIGIN.fetch(:y)
+  					table[y] = x_exec
   				end
   			end
   			table
   		end
+  		def mod_hash
+  			table = Hash.new
+  			hash.each_pair {|key, value| table[key] = value if value == key - ORIGIN.fetch(:y)}
+  			table
+  		end
+  		private :mod_hash
 		def domain # @return [Array<Integer>] the values of the xy hash
   			hash.values
   		end
@@ -59,7 +64,7 @@ module Linear1
   		end
   		private
   		def init_coord x, y
- 			(!hash[y].nil? && hash[y] == x - ORIGIN.fetch(:x) ) ? ?\u2022 : format_grid(x - ORIGIN.fetch(:x), y - ORIGIN.fetch(:y) )
+ 			(!mod_hash.fetch(y).nil? && mod_hash.fetch(y) == x - ORIGIN.fetch(:x) ) ? ?\u2022 : format_grid(x - ORIGIN.fetch(:x), y - ORIGIN.fetch(:y) )
  		end
   		def check_axis_argument(arg)
 			if !(num.kind_of?(Integer) ) then raise ArgumentError, "Argument must be a kind of Integer"
