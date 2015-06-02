@@ -13,8 +13,4 @@ module Linear1
 		alias k slope
 		alias constant_of_variation k
 	end
-	module_function; def DirectVariation object
-		if object.is_kind_of? Numeric then DirectVariation.new
-		else DirectVariation.try_convert object end
-	end
 end
