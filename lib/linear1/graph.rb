@@ -36,7 +36,7 @@ module Linear1
   		end
   		TableHash = Hash.new do |mod , key|
   			mod[key] = hash[key] if hash[key] == key - ORIGIN.fetch(:y)
-  			puts mod[key] if mod[key
+  			puts mod[key] if mod[key]
   		end
 		def domain # @return [Array<Integer>] the values of the xy hash
   			hash.values
