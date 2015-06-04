@@ -34,12 +34,7 @@ module Linear1
   			end
   			table
   		end
-  		def mod_hash
-  			table = Hash.new
-  			hash.each_pair {|key, value| table[key] = value }# if x_exec == y - ORIGIN.fetch(:y) }
-  			table
-  		end
-  		private :mod_hash
+  		TableHash = Hash.new {|mod , value| mod[key] = hash[key] if hash[key] == y - ORIGIN.fetch(:y) }
 		def domain # @return [Array<Integer>] the values of the xy hash
   			hash.values
   		end
@@ -59,7 +54,7 @@ module Linear1
   		end
   		private
   		def init_coord x, y
- 			(!hash[y].nil? && hash.fetch(x) == x - ORIGIN.fetch(:x) ) ? ?\u2022 : format_grid(x - ORIGIN.fetch(:x), y - ORIGIN.fetch(:y) )
+ 			(!TableHash[y].nil? && TableHash.fetch(y) == x - ORIGIN.fetch(:x) ) ? ?\u2022 : format_grid(x - ORIGIN.fetch(:x), y - ORIGIN.fetch(:y) )
  		end
   		def check_axis_argument(arg)
 			if !(num.kind_of?(Integer) ) then raise ArgumentError, "Argument must be a kind of Integer"
