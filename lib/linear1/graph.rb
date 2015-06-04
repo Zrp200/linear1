@@ -30,16 +30,13 @@ module Linear1
   		def hash
   			table = Hash.new
   			(0..@@axis.fetch(:y) ).to_a.each do |y|
-  				(0..@@axis.fetch(:x) ).to_a.each do |x|
-  					x_exec = @equation.execute(x - ORIGIN.fetch(:x) )
-  					table[y] = x_exec
-  				end
+  				(0..@@axis.fetch(:x) ).to_a.each {|x| table[y] = @equation.execute(x - ORIGIN.fetch(:x) )}
   			end
   			table
   		end
   		def mod_hash
   			table = Hash.new
-  			hash.each_pair {|key, value| table[key] = value if value == key - ORIGIN.fetch(:y)}
+  			hash.each_pair {|key, value| table[key] = value # if x_exec == y - ORIGIN.fetch(:y) }
   			table
   		end
   		private :mod_hash
