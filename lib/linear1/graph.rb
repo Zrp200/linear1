@@ -36,7 +36,7 @@ module Linear1
   		end
   		def mod_hash
   			table = Hash.new
-  			hash.each_pair {|key, value| table[key] = value # if x_exec == y - ORIGIN.fetch(:y) }
+  			hash.each_pair {|key, value| table[key] = value }# if x_exec == y - ORIGIN.fetch(:y) }
   			table
   		end
   		private :mod_hash
