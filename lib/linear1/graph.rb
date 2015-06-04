@@ -12,7 +12,7 @@ module Linear1
 		
 		# @return [Array<Array<Integer>>] the array used to create the graph
 		# @note Do not use as an XY table; the values are modified and not accurate
-  		def to_a
+  		def grid
   			final, y = Array.new, 0
   			@@axis.fetch(:y).times do
   				final[y], x = Array.new, 0
@@ -52,7 +52,7 @@ module Linear1
   		# @return [String] the graph
   		def to_s
   			result = String.new
-  			to_a.each do |y_index|
+  			grid.each do |y_index|
   				y_index.each { |x_index| result << x_index << " "}
   				result << ?\n
   			end
@@ -60,7 +60,7 @@ module Linear1
   		end
   		private
   		def init_coord x, y
- 			(!mod_hash[y].nil? && mod_hash.fetch(y) == x - ORIGIN.fetch(:x) ) ? ?\u2022 : format_grid(x - ORIGIN.fetch(:x), y - ORIGIN.fetch(:y) )
+ 			(!hash[y].nil? && hash.fetch(y) == x - ORIGIN.fetch(:x) ) ? ?\u2022 : format_grid(x - ORIGIN.fetch(:x), y - ORIGIN.fetch(:y) )
  		end
   		def check_axis_argument(arg)
 			if !(num.kind_of?(Integer) ) then raise ArgumentError, "Argument must be a kind of Integer"
