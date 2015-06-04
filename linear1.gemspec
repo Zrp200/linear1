@@ -3,7 +3,7 @@ Gem::Specification.new do |gem|
 	gem.author = "Zachary Perlmutter"
 	gem.email = "zrp200@gmail.com"
 	gem.summary = "Does linear algebra, to an extent"
-	gem.version = "2.0.0.build." + ENV['TRAVIS_BUILD_NUMBER'] + if ENV['TRAVIS']
+	gem.version = "2.0.0.build." + ENV['TRAVIS_BUILD_NUMBER'] if ENV['TRAVIS']
 	gem.version ||= "2.0.0"
 	gem.homepage = "https://github.com/Zrp200/linear1"
 	gem.license = "MIT"
