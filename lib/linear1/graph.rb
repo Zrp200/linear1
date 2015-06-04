@@ -5,11 +5,9 @@ module Linear1
    			@equation = equation
 		end
 		@@axis = {x: 30, y: 20}
-    
     		def self.axis key
     			@@axis.fetch key
     		end
-		
 		ORIGIN = {x: @@axis.fetch(:x) / 2, y: @@axis.fetch(:y) / 2} # The center of the graph
 		
 		# @return [Array<Array<Integer>>] the array used to create the graph
@@ -64,7 +62,7 @@ module Linear1
   		end
   		private
   		def init_coord x, y
- 			(!mod_hash.fetch(y).nil? && mod_hash.fetch(y) == x - ORIGIN.fetch(:x) ) ? ?\u2022 : format_grid(x - ORIGIN.fetch(:x), y - ORIGIN.fetch(:y) )
+ 			(!mod_hash[y].nil? && mod_hash.fetch(y) == x - ORIGIN.fetch(:x) ) ? ?\u2022 : format_grid(x - ORIGIN.fetch(:x), y - ORIGIN.fetch(:y) )
  		end
   		def check_axis_argument(arg)
 			if !(num.kind_of?(Integer) ) then raise ArgumentError, "Argument must be a kind of Integer"
