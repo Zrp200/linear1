@@ -18,6 +18,7 @@ module Linear1
   				final[y], x = Array.new, 0
   				@@axis.fetch(:x).times do
   					final[y][x] = init_coord(x, y)
+  					puts final[y][x]
   					x += 1
   				end
   				y += 1
