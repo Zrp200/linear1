@@ -59,7 +59,7 @@ module Linear1
   		end
   		private
   		def init_coord x, y
- 			(!hash[y].nil? && hash.fetch(y) == x - ORIGIN.fetch(:x) ) ? ?\u2022 : format_grid(x - ORIGIN.fetch(:x), y - ORIGIN.fetch(:y) )
+ 			(!hash[y].nil? && hash.fetch(x) == x - ORIGIN.fetch(:x) ) ? ?\u2022 : format_grid(x - ORIGIN.fetch(:x), y - ORIGIN.fetch(:y) )
  		end
   		def check_axis_argument(arg)
 			if !(num.kind_of?(Integer) ) then raise ArgumentError, "Argument must be a kind of Integer"
